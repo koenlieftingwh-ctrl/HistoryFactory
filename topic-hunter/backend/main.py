@@ -6,15 +6,18 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 from schemas import ChatRequest, ChatResponse, Topic
-from topic_engine import generate_and_score_topics, _ensure_configured
+from topic_engine import generate_and_score_topics, get_client
 from storage import get_used_titles, save_topics_to_backlog, mark_topic_used, get_backlog
+
+MODEL = "gemini-2.5-flash"
 
 app = FastAPI(title="Topic Hunter Chat")
 
@@ -55,18 +58,20 @@ Always respond in plain text (no markdown headers), and keep responses concise."
 
 
 def _chat_response(history: list[dict], message: str) -> str:
-    _ensure_configured()
-    model = genai.GenerativeModel(
-        model_name="gemini-1.5-flash",
-        system_instruction=ORCHESTRATOR_SYSTEM,
-    )
-    # Build Gemini-format history (role must be "user" or "model")
+    client = get_client()
     gemini_history = []
     for m in history:
         role = "model" if m["role"] == "assistant" else "user"
-        gemini_history.append({"role": role, "parts": [m["content"]]})
+        gemini_history.append(types.Content(role=role, parts=[types.Part(text=m["content"])]))
 
-    chat = model.start_chat(history=gemini_history)
+    chat = client.chats.create(
+        model=MODEL,
+        config=types.GenerateContentConfig(
+            system_instruction=ORCHESTRATOR_SYSTEM,
+            thinking_config=types.ThinkingConfig(thinking_budget=0),
+        ),
+        history=gemini_history,
+    )
     response = chat.send_message(message)
     return response.text
 

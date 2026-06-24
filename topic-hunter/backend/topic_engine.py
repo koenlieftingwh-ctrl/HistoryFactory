@@ -1,32 +1,33 @@
 import json
 import os
-import google.generativeai as genai
+from google import genai
+from google.genai import types
 from schemas import Topic, QualityScores
 from storage import assign_topic_id
 
-FLASH = "gemini-1.5-flash"
+MODEL = "gemini-2.5-flash"
 
-_configured = False
+_client: genai.Client | None = None
 
 
-def _ensure_configured():
-    global _configured
-    if not _configured:
-        genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
-        _configured = True
+def get_client() -> genai.Client:
+    global _client
+    if _client is None:
+        _client = genai.Client(api_key=os.environ["GOOGLE_API_KEY"])
+    return _client
 
 
 def _generate(system: str, user: str, max_tokens: int = 2048) -> str:
-    _ensure_configured()
-    model = genai.GenerativeModel(
-        model_name=FLASH,
-        system_instruction=system,
-        generation_config=genai.GenerationConfig(
-            max_output_tokens=max_tokens,
+    response = get_client().models.generate_content(
+        model=MODEL,
+        contents=user,
+        config=types.GenerateContentConfig(
+            system_instruction=system,
             response_mime_type="application/json",
+            max_output_tokens=max_tokens,
+            thinking_config=types.ThinkingConfig(thinking_budget=0),
         ),
     )
-    response = model.generate_content(user)
     return response.text
 
 
@@ -59,7 +60,7 @@ def generate_topics(
         f"{exclusion}\n\n"
         "Prioritize: surprising facts, bizarre events, unknown stories, strong "
         "visual potential, short-form retention.\n\n"
-        "Return ONLY valid JSON matching this schema, no preamble, no markdown:\n"
+        "Return ONLY valid JSON matching this schema:\n"
         '{"topics": [{"title": string, "one_line_premise": string, '
         '"hook_angle": string, "era": string, "category": string}]}'
     )
@@ -94,8 +95,7 @@ def score_topic(topic: Topic) -> Topic:
 
     system = (
         "You are the Quality Scoring Engine. Score the following topic on six "
-        "axes, each 0-100, using the rubrics below. Be strict — most topics "
-        "should NOT score above 85 on any axis.\n\n"
+        "axes, each 0-100. Be strict — most topics should NOT score above 85 on any axis.\n\n"
         "Rubrics:\n"
         "- historical_accuracy: how verifiable/well-documented is this topic likely to be\n"
         "- visual_potential: how well this translates into striking AI-generated visuals\n"
@@ -104,7 +104,7 @@ def score_topic(topic: Topic) -> Topic:
         "- emotional_impact: strength of emotional reaction (shock, awe, humor, horror)\n"
         "- shareability: likelihood of being shared/commented on\n\n"
         f"Topic: {topic_json}\n\n"
-        "Return ONLY valid JSON (no preamble, no markdown):\n"
+        "Return ONLY valid JSON:\n"
         '{"topic_id": string, "historical_accuracy": int, "visual_potential": int, '
         '"retention_potential": int, "novelty": int, "emotional_impact": int, '
         '"shareability": int, "rationale": string}'

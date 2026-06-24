@@ -57,13 +57,30 @@ class ChatResponse(BaseModel):
     action: str | None = None
 
 
+FALLBACK_REPLIES = {
+    "research": "Researching the topic now — pulling together the historical facts...",
+    "validate": "Running adversarial validation on the research...",
+    "script": "Writing the five-act script now...",
+    "storyboard": "Generating the storyboard from the script...",
+    "visual_prompts": "Generating visual prompts for each scene...",
+    "edl": "Building the edit decision list...",
+    "thumbnails": "Creating thumbnail concepts...",
+    "metadata": "Generating publishing metadata...",
+    "all": "Running all editor stages: visual prompts, EDL, thumbnails, and metadata...",
+    "generate": "Generating and scoring topics...",
+}
+
+
 def _extract_action(text: str) -> tuple[str, dict | None]:
     m = re.search(r"<action>(.*?)</action>", text, re.DOTALL)
     if not m:
         return text, None
     clean = text.replace(m.group(0), "").strip()
     try:
-        return clean, json.loads(m.group(1))
+        action = json.loads(m.group(1))
+        if not clean:
+            clean = FALLBACK_REPLIES.get(action.get("type", ""), "Working on it...")
+        return clean, action
     except json.JSONDecodeError:
         return text, None
 
@@ -81,7 +98,7 @@ async def topic_hunter_chat(req: ChatRequest):
     used_titles = _get_used_titles()
     system = topic_hunter_agent.build_system(job, used_titles)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
     reply, action = _extract_action(reply_raw)
     topics: list[dict] = []
 
@@ -119,7 +136,7 @@ async def historian_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = historian_agent.build_system(job)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
     reply, action = _extract_action(reply_raw)
 
     if action and job:
@@ -147,7 +164,7 @@ async def director_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = director_agent.build_system(job)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
     reply, action = _extract_action(reply_raw)
 
     if action and job:
@@ -176,7 +193,7 @@ async def editor_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = editor_agent.build_system(job)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
     reply, action = _extract_action(reply_raw)
 
     if action and job:
