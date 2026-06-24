@@ -2,6 +2,7 @@
 import json
 import uuid
 from engines.claude_client import generate
+from job_store import compute_status
 
 WORDS_PER_SEC = {"slow": 2.2, "normal": 2.6, "fast": 3.0}
 
@@ -53,7 +54,7 @@ def generate_script(job: dict) -> dict:
         data["script_id"] = str(uuid.uuid4())[:8]
 
     job["script"] = data
-    job["status"] = "storyboarding"
+    job["status"] = compute_status(job.get("stage_completed", []))
     return job
 
 
@@ -86,5 +87,5 @@ def generate_storyboard(job: dict) -> dict:
         data["storyboard_id"] = str(uuid.uuid4())[:8]
 
     job["storyboard"] = data
-    job["status"] = "rendering"
+    job["status"] = compute_status(job.get("stage_completed", []))
     return job

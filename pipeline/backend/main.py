@@ -23,7 +23,9 @@ from engines.script_engine import generate_script, generate_storyboard
 from engines.editor_engine import (
     generate_visual_prompts, generate_edl,
     generate_thumbnail_concepts, generate_metadata,
+    estimate_render_credits,
 )
+from engines.render_engine import submit_render_jobs, estimate_job_credits, get_balance
 from job_store import create_job, get_job, update_job, list_jobs, mark_stage_complete
 import agents.topic_hunter as topic_hunter_agent
 import agents.historian as historian_agent
@@ -259,6 +261,39 @@ async def select_topic(payload: dict):
     job = create_job(topic, config)
     mark_stage_complete(job, "topic_hunter")
     return job
+
+
+@app.post("/jobs/{job_id}/render")
+async def render_job(job_id: str):
+    """Submit all visual prompts to Higgsfield for rendering. Performs credit preflight."""
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not job.get("visual_prompts"):
+        raise HTTPException(status_code=400, detail="No visual prompts — run the Editor stage first")
+    try:
+        job = submit_render_jobs(job)
+        update_job(job)
+        return job
+    except RuntimeError as e:
+        update_job(job)
+        raise HTTPException(status_code=402, detail=str(e))
+
+
+@app.get("/jobs/{job_id}/render-estimate")
+async def render_estimate(job_id: str):
+    """Return credit estimate without submitting."""
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    prompts = job.get("visual_prompts") or []
+    needed = estimate_job_credits(prompts)
+    balance = get_balance()
+    return {
+        "credits_needed": needed,
+        "credits_balance": balance,
+        "sufficient": balance < 0 or balance >= needed,
+    }
 
 
 @app.get("/")

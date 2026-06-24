@@ -1,6 +1,7 @@
 """Stage 3 — Fact Research & Stage 4 — Fact Validation."""
 import json
 from engines.claude_client import generate
+from job_store import compute_status
 
 
 def research_topic(job: dict) -> dict:
@@ -61,7 +62,7 @@ def validate_research(job: dict) -> dict:
 
     job["validation"] = data
     if data.get("publishable", True):
-        job["status"] = "scripting"
+        job["status"] = compute_status(job.get("stage_completed", []))
     else:
         job["status"] = "failed"
         job["errors"].append({
