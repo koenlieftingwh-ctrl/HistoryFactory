@@ -6,14 +6,14 @@ from dotenv import load_dotenv
 
 load_dotenv(Path(__file__).parent.parent / ".env")
 
-import anthropic
+import google.generativeai as genai
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 
 from schemas import ChatRequest, ChatResponse, Topic
-from topic_engine import generate_and_score_topics, get_client
+from topic_engine import generate_and_score_topics, _ensure_configured
 from storage import get_used_titles, save_topics_to_backlog, mark_topic_used, get_backlog
 
 app = FastAPI(title="Topic Hunter Chat")
@@ -54,6 +54,23 @@ Be conversational and encouraging. After generating topics, briefly highlight th
 Always respond in plain text (no markdown headers), and keep responses concise."""
 
 
+def _chat_response(history: list[dict], message: str) -> str:
+    _ensure_configured()
+    model = genai.GenerativeModel(
+        model_name="gemini-1.5-flash",
+        system_instruction=ORCHESTRATOR_SYSTEM,
+    )
+    # Build Gemini-format history (role must be "user" or "model")
+    gemini_history = []
+    for m in history:
+        role = "model" if m["role"] == "assistant" else "user"
+        gemini_history.append({"role": role, "parts": [m["content"]]})
+
+    chat = model.start_chat(history=gemini_history)
+    response = chat.send_message(message)
+    return response.text
+
+
 @app.get("/")
 async def root():
     index = FRONTEND_DIR / "index.html"
@@ -64,18 +81,9 @@ async def root():
 
 @app.post("/chat", response_model=ChatResponse)
 async def chat(request: ChatRequest):
-    messages = [{"role": m.role, "content": m.content} for m in request.history]
-    messages.append({"role": "user", "content": request.message})
+    history = [{"role": m.role, "content": m.content} for m in request.history]
+    reply_text = _chat_response(history, request.message)
 
-    client = get_client()
-    response = client.messages.create(
-        model="claude-haiku-4-5",
-        max_tokens=1024,
-        system=ORCHESTRATOR_SYSTEM,
-        messages=messages,
-    )
-
-    reply_text: str = response.content[0].text
     topics: list[Topic] = []
     action_type = None
 
@@ -101,7 +109,7 @@ async def chat(request: ChatRequest):
                 backlog_raw = get_backlog()
                 topics = [Topic(**t) for t in backlog_raw]
 
-        except (json.JSONDecodeError, Exception) as e:
+        except Exception as e:
             reply_text += f"\n\n(Action error: {e})"
 
     return ChatResponse(reply=reply_text, topics=topics, action=action_type)

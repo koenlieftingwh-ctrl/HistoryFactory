@@ -16,7 +16,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 
-from engines.claude_client import get_client, HAIKU
+from engines.claude_client import chat as gemini_chat
 from engines.topic_engine import generate_and_score
 from engines.research_engine import research_topic, validate_research
 from engines.script_engine import generate_script, generate_storyboard
@@ -81,11 +81,8 @@ async def topic_hunter_chat(req: ChatRequest):
     used_titles = _get_used_titles()
     system = topic_hunter_agent.build_system(job, used_titles)
 
-    messages = list(req.history) + [{"role": "user", "content": req.message}]
-    resp = get_client().messages.create(
-        model=HAIKU, max_tokens=1024, system=system, messages=messages
-    )
-    reply, action = _extract_action(resp.content[0].text)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply, action = _extract_action(reply_raw)
     topics: list[dict] = []
 
     if action:
@@ -122,11 +119,8 @@ async def historian_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = historian_agent.build_system(job)
 
-    messages = list(req.history) + [{"role": "user", "content": req.message}]
-    resp = get_client().messages.create(
-        model=HAIKU, max_tokens=1024, system=system, messages=messages
-    )
-    reply, action = _extract_action(resp.content[0].text)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply, action = _extract_action(reply_raw)
 
     if action and job:
         atype = action.get("type")
@@ -153,11 +147,8 @@ async def director_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = director_agent.build_system(job)
 
-    messages = list(req.history) + [{"role": "user", "content": req.message}]
-    resp = get_client().messages.create(
-        model=HAIKU, max_tokens=1024, system=system, messages=messages
-    )
-    reply, action = _extract_action(resp.content[0].text)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply, action = _extract_action(reply_raw)
 
     if action and job:
         atype = action.get("type")
@@ -185,11 +176,8 @@ async def editor_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = editor_agent.build_system(job)
 
-    messages = list(req.history) + [{"role": "user", "content": req.message}]
-    resp = get_client().messages.create(
-        model=HAIKU, max_tokens=1024, system=system, messages=messages
-    )
-    reply, action = _extract_action(resp.content[0].text)
+    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=1024)
+    reply, action = _extract_action(reply_raw)
 
     if action and job:
         if "director" not in job.get("stage_completed", []):

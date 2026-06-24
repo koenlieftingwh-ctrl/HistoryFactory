@@ -1,19 +1,33 @@
 import json
 import os
-import anthropic
+import google.generativeai as genai
 from schemas import Topic, QualityScores
 from storage import assign_topic_id
 
-MODEL = "claude-haiku-4-5"
+FLASH = "gemini-1.5-flash"
 
-_client: anthropic.Anthropic | None = None
+_configured = False
 
 
-def get_client() -> anthropic.Anthropic:
-    global _client
-    if _client is None:
-        _client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
-    return _client
+def _ensure_configured():
+    global _configured
+    if not _configured:
+        genai.configure(api_key=os.environ["GOOGLE_API_KEY"])
+        _configured = True
+
+
+def _generate(system: str, user: str, max_tokens: int = 2048) -> str:
+    _ensure_configured()
+    model = genai.GenerativeModel(
+        model_name=FLASH,
+        system_instruction=system,
+        generation_config=genai.GenerationConfig(
+            max_output_tokens=max_tokens,
+            response_mime_type="application/json",
+        ),
+    )
+    response = model.generate_content(user)
+    return response.text
 
 
 SCORE_WEIGHTS = {
@@ -50,14 +64,7 @@ def generate_topics(
         '"hook_angle": string, "era": string, "category": string}]}'
     )
 
-    response = get_client().messages.create(
-        model=MODEL,
-        max_tokens=2048,
-        system=system,
-        messages=[{"role": "user", "content": "Generate the topics now."}],
-    )
-
-    raw = response.content[0].text
+    raw = _generate(system, "Generate the topics now.", max_tokens=2048)
     data = json.loads(raw)
 
     topics = []
@@ -76,16 +83,14 @@ def generate_topics(
 
 
 def score_topic(topic: Topic) -> Topic:
-    topic_json = json.dumps(
-        {
-            "topic_id": topic.topic_id,
-            "title": topic.title,
-            "one_line_premise": topic.one_line_premise,
-            "hook_angle": topic.hook_angle,
-            "era": topic.era,
-            "category": topic.category,
-        }
-    )
+    topic_json = json.dumps({
+        "topic_id": topic.topic_id,
+        "title": topic.title,
+        "one_line_premise": topic.one_line_premise,
+        "hook_angle": topic.hook_angle,
+        "era": topic.era,
+        "category": topic.category,
+    })
 
     system = (
         "You are the Quality Scoring Engine. Score the following topic on six "
@@ -102,22 +107,13 @@ def score_topic(topic: Topic) -> Topic:
         "Return ONLY valid JSON (no preamble, no markdown):\n"
         '{"topic_id": string, "historical_accuracy": int, "visual_potential": int, '
         '"retention_potential": int, "novelty": int, "emotional_impact": int, '
-        '"shareability": int, "composite": int, "rationale": string}'
+        '"shareability": int, "rationale": string}'
     )
 
-    response = get_client().messages.create(
-        model=MODEL,
-        max_tokens=512,
-        system=system,
-        messages=[{"role": "user", "content": "Score this topic."}],
-    )
-
-    raw = response.content[0].text
+    raw = _generate(system, "Score this topic.", max_tokens=512)
     data = json.loads(raw)
 
-    composite = sum(
-        data[axis] * weight for axis, weight in SCORE_WEIGHTS.items()
-    )
+    composite = sum(data[axis] * weight for axis, weight in SCORE_WEIGHTS.items())
 
     scores = QualityScores(
         historical_accuracy=data["historical_accuracy"],

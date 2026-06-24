@@ -1,16 +1,9 @@
 """Stage 3 — Fact Research & Stage 4 — Fact Validation."""
 import json
-import uuid
-from engines.claude_client import get_client, HAIKU
+from engines.claude_client import generate
 
 
 def research_topic(job: dict) -> dict:
-    """Stage 3: Claude draws on its training knowledge to build a ResearchBundle.
-
-    Note: spec calls for Claude + web_search tool. Without a search integration
-    Claude uses its training knowledge — sufficient for well-documented history.
-    Add tool_use with a search API to enable live sourcing.
-    """
     topic = job["topic"]
     video_length_sec = job["config"].get("video_length_sec", 60)
 
@@ -30,16 +23,9 @@ def research_topic(job: dict) -> dict:
         '"research_confidence": int}'
     )
 
-    resp = get_client().messages.create(
-        model=HAIKU,
-        max_tokens=3000,
-        system=system,
-        messages=[{"role": "user", "content": f'Research: {topic["title"]}'}],
-    )
-
-    data = json.loads(resp.content[0].text)
+    raw = generate(system, f'Research: {topic["title"]}', max_tokens=3000)
+    data = json.loads(raw)
     data["topic_id"] = topic["topic_id"]
-    # Ensure claim_ids are populated
     for i, fact in enumerate(data.get("facts", [])):
         if not fact.get("claim_id"):
             fact["claim_id"] = f"c{i+1:03d}"
@@ -49,7 +35,6 @@ def research_topic(job: dict) -> dict:
 
 
 def validate_research(job: dict) -> dict:
-    """Stage 4: Adversarial second-pass validation — separate call, separate context."""
     research = job["research"]
     research_json = json.dumps(research)
 
@@ -70,14 +55,8 @@ def validate_research(job: dict) -> dict:
         '"required_disclaimers": [string]}'
     )
 
-    resp = get_client().messages.create(
-        model=HAIKU,
-        max_tokens=1500,
-        system=system,
-        messages=[{"role": "user", "content": "Validate the research now."}],
-    )
-
-    data = json.loads(resp.content[0].text)
+    raw = generate(system, "Validate the research now.", max_tokens=1500)
+    data = json.loads(raw)
     data["topic_id"] = job["topic"]["topic_id"]
 
     job["validation"] = data

@@ -1,7 +1,7 @@
 """Stage 1 — Topic Generation & Stage 2 — Topic Scoring."""
 import json
 import uuid
-from engines.claude_client import get_client, HAIKU
+from engines.claude_client import generate
 
 SCORE_WEIGHTS = {
     "historical_accuracy": 0.20,
@@ -36,13 +36,8 @@ def generate_topics(
         '{"topics": [{"title": string, "one_line_premise": string, '
         '"hook_angle": string, "era": string, "category": string}]}'
     )
-    resp = get_client().messages.create(
-        model=HAIKU,
-        max_tokens=2048,
-        system=system,
-        messages=[{"role": "user", "content": "Generate the topics now."}],
-    )
-    data = json.loads(resp.content[0].text)
+    raw = generate(system, "Generate the topics now.", max_tokens=2048)
+    data = json.loads(raw)
     topics = []
     for item in data["topics"]:
         topics.append({
@@ -75,13 +70,8 @@ def score_topic(topic: dict) -> dict:
         '"retention_potential": int, "novelty": int, "emotional_impact": int, '
         '"shareability": int, "rationale": string}'
     )
-    resp = get_client().messages.create(
-        model=HAIKU,
-        max_tokens=512,
-        system=system,
-        messages=[{"role": "user", "content": "Score this topic."}],
-    )
-    data = json.loads(resp.content[0].text)
+    raw = generate(system, "Score this topic.", max_tokens=512)
+    data = json.loads(raw)
     composite = round(sum(data[a] * w for a, w in SCORE_WEIGHTS.items()), 1)
     topic["scores"] = {
         "historical_accuracy": data["historical_accuracy"],

@@ -1,13 +1,12 @@
 """Stage 5 — Script Generation & Stage 6 — Storyboard Generation."""
 import json
 import uuid
-from engines.claude_client import get_client, HAIKU
+from engines.claude_client import generate
 
 WORDS_PER_SEC = {"slow": 2.2, "normal": 2.6, "fast": 3.0}
 
 
 def generate_script(job: dict) -> dict:
-    """Stage 5: Script from validated research."""
     topic = job["topic"]
     config = job["config"]
     validation = job["validation"]
@@ -24,9 +23,8 @@ def generate_script(job: dict) -> dict:
     verified_ids = set(validation.get("verified_claims", []))
     verified_facts = [f for f in research.get("facts", []) if f["claim_id"] in verified_ids]
     disclaimers = validation.get("required_disclaimers", [])
-
-    facts_json = json.dumps(verified_facts)
     disclaimers_str = "; ".join(disclaimers) if disclaimers else "none"
+    facts_json = json.dumps(verified_facts)
 
     system = (
         "You are the Script Engine for a history-shorts pipeline.\n"
@@ -49,14 +47,8 @@ def generate_script(job: dict) -> dict:
         '"total_word_count": int, "estimated_duration_sec": number}'
     )
 
-    resp = get_client().messages.create(
-        model=HAIKU,
-        max_tokens=3000,
-        system=system,
-        messages=[{"role": "user", "content": "Write the script now."}],
-    )
-
-    data = json.loads(resp.content[0].text)
+    raw = generate(system, "Write the script now.", max_tokens=3000)
+    data = json.loads(raw)
     if not data.get("script_id"):
         data["script_id"] = str(uuid.uuid4())[:8]
 
@@ -66,12 +58,10 @@ def generate_script(job: dict) -> dict:
 
 
 def generate_storyboard(job: dict) -> dict:
-    """Stage 6: Storyboard from script."""
     script = job["script"]
     config = job["config"]
     video_length_sec = config.get("video_length_sec", 60)
     scene_count = max(int(video_length_sec / 3), 5)
-
     script_json = json.dumps(script)
 
     system = (
@@ -79,8 +69,7 @@ def generate_storyboard(job: dict) -> dict:
         "Convert the script into a shot list. Rule: one new scene every 2.5-4 seconds.\n"
         f"For a {video_length_sec}s video, produce approximately {scene_count} scenes.\n\n"
         "For each scene specify: duration_sec, shot_description (concrete visual, not abstract), "
-        "camera movement, characters present (reuse character names from the script), "
-        "setting, mood, and optional on-screen text (big bold key fact/number).\n\n"
+        "camera movement, characters present, setting, mood, and optional on-screen text.\n\n"
         f"Script: {script_json}\n\n"
         "Return ONLY valid JSON (no preamble, no markdown):\n"
         '{"storyboard_id": string, "scenes": [{"scene_id": string, "segment_type": string, '
@@ -88,14 +77,8 @@ def generate_storyboard(job: dict) -> dict:
         '"characters": [string], "setting": string, "mood": string, "on_screen_text": string|null}]}'
     )
 
-    resp = get_client().messages.create(
-        model=HAIKU,
-        max_tokens=4000,
-        system=system,
-        messages=[{"role": "user", "content": "Generate the storyboard now."}],
-    )
-
-    data = json.loads(resp.content[0].text)
+    raw = generate(system, "Generate the storyboard now.", max_tokens=4000)
+    data = json.loads(raw)
     if not data.get("storyboard_id"):
         data["storyboard_id"] = str(uuid.uuid4())[:8]
 
