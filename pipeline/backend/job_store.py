@@ -21,7 +21,7 @@ def create_job(topic: dict, config: dict) -> dict:
     job = {
         "job_id": str(uuid.uuid4())[:8],
         "created_at": datetime.utcnow().isoformat(),
-        "status": "pending",
+        "status": compute_status([]),
         "config": config,
         "topic": topic,
         "research": None,
@@ -63,7 +63,26 @@ def list_jobs() -> list[dict]:
     return jobs
 
 
+def compute_status(stage_completed: list[str]) -> str:
+    """Derive the job status string from the list of completed stages."""
+    if not stage_completed:
+        return "pending"
+    stages_order = ["topic_hunter", "historian", "director", "editor"]
+    last_done = None
+    for s in stages_order:
+        if s in stage_completed:
+            last_done = s
+    next_map = {
+        "topic_hunter": "researching",
+        "historian": "scripting",
+        "director": "rendering",
+        "editor": "completed",
+    }
+    return next_map.get(last_done, "pending")
+
+
 def mark_stage_complete(job: dict, stage: str) -> dict:
     if stage not in job.get("stage_completed", []):
         job.setdefault("stage_completed", []).append(stage)
+    job["status"] = compute_status(job.get("stage_completed", []))
     return update_job(job)
