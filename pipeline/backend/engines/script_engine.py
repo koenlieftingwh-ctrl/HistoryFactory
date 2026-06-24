@@ -61,14 +61,17 @@ def generate_storyboard(job: dict) -> dict:
     script = job["script"]
     config = job["config"]
     video_length_sec = config.get("video_length_sec", 60)
-    scene_count = max(int(video_length_sec / 3), 5)
+    # Target 5-7 scenes: each covers ~10-15s so roughly 1 scene per act + 1-2 for the hook
+    scene_count = 6 if video_length_sec <= 60 else 7
     script_json = json.dumps(script)
 
     system = (
         "You are the Storyboard Engine for a history-shorts pipeline.\n"
-        "Convert the script into a shot list. Rule: one new scene every 2.5-4 seconds.\n"
-        f"For a {video_length_sec}s video, produce approximately {scene_count} scenes.\n\n"
-        "For each scene specify: duration_sec, shot_description (concrete visual, not abstract), "
+        "Convert the script into a compact shot list for cost-efficient AI rendering.\n\n"
+        f"TARGET: exactly {scene_count} scenes for a {video_length_sec}s video.\n"
+        "Each scene covers 10-15 seconds of narration — do NOT split into more scenes than this.\n"
+        "One scene per narrative beat (Hook, Setup, Escalation, Twist, Payoff + 1 closing).\n\n"
+        "For each scene specify: duration_sec (10-15), shot_description (concrete visual, not abstract), "
         "camera movement, characters present, setting, mood, and optional on-screen text.\n\n"
         f"Script: {script_json}\n\n"
         "Return ONLY valid JSON (no preamble, no markdown):\n"
