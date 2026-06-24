@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>History Shorts Generator — Pipeline</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0c0c10;
+      --surface: #13131a;
+      --surface2: #1a1a24;
+      --border: #252530;
+      --border2: #32324a;
+      --text: #e0e0ee;
+      --muted: #777788;
+      --accent: #5b6af5;
+      --accent-h: #4a58e0;
+      --gold: #f0a030;
+      --green: #40c070;
+      --red: #e05050;
+      --radius: 10px;
+    }
+
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text);
+      height: 100dvh; display: flex; flex-direction: column; overflow: hidden; }
+
+    /* ── TOP BAR ── */
+    header {
+      padding: 10px 18px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+      display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+    }
+    header h1 { font-size: 0.95rem; font-weight: 700; letter-spacing: 0.03em; }
+    .pill { background: var(--accent); color: #fff; font-size: 0.62rem; font-weight: 700;
+      padding: 2px 8px; border-radius: 20px; text-transform: uppercase; letter-spacing: 0.06em; }
+
+    /* ── PIPELINE TABS ── */
+    .pipeline-tabs {
+      display: flex; border-bottom: 1px solid var(--border);
+      background: var(--surface); flex-shrink: 0;
+    }
+
+    .tab-btn {
+      flex: 1; padding: 10px 6px; border: none; background: none; cursor: pointer;
+      color: var(--muted); font-size: 0.78rem; font-weight: 600; position: relative;
+      transition: color 0.15s; display: flex; flex-direction: column;
+      align-items: center; gap: 3px; letter-spacing: 0.02em;
+    }
+    .tab-btn .tab-icon { font-size: 1rem; }
+    .tab-btn.active { color: var(--text); }
+    .tab-btn.active::after {
+      content: ''; position: absolute; bottom: 0; left: 10%; right: 10%;
+      height: 2px; background: var(--accent); border-radius: 2px;
+    }
+    .tab-btn.locked { opacity: 0.35; cursor: not-allowed; }
+
+    .tab-status {
+      font-size: 0.58rem; font-weight: 700; letter-spacing: 0.05em;
+      text-transform: uppercase; padding: 1px 5px; border-radius: 4px;
+    }
+    .tab-status.done { background: #1a3a1a; color: var(--green); }
+    .tab-status.active-s { background: #1a1a40; color: var(--accent); }
+    .tab-status.pending { background: #222; color: var(--muted); }
+
+    /* ── MAIN LAYOUT ── */
+    main { display: flex; flex: 1; overflow: hidden; }
+
+    /* Job sidebar */
+    #job-sidebar {
+      width: 220px; border-right: 1px solid var(--border);
+      background: var(--surface); display: flex; flex-direction: column;
+      overflow: hidden; flex-shrink: 0;
+    }
+    #job-sidebar-header {
+      padding: 10px 12px; border-bottom: 1px solid var(--border);
+      font-size: 0.72rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    #new-job-btn {
+      background: var(--accent); color: #fff; border: none;
+      padding: 3px 8px; border-radius: 5px; font-size: 0.68rem;
+      font-weight: 700; cursor: pointer; transition: background 0.15s;
+    }
+    #new-job-btn:hover { background: var(--accent-h); }
+    #job-list { flex: 1; overflow-y: auto; padding: 6px; display: flex; flex-direction: column; gap: 4px; }
+
+    .job-item {
+      padding: 8px 10px; border-radius: 8px; cursor: pointer;
+      border: 1px solid transparent; transition: all 0.15s;
+    }
+    .job-item:hover { background: var(--surface2); border-color: var(--border); }
+    .job-item.selected { background: var(--surface2); border-color: var(--border2); }
+    .job-item-id { font-size: 0.68rem; color: var(--muted); font-family: monospace; }
+    .job-item-title { font-size: 0.78rem; font-weight: 600; margin-top: 2px;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .job-item-status { font-size: 0.63rem; color: var(--muted); margin-top: 2px; }
+    .job-item-stages { display: flex; gap: 3px; margin-top: 4px; }
+    .stage-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--border2); }
+    .stage-dot.done { background: var(--green); }
+
+    /* Chat + right panel */
+    #content-area { flex: 1; display: flex; overflow: hidden; }
+
+    /* Chat pane */
+    #chat-pane { display: flex; flex-direction: column; flex: 1; min-width: 0; }
+
+    #messages { flex: 1; overflow-y: auto; padding: 18px 20px;
+      display: flex; flex-direction: column; gap: 14px; }
+
+    .msg { max-width: 680px; }
+    .msg.user { align-self: flex-end; }
+    .msg.assistant { align-self: flex-start; }
+
+    .bubble { padding: 10px 14px; border-radius: 12px; font-size: 0.875rem;
+      white-space: pre-wrap; word-break: break-word; line-height: 1.55; }
+    .msg.user .bubble { background: var(--accent); color: #fff; border-bottom-right-radius: 3px; }
+    .msg.assistant .bubble { background: var(--surface2); color: var(--text); border-bottom-left-radius: 3px; }
+    .msg.loading .bubble { color: var(--muted); font-style: italic; }
+
+    #input-row {
+      padding: 12px 18px; border-top: 1px solid var(--border);
+      background: var(--surface); display: flex; gap: 8px; flex-shrink: 0;
+    }
+    #user-input {
+      flex: 1; background: var(--surface2); border: 1px solid var(--border2);
+      color: var(--text); padding: 9px 13px; border-radius: 9px;
+      font-size: 0.875rem; resize: none; outline: none; max-height: 100px;
+    }
+    #user-input:focus { border-color: var(--accent); }
+    #send-btn {
+      background: var(--accent); color: #fff; border: none; padding: 9px 16px;
+      border-radius: 9px; cursor: pointer; font-size: 0.875rem; font-weight: 600;
+      align-self: flex-end; transition: background 0.15s;
+    }
+    #send-btn:hover { background: var(--accent-h); }
+    #send-btn:disabled { background: var(--border2); cursor: not-allowed; }
+
+    /* Right panel — job state */
+    #right-panel {
+      width: 300px; border-left: 1px solid var(--border);
+      background: var(--surface); display: flex; flex-direction: column;
+      overflow: hidden;
+    }
+    #right-header {
+      padding: 10px 14px; border-bottom: 1px solid var(--border);
+      font-size: 0.72rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+    }
+    #right-content { flex: 1; overflow-y: auto; padding: 10px; }
+
+    .section-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 9px; margin-bottom: 8px; overflow: hidden;
+    }
+    .section-card-head {
+      padding: 8px 12px; display: flex; justify-content: space-between;
+      align-items: center; cursor: pointer; user-select: none;
+    }
+    .section-card-head h3 { font-size: 0.75rem; font-weight: 700; color: var(--text); }
+    .section-card-body { padding: 10px 12px; border-top: 1px solid var(--border); }
+    .section-card-body p { font-size: 0.73rem; color: var(--muted); line-height: 1.5; margin-bottom: 4px; }
+    .section-card-body .val { color: var(--text); font-weight: 600; }
+
+    .score-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 12px; }
+    .score-row { font-size: 0.68rem; color: var(--muted); display: flex; justify-content: space-between; }
+    .score-row span { color: var(--text); font-weight: 600; }
+
+    .fact-item { font-size: 0.7rem; color: var(--muted); margin-bottom: 5px; padding-left: 8px;
+      border-left: 2px solid var(--border2); line-height: 1.4; }
+    .fact-item.verified { border-left-color: var(--green); }
+    .fact-item.flagged { border-left-color: var(--red); }
+
+    .scene-item { font-size: 0.68rem; color: var(--muted); margin-bottom: 4px; line-height: 1.3; }
+    .scene-item strong { color: var(--text); }
+
+    .thumb-item { margin-bottom: 8px; padding: 8px; background: var(--bg);
+      border-radius: 7px; border: 1px solid var(--border); }
+    .thumb-item .overlay { font-size: 0.78rem; font-weight: 700; color: var(--gold); margin-bottom: 3px; }
+    .thumb-item .rationale { font-size: 0.68rem; color: var(--muted); }
+
+    /* Topics panel (shown during topic-hunter) */
+    #topics-panel {
+      width: 300px; border-left: 1px solid var(--border);
+      background: var(--surface); display: none; flex-direction: column; overflow: hidden;
+    }
+    #topics-panel.visible { display: flex; }
+    #topics-panel-header { padding: 10px 14px; border-bottom: 1px solid var(--border);
+      font-size: 0.72rem; font-weight: 700; color: var(--muted);
+      text-transform: uppercase; letter-spacing: 0.08em;
+      display: flex; justify-content: space-between; }
+    #topics-list { flex: 1; overflow-y: auto; padding: 8px; display: flex; flex-direction: column; gap: 6px; }
+
+    .topic-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 9px; padding: 10px; transition: border-color 0.15s;
+    }
+    .topic-card:hover { border-color: var(--border2); }
+    .topic-rank { font-size: 0.62rem; color: var(--gold); font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+    .topic-title { font-size: 0.82rem; font-weight: 700; margin-bottom: 3px; color: var(--text); }
+    .topic-premise { font-size: 0.72rem; color: var(--muted); margin-bottom: 6px; line-height: 1.35; }
+    .topic-composite { font-size: 0.72rem; font-weight: 700; color: var(--green);
+      background: #0f2a15; padding: 1px 8px; border-radius: 5px; display: inline-block; margin-bottom: 6px; }
+    .topic-scores-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 10px; margin-bottom: 6px; }
+    .tsm-row { font-size: 0.62rem; color: var(--muted); display: flex; justify-content: space-between; }
+    .tsm-row span { color: #aaa; }
+    .btn-select {
+      width: 100%; background: var(--accent); color: #fff; border: none;
+      padding: 6px; border-radius: 6px; font-size: 0.72rem; font-weight: 700;
+      cursor: pointer; transition: background 0.15s;
+    }
+    .btn-select:hover { background: var(--accent-h); }
+    .btn-select.selected { background: var(--green); cursor: default; }
+
+    .empty-msg { text-align: center; color: var(--muted); font-size: 0.78rem; padding: 30px 16px; }
+
+    /* Quick prompts */
+    .quick-row { padding: 0 18px 10px; display: flex; flex-wrap: wrap; gap: 5px; flex-shrink: 0; }
+    .qp { background: var(--surface2); border: 1px solid var(--border2); color: var(--muted);
+      padding: 4px 11px; border-radius: 20px; font-size: 0.72rem; cursor: pointer;
+      transition: all 0.15s; }
+    .qp:hover { border-color: var(--accent); color: var(--text); }
+
+    @media (max-width: 900px) {
+      #job-sidebar { display: none; }
+      #right-panel { display: none; }
+      #topics-panel { display: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>History Shorts Generator</h1>
+  <span class="pill">Pipeline</span>
+</header>
+
+<!-- Pipeline tabs -->
+<nav class="pipeline-tabs" id="pipeline-tabs">
+  <button class="tab-btn active" data-tab="topic-hunter" onclick="switchTab('topic-hunter')">
+    <span class="tab-icon">🎯</span>
+    Topic Hunter
+    <span class="tab-status pending" id="status-topic-hunter">Pending</span>
+  </button>
+  <button class="tab-btn locked" data-tab="historian" onclick="switchTab('historian')">
+    <span class="tab-icon">📚</span>
+    Historian
+    <span class="tab-status pending" id="status-historian">Pending</span>
+  </button>
+  <button class="tab-btn locked" data-tab="director" onclick="switchTab('director')">
+    <span class="tab-icon">🎬</span>
+    Director
+    <span class="tab-status pending" id="status-director">Pending</span>
+  </button>
+  <button class="tab-btn locked" data-tab="editor" onclick="switchTab('editor')">
+    <span class="tab-icon">✂️</span>
+    Editor
+    <span class="tab-status pending" id="status-editor">Pending</span>
+  </button>
+</nav>
+
+<main>
+  <!-- Job sidebar -->
+  <aside id="job-sidebar">
+    <div id="job-sidebar-header">
+      Jobs
+      <button id="new-job-btn" onclick="newJob()">+ New</button>
+    </div>
+    <div id="job-list">
+      <div class="empty-msg">No jobs yet.</div>
+    </div>
+  </aside>
+
+  <div id="content-area">
+    <!-- Chat pane -->
+    <section id="chat-pane">
+      <div id="messages">
+        <div class="msg assistant">
+          <div class="bubble" id="welcome-msg">Welcome to the History Shorts Generator pipeline!
+
+Start in the Topic Hunter tab — ask me to generate historical topic ideas, pick the best one, and I'll create a production job.
+
+Then move through: Historian → Director → Editor to research, script, storyboard, and package your video.</div>
+        </div>
+      </div>
+
+      <div class="quick-row" id="quick-row"></div>
+
+      <div id="input-row">
+        <textarea id="user-input" rows="1"
+          placeholder="Chat with the current agent…"></textarea>
+        <button id="send-btn" onclick="sendMessage()">Send</button>
+      </div>
+    </section>
+
+    <!-- Topics panel (topic-hunter only) -->
+    <aside id="topics-panel">
+      <div id="topics-panel-header">
+        <span>Generated Topics</span>
+        <span id="topics-count" style="color:var(--muted)">0</span>
+      </div>
+      <div id="topics-list">
+        <div class="empty-msg">Topics will appear here.</div>
+      </div>
+    </aside>
+
+    <!-- Job state panel -->
+    <aside id="right-panel">
+      <div id="right-header">Job State</div>
+      <div id="right-content">
+        <div class="empty-msg" id="no-job-msg">Select or create a job to see its state.</div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script>
+const API = '';
+const AGENTS = {
+  'topic-hunter': '/agent/topic-hunter/chat',
+  'historian': '/agent/historian/chat',
+  'director': '/agent/director/chat',
+  'editor': '/agent/editor/chat',
+};
+
+const QUICK_PROMPTS = {
+  'topic-hunter': [
+    ['5 Viking topics', 'Generate 5 Viking topics for a 60-second video'],
+    ['Weird history', 'Generate 5 weird history topics for a 60-second video'],
+    ['Ancient Rome', 'Generate 5 Ancient Rome topics, 45-second videos'],
+    ['Pirates', 'Generate 5 pirate history topics'],
+  ],
+  'historian': [
+    ['Research topic', 'Research the selected topic now'],
+    ['Validate facts', 'Validate the research now'],
+    ['Research + validate', 'Research the topic and then validate all facts'],
+  ],
+  'director': [
+    ['Write script', 'Write the script now'],
+    ['Generate storyboard', 'Generate the storyboard'],
+    ['Script + storyboard', 'Write the script and then generate the storyboard'],
+    ['Discuss hook', 'What hook angle would work best for this topic?'],
+  ],
+  'editor': [
+    ['Generate everything', 'Generate all editor outputs: visual prompts, EDL, thumbnails, and metadata'],
+    ['Visual prompts', 'Generate the visual prompts'],
+    ['Thumbnails', 'Generate thumbnail concepts'],
+    ['Metadata', 'Generate publishing metadata'],
+  ],
+};
+
+let currentTab = 'topic-hunter';
+let currentJob = null;
+let histories = { 'topic-hunter': [], historian: [], director: [], editor: [] };
+let lastTopics = [];
+
+// ─── Tab switching ───────────────────────────────────────────────
+
+function switchTab(tab) {
+  const stages = ['topic-hunter', 'historian', 'director', 'editor'];
+  const stageMap = { 'topic-hunter': 'topic_hunter', 'historian': 'historian', 'director': 'director', 'editor': 'editor' };
+  const completed = currentJob ? (currentJob.stage_completed || []) : [];
+  const idx = stages.indexOf(tab);
+
+  // Can only access tab if previous stage complete (or it's topic-hunter)
+  if (idx > 0) {
+    const prevStage = stageMap[stages[idx - 1]];
+    if (!completed.includes(prevStage)) return; // locked
+  }
+
+  currentTab = tab;
+  document.querySelectorAll('.tab-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.tab === tab);
+  });
+
+  // Topics panel only on topic-hunter
+  document.getElementById('topics-panel').classList.toggle('visible', tab === 'topic-hunter');
+  document.getElementById('right-panel').style.display = tab === 'topic-hunter' ? 'none' : 'flex';
+
+  renderQuickPrompts();
+}
+
+function updateTabStates() {
+  const stages = ['topic-hunter', 'historian', 'director', 'editor'];
+  const stageMap = { 'topic-hunter': 'topic_hunter', 'historian': 'historian', 'director': 'director', 'editor': 'editor' };
+  const completed = currentJob ? (currentJob.stage_completed || []) : [];
+
+  stages.forEach((tab, i) => {
+    const btn = document.querySelector(`[data-tab="${tab}"]`);
+    const statusEl = document.getElementById(`status-${tab}`);
+    const skey = stageMap[tab];
+
+    const isDone = completed.includes(skey);
+    const isUnlocked = i === 0 || completed.includes(stageMap[stages[i-1]]);
+    const isCurrent = tab === currentTab;
+
+    btn.classList.toggle('locked', !isUnlocked);
+    btn.classList.toggle('active', isCurrent);
+
+    statusEl.className = 'tab-status ' + (isDone ? 'done' : (isCurrent && isUnlocked ? 'active-s' : 'pending'));
+    statusEl.textContent = isDone ? 'Done' : (isCurrent && isUnlocked ? 'Active' : 'Pending');
+  });
+}
+
+// ─── Quick prompts ────────────────────────────────────────────────
+
+function renderQuickPrompts() {
+  const row = document.getElementById('quick-row');
+  const prompts = QUICK_PROMPTS[currentTab] || [];
+  row.innerHTML = prompts.map(([label, msg]) =>
+    `<button class="qp" onclick="sendQuick(${JSON.stringify(msg)})">${label}</button>`
+  ).join('');
+}
+
+function sendQuick(msg) {
+  document.getElementById('user-input').value = msg;
+  sendMessage();
+}
+
+// ─── Messaging ───────────────────────────────────────────────────
+
+function appendMsg(role, text) {
+  const wrap = document.getElementById('messages');
+  const div = document.createElement('div');
+  div.className = `msg ${role}`;
+  const b = document.createElement('div');
+  b.className = 'bubble';
+  b.textContent = text;
+  div.appendChild(b);
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+  return div;
+}
+
+async function sendMessage() {
+  const input = document.getElementById('user-input');
+  const text = input.value.trim();
+  if (!text) return;
+
+  input.value = '';
+  input.style.height = 'auto';
+  document.getElementById('send-btn').disabled = true;
+
+  appendMsg('user', text);
+  const loadingEl = appendMsg('assistant', 'Thinking…');
+  loadingEl.classList.add('loading');
+
+  const hist = histories[currentTab];
+  hist.push({ role: 'user', content: text });
+
+  try {
+    const res = await fetch(API + AGENTS[currentTab], {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: text,
+        history: hist.slice(0, -1),
+        job_id: currentJob?.job_id || null,
+      }),
+    });
+
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      throw new Error(err.detail || `Server error ${res.status}`);
+    }
+
+    const data = await res.json();
+    loadingEl.querySelector('.bubble').textContent = data.reply;
+    loadingEl.classList.remove('loading');
+    hist.push({ role: 'assistant', content: data.reply });
+
+    if (data.job) {
+      currentJob = data.job;
+      renderJobSidebar();
+      renderJobState();
+      updateTabStates();
+    }
+
+    if (data.topics && data.topics.length > 0) {
+      lastTopics = data.topics;
+      renderTopics(data.topics);
+    }
+
+  } catch (err) {
+    loadingEl.querySelector('.bubble').textContent = `Error: ${err.message}`;
+    loadingEl.classList.remove('loading');
+    hist.pop();
+  } finally {
+    document.getElementById('send-btn').disabled = false;
+    input.focus();
+  }
+}
+
+document.getElementById('user-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+});
+document.getElementById('user-input').addEventListener('input', function() {
+  this.style.height = 'auto';
+  this.style.height = Math.min(this.scrollHeight, 100) + 'px';
+});
+
+// ─── Topics panel ────────────────────────────────────────────────
+
+function renderTopics(topics) {
+  const list = document.getElementById('topics-list');
+  document.getElementById('topics-count').textContent = topics.length;
+  list.innerHTML = '';
+
+  topics.forEach((t, i) => {
+    const s = t.scores || {};
+    const card = document.createElement('div');
+    card.className = 'topic-card';
+    card.id = `tc-${t.topic_id}`;
+
+    const scoreFields = [
+      ['Accuracy', s.historical_accuracy],
+      ['Visual', s.visual_potential],
+      ['Retention', s.retention_potential],
+      ['Novelty', s.novelty],
+      ['Emotion', s.emotional_impact],
+      ['Share', s.shareability],
+    ];
+    const scoresHtml = scoreFields.map(([l, v]) =>
+      `<div class="tsm-row">${l}<span>${v ?? '—'}</span></div>`
+    ).join('');
+
+    card.innerHTML = `
+      <div class="topic-rank">#${i+1} · ${t.category}</div>
+      <div class="topic-title">${t.title}</div>
+      <div class="topic-premise">${t.one_line_premise}</div>
+      ${s.composite != null ? `<div class="topic-composite">Score: ${s.composite.toFixed ? s.composite.toFixed(1) : s.composite}</div>` : ''}
+      <div class="topic-scores-mini">${scoresHtml}</div>
+      <button class="btn-select" onclick="selectTopic('${t.topic_id}', this)">Select → Create Job</button>
+    `;
+    list.appendChild(card);
+  });
+}
+
+async function selectTopic(topicId, btn) {
+  const topic = lastTopics.find(t => t.topic_id === topicId);
+  if (!topic) return;
+
+  btn.disabled = true;
+  btn.textContent = 'Creating job…';
+
+  try {
+    const res = await fetch(API + '/agent/topic-hunter/select-topic', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ topic }),
+    });
+    const job = await res.json();
+    currentJob = job;
+    btn.textContent = '✓ Job Created';
+    btn.classList.add('selected');
+
+    renderJobSidebar();
+    renderJobState();
+    updateTabStates();
+
+    appendMsg('assistant', `Job created! "${topic.title}" is now in production. Move to the Historian tab to research and validate the facts.`);
+  } catch (e) {
+    btn.disabled = false;
+    btn.textContent = 'Select → Create Job';
+    alert('Failed: ' + e.message);
+  }
+}
+
+// ─── Job sidebar ─────────────────────────────────────────────────
+
+async function loadJobs() {
+  try {
+    const res = await fetch(API + '/jobs');
+    const data = await res.json();
+    const jobs = data.jobs || [];
+    const list = document.getElementById('job-list');
+
+    if (jobs.length === 0) {
+      list.innerHTML = '<div class="empty-msg">No jobs yet.</div>';
+      return;
+    }
+
+    list.innerHTML = '';
+    jobs.forEach(j => {
+      const div = document.createElement('div');
+      div.className = 'job-item' + (currentJob?.job_id === j.job_id ? ' selected' : '');
+      div.onclick = () => selectJob(j.job_id);
+
+      const completed = j.stage_completed || [];
+      const stages = ['topic_hunter', 'historian', 'director', 'editor'];
+      const dotsHtml = stages.map(s =>
+        `<div class="stage-dot ${completed.includes(s) ? 'done' : ''}"></div>`
+      ).join('');
+
+      div.innerHTML = `
+        <div class="job-item-id">#${j.job_id}</div>
+        <div class="job-item-title">${j.topic?.title || '(no topic)'}</div>
+        <div class="job-item-status">${j.status}</div>
+        <div class="job-item-stages">${dotsHtml}</div>
+      `;
+      list.appendChild(div);
+    });
+  } catch(e) { /* ignore */ }
+}
+
+function renderJobSidebar() { loadJobs(); }
+
+async function selectJob(jobId) {
+  try {
+    const res = await fetch(API + `/jobs/${jobId}`);
+    currentJob = await res.json();
+    renderJobSidebar();
+    renderJobState();
+    updateTabStates();
+  } catch(e) { /* ignore */ }
+}
+
+function newJob() {
+  currentJob = null;
+  histories = { 'topic-hunter': [], historian: [], director: [], editor: [] };
+  switchTab('topic-hunter');
+  document.getElementById('messages').innerHTML = `
+    <div class="msg assistant">
+      <div class="bubble">Starting a new job. What historical category or era would you like to explore? I'll generate a batch of scored topics for you to choose from.</div>
+    </div>`;
+  document.getElementById('topics-list').innerHTML = '<div class="empty-msg">Topics will appear here.</div>';
+  document.getElementById('topics-count').textContent = '0';
+  renderJobState();
+  updateTabStates();
+}
+
+// ─── Job state panel ─────────────────────────────────────────────
+
+function renderJobState() {
+  const content = document.getElementById('right-content');
+  const noJobMsg = document.getElementById('no-job-msg');
+
+  if (!currentJob) {
+    content.innerHTML = '<div class="empty-msg" id="no-job-msg">Select or create a job.</div>';
+    return;
+  }
+
+  const j = currentJob;
+  const topic = j.topic || {};
+  const s = topic.scores || {};
+  const research = j.research || null;
+  const validation = j.validation || null;
+  const script = j.script || null;
+  const storyboard = j.storyboard || null;
+  const vp = j.visual_prompts || null;
+  const thumbs = j.thumbnail_concepts || null;
+  const meta = j.publish_metadata || null;
+  const edl = j.edl || null;
+
+  let html = '';
+
+  // Topic card
+  html += `
+    <div class="section-card">
+      <div class="section-card-head" onclick="toggle(this)">
+        <h3>🎯 Topic</h3>
+        <span style="color:var(--muted);font-size:0.7rem">▾</span>
+      </div>
+      <div class="section-card-body">
+        <p class="val">${topic.title || '—'}</p>
+        <p>${topic.one_line_premise || ''}</p>
+        <p style="margin-top:4px;font-style:italic;font-size:0.68rem">${topic.hook_angle || ''}</p>
+        ${s.composite != null ? `
+          <div class="score-grid" style="margin-top:8px">
+            ${[['Accuracy',s.historical_accuracy],['Visual',s.visual_potential],
+               ['Retention',s.retention_potential],['Novelty',s.novelty],
+               ['Emotion',s.emotional_impact],['Share',s.shareability]
+              ].map(([l,v])=>`<div class="score-row">${l}<span>${v}</span></div>`).join('')}
+          </div>
+          <p style="margin-top:6px">Composite: <span class="val">${typeof s.composite==='number'?s.composite.toFixed(1):s.composite}</span></p>
+        ` : ''}
+      </div>
+    </div>`;
+
+  // Research card
+  if (research) {
+    const verifiedIds = new Set(validation?.verified_claims || []);
+    const flaggedIds = new Set((validation?.flagged_claims || []).map(f => f.claim_id));
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>📚 Research</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body">
+          <p>Confidence: <span class="val">${research.research_confidence}%</span></p>
+          <p>${research.facts?.length || 0} facts gathered</p>
+          ${research.facts?.slice(0,5).map(f => `
+            <div class="fact-item ${verifiedIds.has(f.claim_id)?'verified':flaggedIds.has(f.claim_id)?'flagged':''}">
+              <strong>${f.claim_id}</strong>: ${f.statement.slice(0,80)}…
+              <em style="font-size:0.62rem">[${f.certainty}]</em>
+            </div>`).join('') || ''}
+        </div>
+      </div>`;
+  }
+
+  // Validation card
+  if (validation) {
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>${validation.publishable ? '✅' : '❌'} Validation</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body">
+          <p>Accuracy: <span class="val">${validation.overall_accuracy_score}/100</span></p>
+          <p>Publishable: <span class="val" style="color:${validation.publishable?'var(--green)':'var(--red)'}">${validation.publishable}</span></p>
+          <p>Verified: <span class="val">${validation.verified_claims?.length}</span> / Flagged: <span class="val">${validation.flagged_claims?.length}</span></p>
+          ${validation.required_disclaimers?.length ? `<p style="margin-top:4px;font-size:0.68rem;font-style:italic">${validation.required_disclaimers.join('; ')}</p>` : ''}
+        </div>
+      </div>`;
+  }
+
+  // Script card
+  if (script) {
+    const hook = script.segments?.find(s => s.segment_type === 'hook');
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>📝 Script</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body">
+          <p>${script.total_word_count} words · ~${script.estimated_duration_sec}s</p>
+          ${hook ? `<p style="margin-top:6px;font-style:italic;font-size:0.72rem">"${hook.text.slice(0,120)}…"</p>` : ''}
+          <p style="margin-top:4px">${script.segments?.length} segments</p>
+        </div>
+      </div>`;
+  }
+
+  // Storyboard card
+  if (storyboard) {
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>🎬 Storyboard</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body">
+          <p>${storyboard.scenes?.length} scenes</p>
+          ${storyboard.scenes?.slice(0,4).map((sc,i) => `
+            <div class="scene-item"><strong>${i+1}.</strong> ${sc.shot_description?.slice(0,70)}… <em>[${sc.duration_sec}s]</em></div>
+          `).join('') || ''}
+        </div>
+      </div>`;
+  }
+
+  // Visual prompts card
+  if (vp) {
+    const nVid = vp.filter(p => p.media_type === 'video').length;
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>🖼 Visual Prompts</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body">
+          <p>${vp.length} prompts — ${nVid} video, ${vp.length - nVid} image</p>
+          ${vp.slice(0,2).map(p => `<div class="scene-item"><strong>${p.media_type}</strong> (${p.model}): ${p.prompt?.slice(0,80)}…</div>`).join('')}
+        </div>
+      </div>`;
+  }
+
+  // Thumbnails card
+  if (thumbs) {
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>🖼 Thumbnails</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body">
+          ${thumbs.map((t,i) => `
+            <div class="thumb-item">
+              <div class="overlay">"${t.overlay_text}"</div>
+              <div class="rationale">${t.rationale?.slice(0,80) || ''}</div>
+            </div>`).join('')}
+        </div>
+      </div>`;
+  }
+
+  // Metadata card
+  if (meta) {
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>📤 Metadata</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body">
+          <p class="val">${meta.title}</p>
+          <p style="margin-top:4px">${meta.description?.slice(0,120)}…</p>
+          <p style="margin-top:4px;font-size:0.68rem">${(meta.hashtags || []).slice(0,6).join(' ')}</p>
+        </div>
+      </div>`;
+  }
+
+  content.innerHTML = html;
+}
+
+function toggle(head) {
+  const body = head.nextElementSibling;
+  if (body) body.style.display = body.style.display === 'none' ? '' : 'none';
+}
+
+// ─── Init ─────────────────────────────────────────────────────────
+
+updateTabStates();
+renderQuickPrompts();
+loadJobs();
+</script>
+</body>
+</html>
