@@ -1,7 +1,7 @@
 {
   "job_id": "16b6dcdb",
   "created_at": "2026-06-24T17:13:46.056511",
-  "status": "storyboarding",
+  "status": "render_ready",
   "config": {
     "video_length_sec": 60,
     "narration_speed": "normal",
@@ -244,314 +244,134 @@
     "storyboard_id": "viking_silk_road_storyboard_1",
     "scenes": [
       {
-        "scene_id": "scene_01",
+        "scene_id": "scene_1",
         "segment_type": "Hook",
-        "duration_sec": 3.0,
-        "shot_description": "A close-up of an ancient map, with a glowing red line tracing a path from Scandinavia across Eastern Europe to Baghdad. Text highlights the Viking path.",
-        "camera": "Zoom out to reveal the full map.",
+        "duration_sec": 10,
+        "shot_description": "A close-up of a Viking longship's prow cutting through rough northern waters, overlaid with a faint map showing a dotted line extending east towards a distant, shimmering city (Baghdad).",
+        "camera": "Dolly out, revealing more of the longship and the vastness of the sea.",
         "characters": [],
-        "setting": "Abstract map background",
-        "mood": "Mysterious, intriguing",
+        "setting": "Northern Sea/Abstract Map",
+        "mood": "Intriguing, mysterious",
         "on_screen_text": "Vikings to Baghdad?"
       },
       {
-        "scene_id": "scene_02",
-        "segment_type": "Hook",
-        "duration_sec": 3.0,
-        "shot_description": "Viking longship sails on a calm, wide river (representing the Volga), passing by a bustling, anachronistic merchant town on the bank.",
-        "camera": "Dolly shot following the ship.",
+        "scene_id": "scene_2",
+        "segment_type": "Setup",
+        "duration_sec": 10,
+        "shot_description": "Animated map showing the 'Volga Trade Route' lighting up across Eastern Europe, with key trade hubs like Staraya Ladoga and Novgorod highlighted. Various stylized figures representing diverse populations interact at these hubs.",
+        "camera": "Zoom in and pan across the map, following the route.",
+        "characters": [],
+        "setting": "Animated historical map of Eastern Europe",
+        "mood": "Informative, exploratory",
+        "on_screen_text": "The Eastern Way: 8th-11th Centuries"
+      },
+      {
+        "scene_id": "scene_3",
+        "segment_type": "Escalation",
+        "duration_sec": 15,
+        "shot_description": "A bustling Viking trade market scene. Furs, amber, and ivory are exchanged for gleaming silver dirhams and bolts of colorful silk. A close-up on a pile of excavated silver dirhams in a museum-like setting.",
+        "camera": "Pan across the market, then cut to a static shot of the dirham hoard.",
         "characters": [
           "Viking traders",
-          "Merchants"
+          "Islamic traders",
+          "Local inhabitants"
         ],
-        "setting": "Volga River, Eastern Europe",
-        "mood": "Epic, adventurous",
+        "setting": "Viking trade post/Archaeological site",
+        "mood": "Bustling, surprising",
+        "on_screen_text": "Silver Dirhams & Silk from the East"
+      },
+      {
+        "scene_id": "scene_4",
+        "segment_type": "Twist",
+        "duration_sec": 12,
+        "shot_description": "An illuminated manuscript page depicting an Arab scholar (Ibn Fadlan) writing, with an illustration of Rus' (Viking) traders in the background, by a river. The river flows into a more detailed map of the Volga River.",
+        "camera": "Zoom in on the manuscript, then pan to the map.",
+        "characters": [
+          "Ibn Fadlan (illustrated)",
+          "Rus' traders (illustrated)"
+        ],
+        "setting": "Scriptorium/Volga River (illustrated)",
+        "mood": "Revealing, historical",
+        "on_screen_text": "Ibn Fadlan's Accounts"
+      },
+      {
+        "scene_id": "scene_5",
+        "segment_type": "Payoff",
+        "duration_sec": 10,
+        "shot_description": "A dynamic montage: A Viking longship sailing, then transitions to a caravan of camels on a desert Silk Road, then back to a stylized visualization of goods (furs, silk) moving across a map from Scandinavia to the Middle East.",
+        "camera": "Rapid cuts and transitions, dynamic.",
+        "characters": [],
+        "setting": "Abstract global trade routes",
+        "mood": "Triumphant, conclusive",
         "on_screen_text": "The Viking 'Silk Road'"
       },
       {
-        "scene_id": "scene_03",
-        "segment_type": "Setup",
-        "duration_sec": 3.5,
-        "shot_description": "Animated timeline unfurls, highlighting 'Late 8th to Early 11th Centuries'. Below it, a map shows Scandinavia with arrows pointing towards Eastern Europe.",
-        "camera": "Pan across the timeline and map.",
-        "characters": [],
-        "setting": "Abstract educational graphic",
-        "mood": "Informative",
-        "on_screen_text": "8th-11th Centuries: Viking Trade Routes"
-      },
-      {
-        "scene_id": "scene_04",
-        "segment_type": "Setup",
-        "duration_sec": 3.5,
-        "shot_description": "Overhead shot of a detailed animated map, showing the 'Volga Trade Route' or 'Eastern Way' extending from Scandinavia deep into the Abbasid Caliphate, ending near Baghdad.",
-        "camera": "Tracking shot along the route.",
-        "characters": [],
-        "setting": "Animated historical map",
-        "mood": "Educational",
-        "on_screen_text": "The Volga Trade Route"
-      },
-      {
-        "scene_id": "scene_05",
-        "segment_type": "Setup",
-        "duration_sec": 3.5,
-        "shot_description": "Depiction of a bustling market scene at Staraya Ladoga, showing Vikings interacting with Slavic and Finno-Ugric traders.",
-        "camera": "Wide shot, then slight zoom on interactions.",
-        "characters": [
-          "Viking traders",
-          "Local merchants"
-        ],
-        "setting": "Staraya Ladoga market",
-        "mood": "Lively, historical",
-        "on_screen_text": "Hubs: Staraya Ladoga & Novgorod"
-      },
-      {
-        "scene_id": "scene_06",
-        "segment_type": "Escalation",
-        "duration_sec": 3.5,
-        "shot_description": "Close-up on hands exchanging a bundle of furs (sable/beaver) for an ornate Islamic silver dirham.",
-        "camera": "Macro shot.",
-        "characters": [
-          "Trader hands"
-        ],
-        "setting": "Merchant stall",
-        "mood": "Transactional",
-        "on_screen_text": "Exchanged: Furs, Amber, Ivory"
-      },
-      {
-        "scene_id": "scene_07",
-        "segment_type": "Escalation",
-        "duration_sec": 3.5,
-        "shot_description": "A Viking holds up a piece of amber to the light, then gestures towards a luxurious bolt of silk being unrolled by another merchant.",
-        "camera": "Medium shot.",
-        "characters": [
-          "Viking trader",
-          "Merchant"
-        ],
-        "setting": "Market stall",
-        "mood": "Descriptive",
-        "on_screen_text": "Sought: Silver, Silk, Spices"
-      },
-      {
-        "scene_id": "scene_08",
-        "segment_type": "Escalation",
-        "duration_sec": 3.5,
-        "shot_description": "A stylized depiction of various items: amber beads, walrus ivory carvings, and a subtle, respectful portrayal of a group of enslaved people being exchanged.",
-        "camera": "Slow pan across the items.",
-        "characters": [
-          "Traders",
-          "Enslaved individuals (depicted respectfully)"
-        ],
-        "setting": "Trade gathering",
-        "mood": "Somber, factual",
-        "on_screen_text": "Also: Enslaved People"
-      },
-      {
-        "scene_id": "scene_09",
-        "segment_type": "Escalation",
-        "duration_sec": 3.5,
-        "shot_description": "An archaeologist's brush uncovers a large hoard of gleaming Islamic silver dirhams buried in a Scandinavian field.",
-        "camera": "POV shot from the archaeologist.",
-        "characters": [
-          "Archaeologist (hands only)"
-        ],
-        "setting": "Archaeological dig site, Scandinavia",
-        "mood": "Discovery, confirmation",
-        "on_screen_text": "Vast Hoards of Dirhams Found"
-      },
-      {
-        "scene_id": "scene_10",
-        "segment_type": "Escalation",
-        "duration_sec": 3.5,
-        "shot_description": "Animated scroll with Arabic script unfurls, morphing into a scene of Ibn Fadlan observing Rus' traders by a river, noting their unique customs (e.g., hygiene practices, burial rituals).",
-        "camera": "Transition from scroll to diorama.",
-        "characters": [
-          "Ibn Fadlan",
-          "Rus' traders"
-        ],
-        "setting": "Volga River bank",
-        "mood": "Historical, observational",
-        "on_screen_text": "Arab Chroniclers: Ibn Fadlan"
-      },
-      {
-        "scene_id": "scene_11",
-        "segment_type": "Twist",
-        "duration_sec": 3.5,
-        "shot_description": "A stylized map showing the Volga Bulgars' territory as a key intermediary hub, with goods flowing in from Viking lands and then onwards to Baghdad by different merchants.",
-        "camera": "Animated flow lines on the map.",
-        "characters": [],
-        "setting": "Animated trade route map",
-        "mood": "Clarifying, educational",
-        "on_screen_text": "Most Trade via Intermediaries"
-      },
-      {
-        "scene_id": "scene_12",
-        "segment_type": "Twist",
-        "duration_sec": 3.5,
-        "shot_description": "A close-up on a piece of luxurious silk fabric, then a quick shot of a camel caravan on a desert 'traditional' Silk Road, contrasting with the river route.",
-        "camera": "Cut between macro shot and wide shot.",
-        "characters": [],
-        "setting": "Marketplace / Desert",
-        "mood": "Comparative",
-        "on_screen_text": "A Distinct 'Silk Road'"
-      },
-      {
-        "scene_id": "scene_13",
-        "segment_type": "Twist",
-        "duration_sec": 3.5,
-        "shot_description": "A close-up of a well-preserved Islamic coin, gently rotated to show its intricate details and Arabic script.",
-        "camera": "Macro shot, slow rotation.",
-        "characters": [],
-        "setting": "Museum exhibit or collection",
-        "mood": "Proof, tangible evidence",
-        "on_screen_text": "Islamic Coins in Viking Lands: Proof"
-      },
-      {
-        "scene_id": "scene_14",
+        "scene_id": "scene_6",
         "segment_type": "Payoff",
-        "duration_sec": 3.0,
-        "shot_description": "Montage: Quick cuts of Viking longships, then bustling markets, then a map showing the global connection from Norse lands to the Abbasid Caliphate.",
-        "camera": "Rapid cuts, then zoom out.",
-        "characters": [
-          "Viking traders",
-          "Merchants"
-        ],
-        "setting": "Various historical settings",
-        "mood": "Concluding, impactful",
-        "on_screen_text": "Viking Age: Global Trade, Not Just Raids"
-      },
-      {
-        "scene_id": "scene_15",
-        "segment_type": "Payoff",
-        "duration_sec": 3.0,
-        "shot_description": "A final shot of the combined map, with the Viking trade route highlighted, dissolving into a call to action.",
-        "camera": "Fade out from map.",
+        "duration_sec": 5,
+        "shot_description": "A close-up on an ancient, ornate compass spinning and landing on an 'East' indicator, symbolizing discovery. Text appears over a starry night sky.",
+        "camera": "Static shot on compass, then fade to text.",
         "characters": [],
-        "setting": "Abstract map / End screen",
-        "mood": "Engaging, encouraging",
-        "on_screen_text": "Follow for more astonishing history!"
+        "setting": "Abstract/Starry Night",
+        "mood": "Inspiring, call to action",
+        "on_screen_text": "Follow for more incredible journeys from history!"
       }
     ]
   },
   "visual_prompts": [
     {
-      "scene_id": "scene_01",
-      "prompt": "A close-up of an ancient map, with a glowing red line tracing a path from Scandinavia across Eastern Europe to Baghdad. Text highlights the Viking path., Zoom out to reveal the full map., photoreal_cinematic style, Abstract map background, mood: Mysterious, intriguing. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "scene_id": "scene_1",
+      "prompt": "A close-up of a Viking longship's prow cutting through rough northern waters, overlaid with a faint map showing a dotted line extending east towards a distant, shimmering city (Baghdad), Dolly out, revealing more of the longship and the vastness of the sea, photoreal_cinematic style, Northern Sea/Abstract Map, mood: Intriguing, mysterious. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
       "media_type": "video",
-      "model": "seedance_2_0",
+      "render_type": "video_clip",
       "aspect_ratio": "9:16",
-      "reference_ids": []
+      "reference_ids": [],
+      "model": "seedance_2_0"
     },
     {
-      "scene_id": "scene_02",
-      "prompt": "Viking longship sails on a calm, wide river (representing the Volga), passing by a bustling, anachronistic merchant town on the bank., Dolly shot following the ship., photoreal_cinematic style, Volga River, Eastern Europe, mood: Epic, adventurous. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "scene_id": "scene_2",
+      "prompt": "Animated map showing the 'Volga Trade Route' lighting up across Eastern Europe, with key trade hubs like Staraya Ladoga and Novgorod highlighted. Various stylized figures representing diverse populations interact at these hubs, Zoom in and pan across the map, following the route, photoreal_cinematic style, Animated historical map of Eastern Europe, mood: Informative, exploratory. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
       "media_type": "video",
-      "model": "seedance_2_0",
+      "render_type": "video_clip",
       "aspect_ratio": "9:16",
-      "reference_ids": []
+      "reference_ids": [],
+      "model": "seedance_2_0"
     },
     {
-      "scene_id": "scene_03",
-      "prompt": "Animated timeline unfurls, highlighting 'Late 8th to Early 11th Centuries'. Below it, a map shows Scandinavia with arrows pointing towards Eastern Europe., Pan across the timeline and map., photoreal_cinematic style, Abstract educational graphic, mood: Informative. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "scene_id": "scene_3",
+      "prompt": "A bustling Viking trade market scene. Furs, amber, and ivory are exchanged for gleaming silver dirhams and bolts of colorful silk. A close-up on a pile of excavated silver dirhams in a museum-like setting, Pan across the market, then cut to a static shot of the dirham hoard, photoreal_cinematic style, Viking trade post/Archaeological site, mood: Bustling, surprising. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
       "media_type": "video",
-      "model": "seedance_2_0",
+      "render_type": "static_image",
       "aspect_ratio": "9:16",
-      "reference_ids": []
+      "reference_ids": [],
+      "model": "soul_2"
     },
     {
-      "scene_id": "scene_04",
-      "prompt": "Overhead shot of a detailed animated map, showing the 'Volga Trade Route' or 'Eastern Way' extending from Scandinavia deep into the Abbasid Caliphate, ending near Baghdad., Tracking shot along the route., photoreal_cinematic style, Animated historical map, mood: Educational. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "scene_id": "scene_4",
+      "prompt": "An illuminated manuscript page depicting an Arab scholar (Ibn Fadlan) writing, with an illustration of Rus' (Viking) traders in the background, by a river. The river flows into a more detailed map of the Volga River, Zoom in on the manuscript, then pan to the map, photoreal_cinematic style, Scriptorium/Volga River (illustrated), mood: Revealing, historical. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
       "media_type": "video",
-      "model": "seedance_2_0",
+      "render_type": "static_image",
       "aspect_ratio": "9:16",
-      "reference_ids": []
+      "reference_ids": [],
+      "model": "soul_2"
     },
     {
-      "scene_id": "scene_05",
-      "prompt": "Depiction of a bustling market scene at Staraya Ladoga, showing Vikings interacting with Slavic and Finno-Ugric traders., Wide shot, then slight zoom on interactions., photoreal_cinematic style, Staraya Ladoga market, mood: Lively, historical. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "scene_id": "scene_5",
+      "prompt": "A dynamic montage: A Viking longship sailing, then transitions to a caravan of camels on a desert Silk Road, then back to a stylized visualization of goods (furs, silk) moving across a map from Scandinavia to the Middle East, Rapid cuts and transitions, dynamic, photoreal_cinematic style, Abstract global trade routes, mood: Triumphant, conclusive. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
       "media_type": "video",
-      "model": "seedance_2_0",
+      "render_type": "video_clip",
       "aspect_ratio": "9:16",
-      "reference_ids": []
+      "reference_ids": [],
+      "model": "seedance_2_0"
     },
     {
-      "scene_id": "scene_06",
-      "prompt": "Close-up on hands exchanging a bundle of furs (sable/beaver) for an ornate Islamic silver dirham., Macro shot., photoreal_cinematic style, Merchant stall, mood: Transactional. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
+      "scene_id": "scene_6",
+      "prompt": "A close-up on an ancient, ornate compass spinning and landing on an 'East' indicator, symbolizing discovery. Text appears over a starry night sky, Static shot on compass, then fade to text, photoreal_cinematic style, Abstract/Starry Night, mood: Inspiring, call to action. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "image",
+      "render_type": "static_image",
       "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_07",
-      "prompt": "A Viking holds up a piece of amber to the light, then gestures towards a luxurious bolt of silk being unrolled by another merchant., Medium shot., photoreal_cinematic style, Market stall, mood: Descriptive. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_08",
-      "prompt": "A stylized depiction of various items: amber beads, walrus ivory carvings, and a subtle, respectful portrayal of a group of enslaved people being exchanged., Slow pan across the items., photoreal_cinematic style, Trade gathering, mood: Somber, factual. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_09",
-      "prompt": "An archaeologist's brush uncovers a large hoard of gleaming Islamic silver dirhams buried in a Scandinavian field., POV shot from the archaeologist., photoreal_cinematic style, Archaeological dig site, Scandinavia, mood: Discovery, confirmation. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_10",
-      "prompt": "Animated scroll with Arabic script unfurls, morphing into a scene of Ibn Fadlan observing Rus' traders by a river, noting their unique customs (e.g., hygiene practices, burial rituals)., Transition from scroll to diorama., photoreal_cinematic style, Volga River bank, mood: Historical, observational. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_11",
-      "prompt": "A stylized map showing the Volga Bulgars' territory as a key intermediary hub, with goods flowing in from Viking lands and then onwards to Baghdad by different merchants., Animated flow lines on the map., photoreal_cinematic style, Animated trade route map, mood: Clarifying, educational. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_12",
-      "prompt": "A close-up on a piece of luxurious silk fabric, then a quick shot of a camel caravan on a desert 'traditional' Silk Road, contrasting with the river route., Cut between macro shot and wide shot., photoreal_cinematic style, Marketplace / Desert, mood: Comparative. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_13",
-      "prompt": "A close-up of a well-preserved Islamic coin, gently rotated to show its intricate details and Arabic script., Macro shot, slow rotation., photoreal_cinematic style, Museum exhibit or collection, mood: Proof, tangible evidence. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_14",
-      "prompt": "Montage: Quick cuts of Viking longships, then bustling markets, then a map showing the global connection from Norse lands to the Abbasid Caliphate., Rapid cuts, then zoom out., photoreal_cinematic style, Various historical settings, mood: Concluding, impactful. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
-    },
-    {
-      "scene_id": "scene_15",
-      "prompt": "A final shot of the combined map, with the Viking trade route highlighted, dissolving into a call to action., Fade out from map., photoreal_cinematic style, Abstract map / End screen, mood: Engaging, encouraging. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
-      "media_type": "video",
-      "model": "seedance_2_0",
-      "aspect_ratio": "9:16",
-      "reference_ids": []
+      "reference_ids": [],
+      "model": "soul_2"
     }
   ],
   "thumbnail_concepts": null,
@@ -562,5 +382,12 @@
     "topic_hunter",
     "historian",
     "director"
-  ]
+  ],
+  "render_estimate": {
+    "video_clip_count": 3,
+    "static_image_count": 3,
+    "credits_video": 22.5,
+    "credits_image": 1.5,
+    "credits_total": 24.0
+  }
 }

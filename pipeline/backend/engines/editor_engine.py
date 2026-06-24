@@ -13,18 +13,43 @@ PLATFORM_ASPECT = {
 CREDITS_PER_VIDEO_CLIP = 7.5
 CREDITS_PER_STATIC_IMAGE = 0.5   # approximate; much cheaper than video
 
+_STATIC_KEYWORDS = {
+    "map", "coin", "artifact", "inscription", "manuscript", "document",
+    "portrait", "close-up", "close up", "macro", "zoom in on", "detail of",
+    "rune", "runestone", "scroll", "tablet", "painting", "illustration",
+}
 _CHARACTER_KEYWORDS = {"portrait", "character", "person", "people", "face", "figure", "trader", "soldier", "king", "queen", "warrior"}
+
+# Motion verbs that strongly indicate a video clip is needed
+_MOTION_KEYWORDS = {
+    "sail", "sailing", "riding", "marching", "running", "moving", "battle",
+    "fight", "crowd", "flowing", "burning", "animat", "trace", "sweep",
+    "tracking", "journeying", "row", "rowing", "dancing",
+}
+
+
+def _assign_render_type(prompt: dict) -> str:
+    """Deterministically assign render_type from the shot description keywords."""
+    shot = (prompt.get("prompt", "") + " " + prompt.get("shot_description", "")).lower()
+    # Explicit motion → always video
+    if any(kw in shot for kw in _MOTION_KEYWORDS):
+        return "video_clip"
+    # Static artifacts/maps/portraits → static
+    if any(kw in shot for kw in _STATIC_KEYWORDS):
+        return "static_image"
+    # Fallback: use what Gemini said, defaulting to video_clip
+    return prompt.get("render_type", "video_clip")
 
 
 def _assign_model(prompt: dict) -> dict:
-    """Hardcode model based on render_type — never trust what Gemini returns for model field."""
-    render_type = prompt.get("render_type", "video_clip")
+    """Hardcode render_type and model — never trust what Gemini returns for these fields."""
+    render_type = _assign_render_type(prompt)
+    prompt["render_type"] = render_type
     shot = (prompt.get("prompt", "") + " " + prompt.get("shot_description", "")).lower()
 
     if render_type == "video_clip":
         prompt["model"] = "seedance_2_0"
     else:
-        # static_image — choose image model
         if any(kw in shot for kw in _CHARACTER_KEYWORDS):
             prompt["model"] = "soul_2"
         else:

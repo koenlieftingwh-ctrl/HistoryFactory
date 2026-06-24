@@ -241,6 +241,43 @@ async def get_job_detail(job_id: str):
     return job
 
 
+@app.post("/jobs/{job_id}/render")
+async def start_render(job_id: str):
+    """Submit all visual prompts to Higgsfield. Checks credits first."""
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not job.get("visual_prompts"):
+        raise HTTPException(status_code=400, detail="Run the Editor stage first to generate visual prompts.")
+    try:
+        job = submit_render_jobs(job)
+        update_job(job)
+    except RuntimeError as e:
+        raise HTTPException(status_code=402, detail=str(e))
+    return job
+
+
+@app.get("/jobs/{job_id}/render-status")
+async def render_status(job_id: str):
+    """Poll Higgsfield for status updates on in-flight render jobs."""
+    from engines.render_engine import poll_render_status
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not job.get("render_jobs"):
+        raise HTTPException(status_code=400, detail="No render jobs found for this job.")
+    job = poll_render_status(job)
+    update_job(job)
+    return job
+
+
+@app.get("/render/balance")
+async def higgsfield_balance():
+    """Return current Higgsfield credit balance."""
+    balance = get_balance()
+    return {"credits": balance, "available": balance >= 0}
+
+
 @app.post("/agent/topic-hunter/select-topic")
 async def select_topic(payload: dict):
     """Create a job directly from a topic dict (called from the UI topic card)."""

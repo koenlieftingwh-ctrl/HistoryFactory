@@ -21,7 +21,7 @@ def create_job(topic: dict, config: dict) -> dict:
     job = {
         "job_id": str(uuid.uuid4())[:8],
         "created_at": datetime.utcnow().isoformat(),
-        "status": compute_status([]),
+        "status": "pending",
         "config": config,
         "topic": topic,
         "research": None,
@@ -29,6 +29,9 @@ def create_job(topic: dict, config: dict) -> dict:
         "script": None,
         "storyboard": None,
         "visual_prompts": None,
+        "render_estimate": None,
+        "render_jobs": None,
+        "render_status": None,
         "thumbnail_concepts": None,
         "publish_metadata": None,
         "edl": None,
@@ -48,6 +51,7 @@ def get_job(job_id: str) -> Optional[dict]:
 
 def update_job(job: dict) -> dict:
     _ensure()
+    job["status"] = compute_status(job.get("stage_completed", []), job.get("render_status"))
     _path(job["job_id"]).write_text(json.dumps(job, indent=2), encoding="utf-8")
     return job
 
@@ -63,8 +67,14 @@ def list_jobs() -> list[dict]:
     return jobs
 
 
-def compute_status(stage_completed: list[str]) -> str:
-    """Derive the job status string from the list of completed stages."""
+def compute_status(stage_completed: list[str], render_status: Optional[str] = None) -> str:
+    """Derive job status from stage_completed + optional render_status."""
+    if render_status == "completed":
+        return "completed"
+    if render_status == "rendering":
+        return "rendering"
+    if render_status == "insufficient_credits":
+        return "insufficient_credits"
     if not stage_completed:
         return "pending"
     stages_order = ["topic_hunter", "historian", "director", "editor"]
@@ -75,8 +85,8 @@ def compute_status(stage_completed: list[str]) -> str:
     next_map = {
         "topic_hunter": "researching",
         "historian": "scripting",
-        "director": "rendering",
-        "editor": "completed",
+        "director": "render_ready",
+        "editor": "render_ready",
     }
     return next_map.get(last_done, "pending")
 
@@ -84,5 +94,4 @@ def compute_status(stage_completed: list[str]) -> str:
 def mark_stage_complete(job: dict, stage: str) -> dict:
     if stage not in job.get("stage_completed", []):
         job.setdefault("stage_completed", []).append(stage)
-    job["status"] = compute_status(job.get("stage_completed", []))
     return update_job(job)
