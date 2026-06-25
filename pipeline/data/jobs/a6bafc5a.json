@@ -1,0 +1,163 @@
+{
+  "job_id": "a6bafc5a",
+  "created_at": "2026-06-24T21:05:14.723318",
+  "status": "researching",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "renaissance",
+    "topic_category": "weird_history",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "c3d430f6",
+    "title": "The Dancing Plague of 1518",
+    "one_line_premise": "In Strasbourg, hundreds of people inexplicably danced uncontrollably for days and weeks, many to their death from exhaustion, in a bizarre mass hysteria event.",
+    "category": "weird_history",
+    "era": "renaissance",
+    "hook_angle": "What if you started dancing and couldn't stop? In 1518, an entire town was gripped by a mysterious 'dancing plague' where people literally danced themselves to death.",
+    "scores": {
+      "historical_accuracy": 90,
+      "visual_potential": 85,
+      "retention_potential": 80,
+      "novelty": 75,
+      "emotional_impact": 70,
+      "shareability": 85,
+      "composite": 81.2,
+      "rationale": "The Dancing Plague is well-documented, lending high historical accuracy. Its bizarre nature offers strong visual potential and is inherently novel to most, driving retention. The disturbing idea of dancing to death has significant emotional impact and high shareability due to its 'can you believe this happened?' factor."
+    }
+  },
+  "research": {
+    "topic_id": "c3d430f6",
+    "facts": [
+      {
+        "claim_id": "fact_001",
+        "statement": "The Dancing Plague of 1518 was a phenomenon that occurred in Strasbourg (then part of the Holy Roman Empire) where people danced uncontrollably.",
+        "source_ids": [
+          "src_001",
+          "src_002",
+          "src_003"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_002",
+        "statement": "The event began in July 1518 when a woman named Frau Troffea started dancing incessantly in the street.",
+        "source_ids": [
+          "src_001",
+          "src_002"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_003",
+        "statement": "Within a month, approximately 400 people joined the dancing, enduring for days without rest.",
+        "source_ids": [
+          "src_001",
+          "src_003"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_004",
+        "statement": "Many dancers eventually collapsed from exhaustion, heart attacks, or strokes.",
+        "source_ids": [
+          "src_001",
+          "src_002"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_005",
+        "statement": "Historical records indicate that dozens of people may have died from the dancing plague.",
+        "source_ids": [
+          "src_001",
+          "src_003"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_006",
+        "statement": "Authorities initially believed the dancing was caused by 'hot blood' and prescribed more dancing, opening two guildhalls and a grain market, and even erecting a stage.",
+        "source_ids": [
+          "src_001",
+          "src_002"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_007",
+        "statement": "Later, the city's physicians and magistrates attributed the plague to 'natural disease' and 'supernatural causes', ultimately seeking spiritual intervention.",
+        "source_ids": [
+          "src_001"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_008",
+        "statement": "Modern historians and scientists propose various explanations, including mass psychogenic illness (MPI) or stress-induced psychosis, exacerbated by famine and disease.",
+        "source_ids": [
+          "src_001",
+          "src_002",
+          "src_004"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact_009",
+        "statement": "The theory that ergot poisoning (a fungus that grows on rye and other grains, producing hallucinogenic effects) was a cause is generally debated or disputed, as the symptoms don't perfectly align with historical accounts of the dancing plague.",
+        "source_ids": [
+          "src_001",
+          "src_004"
+        ],
+        "certainty": "debated"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "src_001",
+        "title": "A Time to Dance, A Time to Die: The Extraordinary Story of the Dancing Plague of 1518",
+        "url": "https://www.goodreads.com/book/show/1342686.A_Time_to_Dance_A_Time_to_Die",
+        "type": "academic"
+      },
+      {
+        "source_id": "src_002",
+        "title": "The Dancing Plague of 1518",
+        "url": "https://en.wikipedia.org/wiki/Dancing_Plague_of_1518",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "src_003",
+        "title": "What Was the Dancing Plague of 1518?",
+        "url": "https://www.britannica.com/story/what-was-the-dancing-plague-of-1518",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "src_004",
+        "title": "Dancing Mania",
+        "url": "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8759550/",
+        "type": "academic"
+      }
+    ],
+    "research_confidence": 5
+  },
+  "validation": null,
+  "script": null,
+  "storyboard": null,
+  "visual_prompts": null,
+  "render_estimate": null,
+  "render_jobs": null,
+  "render_status": null,
+  "thumbnail_concepts": null,
+  "publish_metadata": null,
+  "edl": null,
+  "errors": [],
+  "stage_completed": [
+    "topic_hunter"
+  ]
+}

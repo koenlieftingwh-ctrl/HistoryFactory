@@ -48,12 +48,13 @@ def _assign_model(prompt: dict) -> dict:
     shot = (prompt.get("prompt", "") + " " + prompt.get("shot_description", "")).lower()
 
     if render_type == "video_clip":
-        prompt["model"] = "seedance_2_0"
+        prompt["model"] = "kling3_0_turbo"
     else:
+        # cinematic_studio_2_5 is best for historical stills; soul_cinematic for close-up characters
         if any(kw in shot for kw in _CHARACTER_KEYWORDS):
-            prompt["model"] = "soul_2"
+            prompt["model"] = "soul_cinematic"
         else:
-            prompt["model"] = "flux_1_1_ultra"
+            prompt["model"] = "cinematic_studio_2_5"
     return prompt
 
 

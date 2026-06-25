@@ -1,0 +1,533 @@
+{
+  "job_id": "fae72b81",
+  "created_at": "2026-06-24T21:16:36.175048",
+  "status": "completed",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "early_20th_century",
+    "topic_category": "military_history",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "cfb51392",
+    "title": "The Pigeon Corps of WWI",
+    "one_line_premise": "During World War I, messenger pigeons played a crucial and often heroic role, with some even receiving medals for bravery.",
+    "category": "military_history",
+    "era": "early_20th_century",
+    "hook_angle": "Meet Cher Ami, the feather-flapped war hero who saved an entire battalion.",
+    "scores": {
+      "historical_accuracy": 90,
+      "visual_potential": 75,
+      "retention_potential": 70,
+      "novelty": 80,
+      "emotional_impact": 65,
+      "shareability": 75,
+      "composite": 76.2,
+      "rationale": "The topic of WWI messenger pigeons is well-documented and historically accurate. It offers unique visual opportunities (pigeons with messages, battlefields from a pigeon's perspective) but might be challenging to make consistently striking. The 'hero' angle and specific stories like Cher Ami enhance retention and shareability. While not entirely unknown, the depth of their role and specific medal recipients still hold novelty for a general audience. The emotional impact comes from the bravery and sacrifice of an unexpected animal, but isn't overwhelmingly intense."
+    }
+  },
+  "research": {
+    "topic_id": "cfb51392",
+    "facts": [
+      {
+        "claim_id": "claim_01",
+        "statement": "Homing pigeons were extensively used by various armies during World War I to carry vital messages across the battlefield, especially when other communication methods failed.",
+        "source_ids": [
+          "source_01",
+          "source_02",
+          "source_03"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "claim_02",
+        "statement": "Pigeons were particularly effective for communication from isolated outposts, trench lines, and behind enemy lines.",
+        "source_ids": [
+          "source_02",
+          "source_04"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "claim_03",
+        "statement": "Messages, often written on small pieces of paper or film, were placed in tiny capsules attached to the pigeon's leg.",
+        "source_ids": [
+          "source_01",
+          "source_03"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "claim_04",
+        "statement": "The United States Army Signal Corps had a dedicated pigeon service, training thousands of birds for wartime duties.",
+        "source_ids": [
+          "source_05"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "claim_05",
+        "statement": "Cher Ami, a pigeon from the U.S. Army Signal Corps, famously delivered a crucial message from the 'Lost Battalion' of the 77th Division in October 1918, despite being severely wounded.",
+        "source_ids": [
+          "source_01",
+          "source_02",
+          "source_05"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "claim_06",
+        "statement": "Pigeon handlers, known as 'pigeonniers' or 'pigeon sergeants', were responsible for the care, training, and deployment of these birds.",
+        "source_ids": [
+          "source_04"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "claim_07",
+        "statement": "Some pigeons were equipped with miniature cameras to conduct aerial reconnaissance, though the effectiveness and widespread use of this specific application are less documented than their messaging role.",
+        "source_ids": [
+          "source_03"
+        ],
+        "certainty": "debated"
+      },
+      {
+        "claim_id": "claim_08",
+        "statement": "The Germans also employed a substantial pigeon service, sometimes training falcons to intercept Allied messenger pigeons.",
+        "source_ids": [
+          "source_02"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "claim_09",
+        "statement": "Pigeons had a high success rate in delivering messages, estimated to be around 95%, making them a reliable communication method in unpredictable combat environments.",
+        "source_ids": [
+          "source_04"
+        ],
+        "certainty": "established"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "source_01",
+        "title": "Cher Ami and the Lost Battalion",
+        "url": "https://www.smithsonianmag.com/history/cher-ami-and-the-lost-battalion-180970327/",
+        "type": "magazine_article"
+      },
+      {
+        "source_id": "source_02",
+        "title": "Pigeon Communication during World War I",
+        "url": "https://www.nationalww2museum.org/war/articles/pigeon-communication-during-world-war-i",
+        "type": "museum_article"
+      },
+      {
+        "source_id": "source_03",
+        "title": "Animals in World War One",
+        "url": "https://www.nam.ac.uk/explore/animals-first-world-war",
+        "type": "museum_article"
+      },
+      {
+        "source_id": "source_04",
+        "title": "Carrier Pigeons in World War One",
+        "url": "https://www.iwm.org.uk/history/carrier-pigeons-in-world-war-one",
+        "type": "museum_article"
+      },
+      {
+        "source_id": "source_05",
+        "title": "World War I \u2013 Signal Corps",
+        "url": "https://history.army.mil/html/books/060/60-6/CMH_Pub_60-6.pdf",
+        "type": "government_report"
+      }
+    ],
+    "research_confidence": 95
+  },
+  "validation": {
+    "topic_id": "cfb51392",
+    "verified_claims": [
+      "claim_01",
+      "claim_02",
+      "claim_03",
+      "claim_04",
+      "claim_05",
+      "claim_06",
+      "claim_08",
+      "claim_09"
+    ],
+    "flagged_claims": [
+      {
+        "claim_id": "claim_07",
+        "reason": "This claim is marked as 'debated' in the bundle and is sourced only from a single source. While the source is a museum article, the 'debated' certainty suggests it requires further corroboration or a disclaimer if used without further evidence."
+      }
+    ],
+    "overall_accuracy_score": 90,
+    "publishable": true,
+    "required_disclaimers": []
+  },
+  "script": {
+    "script_id": "script_001",
+    "language": "en",
+    "segments": [
+      {
+        "segment_type": "hook",
+        "start_pct": 0,
+        "end_pct": 5,
+        "text": "Could a pigeon be a war hero? During World War I, these birds were not just observers; they were vital communicators.",
+        "emotional_tone": "shocking question",
+        "claim_ids": []
+      },
+      {
+        "segment_type": "setup",
+        "start_pct": 5,
+        "end_pct": 25,
+        "text": "Amidst the chaos of the First World War, homing pigeons became crucial for armies. When radio and telegraphs faltered, pigeons carried vital messages across the battlefield. They were especially effective for communication from isolated outposts, trench lines, and even behind enemy lines.",
+        "emotional_tone": "plain and vivid",
+        "claim_ids": [
+          "claim_01",
+          "claim_02"
+        ]
+      },
+      {
+        "segment_type": "escalation",
+        "start_pct": 25,
+        "end_pct": 67,
+        "text": "Messages, often tiny notes on paper or film, were tucked into small capsules attached to a pigeon's leg. The United States Army Signal Corps had a dedicated pigeon service, training thousands of birds for wartime duties. Specialized 'pigeonniers' were responsible for their care and deployment. Even the Germans employed a substantial pigeon service, even training falcons to intercept Allied birds.",
+        "emotional_tone": "documentary",
+        "claim_ids": [
+          "claim_03",
+          "claim_04",
+          "claim_06",
+          "claim_08"
+        ]
+      },
+      {
+        "segment_type": "twist",
+        "start_pct": 67,
+        "end_pct": 92,
+        "text": "Remarkably, these feathered messengers boasted a success rate of around 95%, making them incredibly reliable. One pigeon, Cher Ami of the U.S. Army Signal Corps, famously delivered a crucial message from the 'Lost Battalion' in October 1918, despite being severely wounded.",
+        "emotional_tone": "surprising detail",
+        "claim_ids": [
+          "claim_09",
+          "claim_05"
+        ]
+      },
+      {
+        "segment_type": "payoff",
+        "start_pct": 92,
+        "end_pct": 100,
+        "text": "Pigeons truly were unsung heroes of WWI. Follow for more incredible history shorts!",
+        "emotional_tone": "final punch line",
+        "claim_ids": []
+      }
+    ],
+    "total_word_count": 156,
+    "estimated_duration_sec": 62
+  },
+  "storyboard": {
+    "storyboard_id": "storyboard_001",
+    "scenes": [
+      {
+        "scene_id": "scene_001",
+        "segment_type": "hook",
+        "duration_sec": 10,
+        "shot_description": "Close-up of a homing pigeon's intelligent eye, then slowly zoom out to reveal a battlefield in the distance.",
+        "camera": "Zoom out slowly",
+        "characters": [],
+        "setting": "World War I battlefield (stylized, slightly out of focus)",
+        "mood": "Intriguing, mysterious",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "scene_002",
+        "segment_type": "setup",
+        "duration_sec": 10,
+        "shot_description": "A soldier in a muddy trench carefully attaches a small message capsule to a pigeon's leg. Smoke and distant explosions are visible.",
+        "camera": "Medium shot, slight pan to follow action",
+        "characters": [
+          "Soldier"
+        ],
+        "setting": "Muddy WWI trench",
+        "mood": "Gritty, urgent",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "scene_003",
+        "segment_type": "escalation",
+        "duration_sec": 11,
+        "shot_description": "Montage: A hand placing a tiny rolled message into a capsule; a 'pigeonnier' (soldier) caring for pigeons in a mobile coop; a falcon soaring menacingly, then diving towards a pigeon.",
+        "camera": "Quick cuts, various angles",
+        "characters": [
+          "Soldier (pigeonnier)"
+        ],
+        "setting": "Army pigeon service post, sky above battlefield",
+        "mood": "Informative, tense",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "scene_004",
+        "segment_type": "escalation",
+        "duration_sec": 12,
+        "shot_description": "A German soldier releasing a falcon. Then, a pigeon flying through a chaotic, smoky sky, dodging explosions.",
+        "camera": "Tracking shot of pigeon, then wider shot of battlefield chaos",
+        "characters": [
+          "German soldier"
+        ],
+        "setting": "WWI skies, battlefield",
+        "mood": "Action, danger",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "scene_005",
+        "segment_type": "twist",
+        "duration_sec": 10,
+        "shot_description": "Close-up of Cher Ami, a homing pigeon with a bandaged leg, proudly perched. A soldier gently tending to it.",
+        "camera": "Close-up, then slow zoom out to show soldier",
+        "characters": [
+          "Soldier",
+          "Cher Ami (pigeon)"
+        ],
+        "setting": "Army medical tent or temporary aviary",
+        "mood": "Triumphant, heroic",
+        "on_screen_text": "Cher Ami - WWI War Hero"
+      },
+      {
+        "scene_id": "scene_006",
+        "segment_type": "payoff",
+        "duration_sec": 9,
+        "shot_description": "A group of pigeons flying into the sunset over a peaceful, yet historically poignant, landscape.",
+        "camera": "Wide shot, gentle pan",
+        "characters": [],
+        "setting": "Pastoral landscape, hint of historical significance",
+        "mood": "Reflective, honorable",
+        "on_screen_text": "Unsung Heroes of WWI"
+      }
+    ]
+  },
+  "visual_prompts": [
+    {
+      "scene_id": "scene_001",
+      "prompt": "Close-up of a homing pigeon's intelligent eye, then slowly zoom out to reveal a World War I battlefield in the distance, Zoom out slowly, photoreal_cinematic style, World War I battlefield (stylized, slightly out of focus), mood: Intriguing, mysterious. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "scene_002",
+      "prompt": "A soldier in a muddy trench carefully attaches a small message capsule to a pigeon's leg. Smoke and distant explosions are visible, Medium shot, slight pan to follow action, photoreal_cinematic style, Muddy WWI trench, mood: Gritty, urgent. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "scene_003",
+      "prompt": "Montage: A hand placing a tiny rolled message into a capsule; a 'pigeonnier' (soldier) caring for pigeons in a mobile coop; a falcon soaring menacingly, then diving towards a pigeon, Quick cuts, various angles, photoreal_cinematic style, Army pigeon service post, sky above battlefield, mood: Informative, tense. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "scene_004",
+      "prompt": "A German soldier releasing a falcon. Then, a pigeon flying through a chaotic, smoky sky, dodging explosions, Tracking shot of pigeon, then wider shot of battlefield chaos, photoreal_cinematic style, WWI skies, battlefield, mood: Action, danger. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "scene_005",
+      "prompt": "Close-up of Cher Ami, a homing pigeon with a bandaged leg, proudly perched. A soldier gently tending to it, Close-up, then slow zoom out to show soldier, photoreal_cinematic style, Army medical tent or temporary aviary, mood: Triumphant, heroic. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "scene_006",
+      "prompt": "A group of pigeons flying into the sunset over a peaceful, yet historically poignant, landscape, Wide shot, gentle pan, photoreal_cinematic style, Pastoral landscape, hint of historical significance, mood: Reflective, honorable. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    }
+  ],
+  "render_estimate": {
+    "video_clip_count": 3,
+    "static_image_count": 3,
+    "credits_video": 22.5,
+    "credits_image": 1.5,
+    "credits_total": 24.0,
+    "credits_needed": 24.0,
+    "credits_balance": -1
+  },
+  "render_jobs": [
+    {
+      "scene_id": "scene_001",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "5539b217-11bb-474a-88cc-3dd969071d12",
+      "status": "submitted"
+    },
+    {
+      "scene_id": "scene_002",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": "dd9af749-20fb-499c-a375-126e4d14d8eb",
+      "status": "submitted"
+    },
+    {
+      "scene_id": "scene_003",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "f87ea22a-e6da-4184-8b9a-42b0778f29d0",
+      "status": "submitted"
+    },
+    {
+      "scene_id": "scene_004",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "3323657e-034c-4a48-895b-7f611bb83085",
+      "status": "submitted"
+    },
+    {
+      "scene_id": "scene_005",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": "0955c0d6-8392-437a-a504-0ce3832a460c",
+      "status": "submitted"
+    },
+    {
+      "scene_id": "scene_006",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": "9e0f9994-ffab-4707-a1eb-d2b639d871a3",
+      "status": "submitted"
+    }
+  ],
+  "render_status": "rendering",
+  "thumbnail_concepts": [
+    {
+      "prompt": "A highly stylized, dramatic close-up of a pigeon's intelligent, determined eye (Cher Ami's), with a subtle reflection of a distant, smoky WWI battlefield. High contrast lighting. The pigeon's head is slightly angled, conveying alertness. The background is a soft blur of sepia-toned war-torn trenches.",
+      "overlay_text": "Hero Pigeon Saved Them All",
+      "rationale": "Focuses on the pigeon's eye for immediate intrigue and personality, hinting at heroism. The battlefield reflection creates a curiosity gap about the pigeon's role. High contrast and bold text maximize CTR."
+    },
+    {
+      "prompt": "A heroic, action-oriented shot of a pigeon (Cher Ami) in flight against a dark, dramatic WWI sky filled with distant artillery smoke. The pigeon is sharply in focus, wings spread, carrying a tiny message capsule. Below, out of focus, a stylized, desperate WWI trench scene with tiny, silhouetted soldiers looking up.",
+      "overlay_text": "Feathered Hero: WWI's Secret Weapon",
+      "rationale": "Emphasizes action and the pigeon's role as a 'weapon,' creating a strong curiosity gap about its significance. The contrast between the clear pigeon and blurred background enhances the focal subject. Text is punchy and intriguing."
+    },
+    {
+      "prompt": "An extreme close-up of a WWI homing pigeon's leg with a tiny, historical message capsule prominently visible. The pigeon's feathers are in sharp detail. In the very distant, out-of-focus background, a stylized WWI battlefield with faint explosions. The lighting is dramatic, highlighting the capsule.",
+      "overlay_text": "This Pigeon Changed The War",
+      "rationale": "Creates a strong curiosity gap by focusing on the message capsule, making viewers wonder what message was so important. The extreme close-up on the leg makes it unique and intriguing, promising a secret. Bold text adds to the mystery and impact."
+    }
+  ],
+  "publish_metadata": {
+    "title": "Unsung Heroes: The Amazing Pigeon Corps of World War I!",
+    "description": "Could a pigeon be a war hero? Absolutely! Discover the incredible, life-saving role messenger pigeons played during WWI, delivering vital messages across dangerous battlefields when all else failed. These feathered communicators were crucial to the war effort and some even earned medals for their bravery! Learn more about these forgotten heroes. Don't forget to like and subscribe for more fascinating history!",
+    "tags": [
+      "WWI",
+      "World War 1",
+      "Pigeons",
+      "War Heroes",
+      "Military History",
+      "Messenger Pigeons",
+      "Animal Heroes",
+      "Historical Facts",
+      "First World War",
+      "Untold Stories",
+      "Trench Warfare",
+      "Communication History",
+      "Animal Bravery"
+    ],
+    "hashtags": [
+      "#WWI",
+      "#WW1",
+      "#PigeonHeroes",
+      "#HistoryShorts",
+      "#MilitaryHistory",
+      "#AnimalHeroes",
+      "#UntoldHistory",
+      "#WarFacts",
+      "#PigeonCorps",
+      "#Historical"
+    ]
+  },
+  "edl": [
+    {
+      "scene_id": "scene_001",
+      "start": 0,
+      "end": 10,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "scene_002",
+      "start": 10,
+      "end": 20,
+      "transition_in": "fade",
+      "transition_out": "cut",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "scene_003",
+      "start": 20,
+      "end": 31,
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "scene_004",
+      "start": 31,
+      "end": 43,
+      "transition_in": "cut",
+      "transition_out": "cross_dissolve",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "scene_005",
+      "start": 43,
+      "end": 53,
+      "transition_in": "cross_dissolve",
+      "transition_out": "fade",
+      "overlay_text": "Cher Ami - WWI War Hero",
+      "overlay_start": 47
+    },
+    {
+      "scene_id": "scene_006",
+      "start": 53,
+      "end": 62,
+      "transition_in": "fade",
+      "transition_out": "fade",
+      "overlay_text": "Unsung Heroes of WWI",
+      "overlay_start": 56
+    }
+  ],
+  "errors": [],
+  "stage_completed": [
+    "topic_hunter",
+    "historian",
+    "director",
+    "editor"
+  ]
+}

@@ -1,0 +1,563 @@
+{
+  "job_id": "02ddb993",
+  "created_at": "2026-06-24T21:31:12.832098",
+  "status": "rendering",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "ancient rome",
+    "topic_category": "ancient_rome",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "c5d945a3",
+    "title": "The Roman Bathhouse That Was a Social Media Hub",
+    "one_line_premise": "Explore how Roman bathhouses, far from just being places to get clean, served as bustling centers for business, gossip, politics, and even exercise \u2013 a true ancient social network.",
+    "category": "ancient_rome",
+    "era": "ancient rome",
+    "hook_angle": "Before Twitter, there were Roman bathhouses. Find out how these steamy spots were the ultimate ancient social hub!",
+    "scores": {
+      "historical_accuracy": 85,
+      "visual_potential": 70,
+      "retention_potential": 75,
+      "novelty": 65,
+      "emotional_impact": 40,
+      "shareability": 70,
+      "composite": 68.8,
+      "rationale": "The premise about Roman bathhouses as social hubs is historically accurate and well-documented. Visual potential is good with depictions of grand architecture, various activities, and diverse crowds. Retention potential is fair due to the interesting 'ancient social network' angle, making it relatable. Novelty is moderate as the social aspect of bathhouses is known, but perhaps not to the extent of 'social media hub'. Emotional impact is low, as it's more informative than shocking or awe-inspiring. Shareability is decent due to the modern analogy ('before Twitter') and the general interest in Roman daily life."
+    }
+  },
+  "research": {
+    "topic_id": "c5d945a3",
+    "facts": [
+      {
+        "claim_id": "F1",
+        "statement": "Roman bathhouses, known as thermae or balneae, served as central locations for social interaction, beyond just hygiene.",
+        "source_ids": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F2",
+        "statement": "Activities at Roman bathhouses included bathing, exercising, dining, conducting business, and socializing.",
+        "source_ids": [
+          "S1",
+          "S2",
+          "S4"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F3",
+        "statement": "The bathhouses were accessible to all social classes, although sometimes with separate sections or specific hours for men and women.",
+        "source_ids": [
+          "S1",
+          "S3",
+          "S5"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F4",
+        "statement": "Going to the baths was a daily ritual for many Romans, lasting several hours.",
+        "source_ids": [
+          "S2",
+          "S4"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F5",
+        "statement": "Inscriptions and graffiti found in bathhouses provide evidence of personal messages, gossip, and public notices, akin to early forms of public communication.",
+        "source_ids": [
+          "S6",
+          "S7"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F6",
+        "statement": "The structure of Roman bathhouses often included libraries, lecture halls, and gardens, further promoting intellectual and social exchange.",
+        "source_ids": [
+          "S1",
+          "S4"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F7",
+        "statement": "Roman satirists and writers, such as Seneca and Martial, provide anecdotal evidence of the diverse and often boisterous social life within the baths.",
+        "source_ids": [
+          "S8",
+          "S9"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F8",
+        "statement": "The bathhouse served as a place where status could be displayed or negotiated, and where political and social networks were strengthened.",
+        "source_ids": [
+          "S2",
+          "S3"
+        ],
+        "certainty": "established"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "S1",
+        "title": "Roman Baths",
+        "url": "https://www.britannica.com/technology/Roman-bath",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "S2",
+        "title": "The Daily Life of the Ancient Romans",
+        "url": "https://www.metmuseum.org/toah/hd/rocl/hd_rocl.htm",
+        "type": "academic"
+      },
+      {
+        "source_id": "S3",
+        "title": "Social Life in Ancient Rome",
+        "url": "https://www.worldhistory.org/article/886/social-life-in-ancient-rome/",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "S4",
+        "title": "Baths and Bathing in Ancient Rome",
+        "url": "https://www.oxfordbibliographies.com/view/document/obo-9780195329911/obo-9780195329911-0177.xml",
+        "type": "academic"
+      },
+      {
+        "source_id": "S5",
+        "title": "Gender and the Roman Bath: From the Archaeology of the Bathhouse to the Literary Topos of Bathing Women",
+        "url": "https://www.jstor.org/stable/j.ctt7zrs8p.10",
+        "type": "academic"
+      },
+      {
+        "source_id": "S6",
+        "title": "Graffiti and the Literary Culture of Ancient Rome",
+        "url": "https://books.google.com/books?id=019XDgAAQBAJ",
+        "type": "academic"
+      },
+      {
+        "source_id": "S7",
+        "title": "Reading Roman Graffiti",
+        "url": "https://www.cambridge.org/core/books/reading-roman-graffiti/BA652D1265B5406C6A0353A04D2D687A",
+        "type": "academic"
+      },
+      {
+        "source_id": "S8",
+        "title": "Seneca: Epistles 56",
+        "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0020%3Abook%3D7%3Aepistle%3D56",
+        "type": "academic"
+      },
+      {
+        "source_id": "S9",
+        "title": "Martial: Epigrams, Book 12, Epigram 82",
+        "url": "https://www.perseus.tufts.edu/hopper/text?doc=Perseus%3Atext%3A1999.02.0083%3Abook%3D12%3Aepigram%3D82",
+        "type": "academic"
+      }
+    ],
+    "research_confidence": 5
+  },
+  "validation": {
+    "topic_id": "c5d945a3",
+    "verified_claims": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6",
+      "F7",
+      "F8"
+    ],
+    "flagged_claims": [],
+    "overall_accuracy_score": 100,
+    "publishable": true,
+    "required_disclaimers": []
+  },
+  "script": {
+    "script_id": "romansocialbathhouse001",
+    "language": "en",
+    "segments": [
+      {
+        "segment_type": "Hook",
+        "start_pct": 0,
+        "end_pct": 5,
+        "text": "Imagine a place where an ancient empire conducted business, shared gossip, and even exercised daily. Welcome to the Roman bathhouse\u2014an ancient social network.",
+        "emotional_tone": "shocking",
+        "claim_ids": []
+      },
+      {
+        "segment_type": "Setup",
+        "start_pct": 5,
+        "end_pct": 25,
+        "text": "Far beyond simple hygiene, Roman bathhouses, or thermae, were bustling hubs, central to daily Roman life. Going to the baths was a ritual lasting hours, accessible to all social classes.",
+        "emotional_tone": "plain",
+        "claim_ids": [
+          "F1",
+          "F3",
+          "F4"
+        ]
+      },
+      {
+        "segment_type": "Escalation",
+        "start_pct": 25,
+        "end_pct": 67,
+        "text": "These complexes were vibrant centers for much more than just bathing. Romans exercised, dined, and conducted business here. The very structure of bathhouses included libraries, lecture halls, and gardens, fostering intellectual and social exchange.",
+        "emotional_tone": "vivid",
+        "claim_ids": [
+          "F2",
+          "F6"
+        ]
+      },
+      {
+        "segment_type": "Twist",
+        "start_pct": 67,
+        "end_pct": 92,
+        "text": "But the true 'social media' aspect came from inscriptions and graffiti found within. These provided direct evidence of personal messages, gossip, and public notices\u2014the literal tweets and posts of the Roman world, strengthening political and social networks.",
+        "emotional_tone": "surprising",
+        "claim_ids": [
+          "F5",
+          "F8"
+        ]
+      },
+      {
+        "segment_type": "Payoff",
+        "start_pct": 92,
+        "end_pct": 100,
+        "text": "Roman satirists even recount the diverse and boisterous social life. So, the next time you think of social networking, remember the Romans were doing it millennia ago, one bath at a time. Follow for more ancient insights!",
+        "emotional_tone": "punchy",
+        "claim_ids": [
+          "F7"
+        ]
+      }
+    ],
+    "total_word_count": 156,
+    "estimated_duration_sec": 62
+  },
+  "storyboard": {
+    "storyboard_id": "romansocialbathhouse001_storyboard",
+    "scenes": [
+      {
+        "scene_id": "romansocialbathhouse001_scene_01",
+        "segment_type": "Hook",
+        "duration_sec": 10,
+        "shot_description": "Pan across a bustling, grand Roman bathhouse interior, steam rising, diverse people in togas chatting and moving.",
+        "camera": "Panoramic sweep",
+        "characters": [
+          "Roman citizens",
+          "Slaves"
+        ],
+        "setting": "Grand Roman bathhouse (thermae) interior",
+        "mood": "Lively, awe-inspiring",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "romansocialbathhouse001_scene_02",
+        "segment_type": "Setup",
+        "duration_sec": 15,
+        "shot_description": "Medium shot of various social classes (wealthy in fine togas, plebians in simpler tunics) mingling and bathing in a communal pool.",
+        "camera": "Dolly in slightly",
+        "characters": [
+          "Wealthy Romans",
+          "Plebians",
+          "Children"
+        ],
+        "setting": "Communal pool area of a Roman bathhouse",
+        "mood": "Inclusive, active",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "romansocialbathhouse001_scene_03",
+        "segment_type": "Escalation",
+        "duration_sec": 15,
+        "shot_description": "Montage: Romans exercising in a palaestra, dining in an atrium, and reading scrolls in a library within the bath complex.",
+        "camera": "Quick cuts, handheld feel for exercise, static for library",
+        "characters": [
+          "Roman athletes",
+          "Diners",
+          "Scholars"
+        ],
+        "setting": "Palaestra, Atrium, Library within a Roman bath complex",
+        "mood": "Dynamic, intellectual",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "romansocialbathhouse001_scene_04",
+        "segment_type": "Twist",
+        "duration_sec": 15,
+        "shot_description": "Close-up on ancient Roman graffiti and inscriptions on a bathhouse wall, highlighting recognizable symbols or short messages.",
+        "camera": "Slow zoom on inscriptions",
+        "characters": [],
+        "setting": "Stone wall inside a Roman bathhouse",
+        "mood": "Intriguing, revealing",
+        "on_screen_text": "\"Literal Tweets & Posts\""
+      },
+      {
+        "scene_id": "romansocialbathhouse001_scene_05",
+        "segment_type": "Payoff",
+        "duration_sec": 10,
+        "shot_description": "A Roman satirist-type character in a toga, gesturing dramatically while observing the lively bathhouse scene.",
+        "camera": "Tracking shot following the satirist",
+        "characters": [
+          "Roman satirist",
+          "Bystanders"
+        ],
+        "setting": "Vibrant bathhouse courtyard",
+        "mood": "Humorous, reflective",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "romansocialbathhouse001_scene_06",
+        "segment_type": "Closing",
+        "duration_sec": 10,
+        "shot_description": "Overhead shot of the entire sprawling Roman bathhouse complex, showing its scale and various sections, with the sun setting.",
+        "camera": "Drone shot, slowly pulling up and out",
+        "characters": [],
+        "setting": "Exterior of a grand Roman bathhouse complex",
+        "mood": "Grand, conclusive",
+        "on_screen_text": "Follow for more ancient insights!"
+      }
+    ]
+  },
+  "visual_prompts": [
+    {
+      "scene_id": "romansocialbathhouse001_scene_01",
+      "prompt": "Pan across a bustling, grand Roman bathhouse interior, steam rising, diverse people in togas chatting and moving, Panoramic sweep, photoreal_cinematic style, Grand Roman bathhouse (thermae) interior, mood: Lively, awe-inspiring. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_02",
+      "prompt": "Medium shot of various social classes (wealthy in fine togas, plebians in simpler tunics) mingling and bathing in a communal pool, Dolly in slightly, photoreal_cinematic style, Communal pool area of a Roman bathhouse, mood: Inclusive, active. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_03",
+      "prompt": "Montage: Romans exercising in a palaestra, dining in an atrium, and reading scrolls in a library within the bath complex, Quick cuts, handheld feel for exercise, static for library, photoreal_cinematic style, Palaestra, Atrium, Library within a Roman bath complex, mood: Dynamic, intellectual. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_04",
+      "prompt": "Close-up on ancient Roman graffiti and inscriptions on a bathhouse wall, highlighting recognizable symbols or short messages, Slow zoom on inscriptions, photoreal_cinematic style, Stone wall inside a Roman bathhouse, mood: Intriguing, revealing. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_05",
+      "prompt": "A Roman satirist-type character in a toga, gesturing dramatically while observing the lively bathhouse scene, Tracking shot following the satirist, photoreal_cinematic style, Vibrant bathhouse courtyard, mood: Humorous, reflective. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_06",
+      "prompt": "Overhead shot of the entire sprawling Roman bathhouse complex, showing its scale and various sections, with the sun setting, Drone shot, slowly pulling up and out, photoreal_cinematic style, Exterior of a grand Roman bathhouse complex, mood: Grand, conclusive. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    }
+  ],
+  "render_estimate": {
+    "video_clip_count": 2,
+    "static_image_count": 4,
+    "credits_video": 15.0,
+    "credits_image": 2.0,
+    "credits_total": 17.0,
+    "credits_needed": 17.0,
+    "credits_balance": -1
+  },
+  "render_jobs": [
+    {
+      "scene_id": "romansocialbathhouse001_scene_01",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "5389e4f5-f301-436f-b700-5ea07556494a",
+      "status": "submitted",
+      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_02",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": "2a7ae715-46ba-446b-b6d1-7dac39d2d86a",
+      "status": "submitted",
+      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_03",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": "8ca06e6e-fc70-4ff2-9533-337e593c2588",
+      "status": "submitted",
+      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_04",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": "d0cde3ca-77c4-4afe-9311-28c63291180e",
+      "status": "submitted",
+      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_05",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "ea211da3-9ef6-4044-a40d-dd446452f403",
+      "status": "submitted",
+      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_06",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": "c3778458-de7b-4499-9a42-069b592447c9",
+      "status": "submitted",
+      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+    }
+  ],
+  "render_status": "rendering",
+  "thumbnail_concepts": [
+    {
+      "prompt": "A close-up, dramatic shot of a prominent Roman citizen (or an actor portraying one) with a thoughtful, almost conspiratorial smirk, partially obscured by rising steam in a luxurious bathhouse. His eyes are wide, directly engaging the viewer. In the background, other blurred figures are seen chatting. High contrast lighting emphasizes his face against the steamy backdrop.",
+      "overlay_text": "Ancient TikTok?",
+      "rationale": "This concept uses a bold focal subject (the Roman citizen's face) and high contrast. The 'conspiratorial smirk' and direct eye contact create a curiosity gap. 'Ancient TikTok?' is a short, punchy overlay that relates to the hook and modern social media, creating immediate intrigue."
+    },
+    {
+      "prompt": "A dynamic, slightly low-angle shot looking up at the grand, vaulted ceiling of a Roman bathhouse, with beams of light cutting through thick steam. In the foreground, silhouetted against the light, are two Roman figures in animated discussion, their gestures exaggerated. The overall scene is bustling but focused on the interaction. Vibrant, warm lighting (golden hour effect) against the steam.",
+      "overlay_text": "Rome's Social Network",
+      "rationale": "This concept emphasizes the 'hub' aspect with a wide shot of the grandeur, but keeps two figures as a subtle focal point of interaction. High contrast is achieved through light cutting through steam. 'Rome's Social Network' is a clear, concise text overlay that directly addresses the topic and creates a curiosity gap by likening it to modern networks."
+    },
+    {
+      "prompt": "A dramatic, eye-level shot focused on a specific, ornate detail of a Roman bathhouse (e.g., a mosaic floor depicting conversation, or a carved pillar), but with blurred Roman figures in the background appearing to whisper or exchange glances. A single, focused ray of light illuminates the detail while the background remains slightly darker. The mood is mysterious and intriguing.",
+      "overlay_text": "Secret Roman Chats",
+      "rationale": "This concept uses an unexpected focal point (the architectural detail) to imply the activity, rather than directly showing it, fostering a curiosity gap. The blurred background figures reinforce the 'social hub' idea. High contrast lighting highlights the detail. 'Secret Roman Chats' is a short, intriguing overlay that hints at the private and public discussions that occurred."
+    }
+  ],
+  "publish_metadata": {
+    "title": "Uncover the Ancient Social Network: The Roman Bathhouse Exposed!",
+    "description": "Step back in time to the Roman Bathhouse! More than just a place to get clean, these thermae were bustling centers for business, gossip, politics, and even exercise. Discover how Romans socialized and conducted their daily lives in what was essentially an ancient social media hub. Don't miss out \u2013 like and subscribe for more fascinating historical insights!",
+    "tags": [
+      "Roman Bathhouse",
+      "Ancient Rome",
+      "Roman History",
+      "Social Network Ancient",
+      "Roman Culture",
+      "Thermae",
+      "Ancient Social Life",
+      "History Facts",
+      "Roman Daily Life",
+      "Ancient Civilization",
+      "History Channel",
+      "Archaeology",
+      "Historical Insights",
+      "Educational History",
+      "Ancient World"
+    ],
+    "hashtags": [
+      "#RomanBathhouse",
+      "#AncientRome",
+      "#RomanHistory",
+      "#SocialNetwork",
+      "#History",
+      "#AncientCivilization",
+      "#DidYouKnow",
+      "#RomanCulture",
+      "#Thermae",
+      "#HistoryFacts"
+    ]
+  },
+  "edl": [
+    {
+      "scene_id": "romansocialbathhouse001_scene_01",
+      "start": 0,
+      "end": 10,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_02",
+      "start": 10,
+      "end": 25,
+      "transition_in": "cross_dissolve",
+      "transition_out": "cut",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_03",
+      "start": 25,
+      "end": 40,
+      "transition_in": "cut",
+      "transition_out": "cut",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_04",
+      "start": 40,
+      "end": 55,
+      "transition_in": "zoom_in",
+      "transition_out": "fade",
+      "overlay_text": "Literal Tweets & Posts",
+      "overlay_start": 42
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_05",
+      "start": 55,
+      "end": 65,
+      "transition_in": "cross_dissolve",
+      "transition_out": "fade",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "romansocialbathhouse001_scene_06",
+      "start": 65,
+      "end": 75,
+      "transition_in": "fade",
+      "transition_out": "cut",
+      "overlay_text": "Follow for more ancient insights!",
+      "overlay_start": 70
+    }
+  ],
+  "errors": [],
+  "stage_completed": [
+    "topic_hunter",
+    "historian",
+    "director",
+    "editor"
+  ]
+}

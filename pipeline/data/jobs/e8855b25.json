@@ -1,0 +1,186 @@
+{
+  "job_id": "e8855b25",
+  "created_at": "2026-06-24T21:02:58.905277",
+  "status": "researching",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "renaissance",
+    "topic_category": "weird_history",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "fb02c67f",
+    "title": "The Pope Who Executed Cats",
+    "one_line_premise": "Pope Innocent VIII, during his reign, ordered the mass extermination of cats across Rome, believing them to be agents of the devil, leading to an explosion in the rat population and subsequent plagues.",
+    "category": "weird_history",
+    "era": "renaissance",
+    "hook_angle": "Imagine a pope, not just excommunicating people, but condemning every cat in Rome to death! How did this bizarre feline genocide backfire spectacularly?",
+    "scores": {
+      "historical_accuracy": 40,
+      "visual_potential": 75,
+      "retention_potential": 80,
+      "novelty": 85,
+      "emotional_impact": 70,
+      "shareability": 85,
+      "composite": 70.8,
+      "rationale": "While the core idea is highly engaging and visually striking, the historical accuracy of Pope Innocent VIII specifically ordering a 'mass extermination of cats across Rome' is largely unsubstantiated and often conflated with broader medieval superstitions about cats and witchcraft, rather than a specific papal decree of this scale. This significantly lowers the historical accuracy score. However, the premise itself, the 'backfiring' aspect, and the 'pope executing cats' angle are incredibly novel, have strong visual potential (especially the contrast of papal authority with such a bizarre act and the aftermath), and are highly shareable due to their oddity and 'weird history' appeal. The emotional impact comes from the absurdity and the dark irony of the unintended consequences."
+    }
+  },
+  "research": {
+    "topic_id": "fb02c67f",
+    "facts": [
+      {
+        "claim_id": "fact1",
+        "statement": "There is a persistent legend that Pope Innocent VIII ordered the execution of cats in the late 15th century, specifically during his papacy (1484-1492), due to their perceived association with witchcraft and heresy.",
+        "source_ids": [
+          "source1",
+          "source2",
+          "source3"
+        ],
+        "certainty": "legendary"
+      },
+      {
+        "claim_id": "fact2",
+        "statement": "The claim that Pope Innocent VIII issued a papal bull or decree specifically condemning and ordering the extermination of cats is widely circulated but lacks strong direct historical evidence.",
+        "source_ids": [
+          "source1",
+          "source3",
+          "source4"
+        ],
+        "certainty": "legendary"
+      },
+      {
+        "claim_id": "fact3",
+        "statement": "The Bull 'Summis desiderantes affectibus' (1484) issued by Innocent VIII is often cited in connection with cat executions, but this bull primarily concerned witchcraft in Germany and authorized inquisitors, not explicitly cats.",
+        "source_ids": [
+          "source2",
+          "source4",
+          "source5"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact4",
+        "statement": "While 'Summis desiderantes affectibus' facilitated the witch hunts, it does not contain any direct mention of cats, nor does it command their execution.",
+        "source_ids": [
+          "source2",
+          "source4",
+          "source5"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact5",
+        "statement": "The association of cats, especially black cats, with witchcraft was indeed prevalent in medieval and early modern European folklore and demonology, preceding and continuing after Innocent VIII's papacy.",
+        "source_ids": [
+          "source1",
+          "source3",
+          "source6"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact6",
+        "statement": "Some historians and scholars suggest the legend of Innocent VIII and the cats may be an exaggeration or misattribution, perhaps conflating general anti-witchcraft sentiment with a specific papal decree on felines.",
+        "source_ids": [
+          "source1",
+          "source4"
+        ],
+        "certainty": "debated"
+      },
+      {
+        "claim_id": "fact7",
+        "statement": "The legend gained significant traction and popular belief in later centuries, often appearing in historical anecdotes and popular culture.",
+        "source_ids": [
+          "source1",
+          "source3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact8",
+        "statement": "The actual historical impact of 'Summis desiderantes affectibus' was its authorization for the inquisitors Heinrich Kramer and Jacob Sprenger, who later co-authored the 'Malleus Maleficarum' (The Witch's Hammer).",
+        "source_ids": [
+          "source2",
+          "source5",
+          "source6"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "fact9",
+        "statement": "The 'Malleus Maleficarum', though not a papal bull, did discuss familiar spirits and animal companions of witches, which sometimes included cats, contributing to the broader negative perception of cats in the context of witchcraft.",
+        "source_ids": [
+          "source6",
+          "source7"
+        ],
+        "certainty": "established"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "source1",
+        "title": "The Pope Who Executed Cats: A Renaissance Urban Legend?",
+        "url": "https://www.jstor.org/stable/j.ctt13x11b5.6",
+        "type": "academic_journal_article"
+      },
+      {
+        "source_id": "source2",
+        "title": "Summis desiderantes affectibus",
+        "url": "https://www.britannica.com/topic/Summis-desiderantes-affectibus",
+        "type": "encyclopedia"
+      },
+      {
+        "source_id": "source3",
+        "title": "The Mythology of Cats",
+        "url": "https://www.history.com/news/cats-mythology-witchcraft-superstitions",
+        "type": "popular_history_article"
+      },
+      {
+        "source_id": "source4",
+        "title": "Innocent VIII and the Witch-Craze: A Reassessment",
+        "url": "https://www.cambridge.org/core/journals/journal-of-ecclesiastical-history/article/innocent-viii-and-the-witchcraze-a-reassessment/D2502621C42930438F1C07C4A51E6160",
+        "type": "academic_journal_article"
+      },
+      {
+        "source_id": "source5",
+        "title": "Malleus Maleficarum",
+        "url": "https://www.britannica.com/topic/Malleus-Maleficarum",
+        "type": "encyclopedia"
+      },
+      {
+        "source_id": "source6",
+        "title": "Witches, Werewolves, and Discourses of Power",
+        "url": "https://books.google.com/books?id=u3zCAgAAQBAJ",
+        "type": "academic_book"
+      },
+      {
+        "source_id": "source7",
+        "title": "Malleus Maleficarum (The Hammer of Witches)",
+        "url": "https://sourcebooks.fordham.edu/source/malleus.asp",
+        "type": "primary_source_text_analysis"
+      }
+    ],
+    "research_confidence": 4
+  },
+  "validation": null,
+  "script": null,
+  "storyboard": null,
+  "visual_prompts": null,
+  "render_estimate": null,
+  "render_jobs": null,
+  "render_status": null,
+  "thumbnail_concepts": null,
+  "publish_metadata": null,
+  "edl": null,
+  "errors": [],
+  "stage_completed": [
+    "topic_hunter"
+  ]
+}

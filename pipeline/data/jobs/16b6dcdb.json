@@ -1,7 +1,7 @@
 {
   "job_id": "16b6dcdb",
   "created_at": "2026-06-24T17:13:46.056511",
-  "status": "render_ready",
+  "status": "completed",
   "config": {
     "video_length_sec": 60,
     "narration_speed": "normal",
@@ -374,14 +374,118 @@
       "model": "soul_2"
     }
   ],
-  "thumbnail_concepts": null,
-  "publish_metadata": null,
-  "edl": null,
+  "thumbnail_concepts": [
+    {
+      "prompt": "A highly stylized, bold close-up of a Viking warrior's profile, helmeted and grim, with his gaze fixed to the right. Behind him, subtly blurred but distinctly visible, is a vibrant, golden-domed cityscape reminiscent of ancient Baghdad, under a dramatic, high-contrast sky. A faint, almost glowing, dotted line originates near the Viking's shoulder and stretches towards the city. The overall color palette should be dark and moody in the foreground, transitioning to warm and inviting in the background, with a strong emphasis on the focal Viking figure.",
+      "overlay_text": "VIKINGS IN BAGHDAD?",
+      "rationale": "This concept creates immediate intrigue by placing two seemingly disparate elements (Viking and Baghdad) together. The bold Viking figure provides a clear focal point, while the distant, yet recognizable, Baghdad sparks curiosity. High contrast ensures readability and visual punch, and the '?' in the text directly addresses the hook angle and curiosity gap."
+    },
+    {
+      "prompt": "From a low angle, a powerful Viking longship, with its distinctive dragon prow, dominates the foreground, cutting through dark, choppy waters. The sky above is split \u2013 one half stormy and northern, the other half clear and bathed in a golden desert light. In the background, slightly elevated and shimmering under the golden light, is a detailed silhouette of an ancient city with distinct Islamic architecture (domes, minarets). A single, prominent silk-like banner or sail on the longship subtly reflects the golden light from the distant city. Emphasize high contrast between the dark ship and the bright city.",
+      "overlay_text": "NORSE SILK ROAD",
+      "rationale": "This concept uses the longship as a dynamic subject, visually representing the 'journey' aspect. The split sky and contrasting lighting powerfully illustrate the vast geographical and cultural bridge. 'Norse Silk Road' is a concise, intriguing text that directly references the core topic while leaving enough unsaid to invite a click."
+    },
+    {
+      "prompt": "A dramatic, high-contrast composite shot: the lower half features a detailed, antique-looking map section highlighting Eastern Europe and the Middle East, with a thick, red, stylized 'trade route' line snaking from the Caspian Sea towards Baghdad. Overlaid on the upper half, almost like a separate window but integrated, is an extreme close-up of an intricate, ancient silver Viking arm-ring or brooch, upon which a tiny, almost microscopic, piece of shimmering silk fabric is delicately placed. The lighting should emphasize the texture of both the metal and the silk. The overall mood should be mysterious and rich.",
+      "overlay_text": "VIKING TRADE SECRETS",
+      "rationale": "This concept focuses on the 'trade' and 'discovery' elements. The map grounds the journey, while the close-up of the Viking artifact with silk provides a tangible, fascinating detail that immediately links Vikings to exotic goods. 'Viking Trade Secrets' builds a strong curiosity gap around the 'how' and 'what' of this forgotten connection."
+    }
+  ],
+  "publish_metadata": {
+    "title": "Vikings in Baghdad?! \ud83e\udd2f The Norse 'Silk Road' You NEVER Knew!",
+    "description": "Did Vikings trade furs & slaves for silver & silk all the way to the Abbasid Caliphate? Uncover the incredible 'Volga Trade Route' that connected fierce Norsemen to the heart of Baghdad! See the evidence they left behind. Learn more about this fascinating history!",
+    "tags": [
+      "Vikings",
+      "Baghdad",
+      "Viking History",
+      "Silk Road",
+      "Abbasid Caliphate",
+      "Norsemen",
+      "Viking Traders",
+      "Volga Trade Route",
+      "Eastern Way",
+      "Medieval History",
+      "Historical Discoveries",
+      "Archaeology",
+      "Ancient Trade",
+      "Runestones",
+      "Arabic Coins"
+    ],
+    "hashtags": [
+      "#Vikings",
+      "#VikingHistory",
+      "#Baghdad",
+      "#SilkRoad",
+      "#Norsemen",
+      "#MedievalHistory",
+      "#HistoryFacts",
+      "#AncientCivilizations",
+      "#YouTubeShorts",
+      "#Historical"
+    ]
+  },
+  "edl": [
+    {
+      "scene_id": "scene_1",
+      "start": 0,
+      "end": 10,
+      "transition_in": "cut",
+      "transition_out": "cross_dissolve",
+      "overlay_text": "Vikings to Baghdad?",
+      "overlay_start": 2
+    },
+    {
+      "scene_id": "scene_2",
+      "start": 10,
+      "end": 20,
+      "transition_in": "cross_dissolve",
+      "transition_out": "fade",
+      "overlay_text": "The Eastern Way: 8th-11th Centuries",
+      "overlay_start": 11
+    },
+    {
+      "scene_id": "scene_3",
+      "start": 20,
+      "end": 35,
+      "transition_in": "fade",
+      "transition_out": "cut",
+      "overlay_text": "Silver Dirhams & Silk from the East",
+      "overlay_start": 22
+    },
+    {
+      "scene_id": "scene_4",
+      "start": 35,
+      "end": 47,
+      "transition_in": "cut",
+      "transition_out": "cross_dissolve",
+      "overlay_text": "Ibn Fadlan's Accounts",
+      "overlay_start": 37
+    },
+    {
+      "scene_id": "scene_5",
+      "start": 47,
+      "end": 57,
+      "transition_in": "cross_dissolve",
+      "transition_out": "cut",
+      "overlay_text": "The Viking 'Silk Road'",
+      "overlay_start": 49
+    },
+    {
+      "scene_id": "scene_6",
+      "start": 57,
+      "end": 62,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": "Follow for more incredible journeys from history!",
+      "overlay_start": 58
+    }
+  ],
   "errors": [],
   "stage_completed": [
     "topic_hunter",
     "historian",
-    "director"
+    "director",
+    "editor"
   ],
   "render_estimate": {
     "video_clip_count": 3,
@@ -389,5 +493,56 @@
     "credits_video": 22.5,
     "credits_image": 1.5,
     "credits_total": 24.0
-  }
+  },
+  "render_jobs": [
+    {
+      "scene_id": "scene_1",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "abf78e82-7dfa-4a46-b51c-e5a96a59c02c",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_203746_abf78e82-7dfa-4a46-b51c-e5a96a59c02c.mp4"
+    },
+    {
+      "scene_id": "scene_2",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "82351875-e366-47a7-a6bf-baeedb82905d",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_203753_82351875-e366-47a7-a6bf-baeedb82905d.mp4"
+    },
+    {
+      "scene_id": "scene_3",
+      "render_type": "static_image",
+      "model": "cinematic_studio_2_5",
+      "higgsfield_job_id": "becca6b8-90d6-4c98-a616-8dfd8b8d0579",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_204542_becca6b8-90d6-4c98-a616-8dfd8b8d0579.png"
+    },
+    {
+      "scene_id": "scene_4",
+      "render_type": "static_image",
+      "model": "cinematic_studio_2_5",
+      "higgsfield_job_id": "741908b4-1e5f-4ffe-b290-49c8c1ff040a",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_204546_741908b4-1e5f-4ffe-b290-49c8c1ff040a.png"
+    },
+    {
+      "scene_id": "scene_5",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "e57e0b6d-8d7b-4aec-8ccf-8ce23477c602",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_204534_e57e0b6d-8d7b-4aec-8ccf-8ce23477c602.mp4"
+    },
+    {
+      "scene_id": "scene_6",
+      "render_type": "static_image",
+      "model": "cinematic_studio_2_5",
+      "higgsfield_job_id": "79c63dec-dda2-4e29-80c4-dd0533d20bdf",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_204551_79c63dec-dda2-4e29-80c4-dd0533d20bdf.png"
+    }
+  ],
+  "render_status": "completed"
 }

@@ -1,0 +1,195 @@
+{
+  "job_id": "ec55d45d",
+  "created_at": "2026-06-24T21:09:10.272093",
+  "status": "researching",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "16th Century",
+    "topic_category": "historical_disasters",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "fb644994",
+    "title": "The London Bridge Fire of 1561",
+    "one_line_premise": "A catastrophic fire ripped through the houses built directly on London Bridge, creating a fiery inferno over the Thames that threatened to destroy the entire structure.",
+    "category": "historical_disasters",
+    "era": "16th Century",
+    "hook_angle": "Imagine living ON a bridge, then watching your entire world go up in flames, high above a river! London Bridge wasn't just a crossing; it was a deadly, burning neighborhood.",
+    "scores": {
+      "historical_accuracy": 75,
+      "visual_potential": 80,
+      "retention_potential": 70,
+      "novelty": 65,
+      "emotional_impact": 75,
+      "shareability": 68,
+      "composite": 72.8,
+      "rationale": "The topic of the London Bridge Fire of 1561 has good historical accuracy potential as it's a documented event. Visual potential is strong due to the dramatic imagery of houses burning on a bridge over a river. Retention potential is fair; while a fire is engaging, it might not be unique enough to hold all short-form viewers without exceptional execution. Novelty is moderate; while not as famous as the Great Fire of London, many are aware of houses on London Bridge. Emotional impact is decent, evoking the horror of a home burning above a river. Shareability is also fair, likely to be shared by history enthusiasts but perhaps not universally viral without a unique angle."
+    }
+  },
+  "research": {
+    "topic_id": "fb644994",
+    "facts": [
+      {
+        "claim_id": "F1",
+        "statement": "The London Bridge Fire of 1561 occurred on July 10, 1561.",
+        "source_ids": [
+          "S1",
+          "S2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F2",
+        "statement": "The fire started in the house of a draper named Nicholas Sherington, near the northern end of London Bridge.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F3",
+        "statement": "The cause of the fire was attributed to a pan of coals left unattended.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F4",
+        "statement": "The fire spread quickly, destroying several houses built upon the bridge.",
+        "source_ids": [
+          "S1",
+          "S2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F5",
+        "statement": "Around 20 houses were consumed by the blaze.",
+        "source_ids": [
+          "S1",
+          "S3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F6",
+        "statement": "The damage was significant enough to necessitate major repairs and rebuilding on the bridge.",
+        "source_ids": [
+          "S2",
+          "S3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F7",
+        "statement": "Queen Elizabeth I contributed 1000 marks towards the rebuilding efforts.",
+        "source_ids": [
+          "S3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F8",
+        "statement": "The rebuilding after the 1561 fire was overseen by Sir William Hewett, Lord Mayor of London.",
+        "source_ids": [
+          "S4"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "F9",
+        "statement": "The fire highlighted the inherent risks of having closely packed wooden structures on the bridge.",
+        "source_ids": [
+          "S2"
+        ],
+        "certainty": "established"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "S1",
+        "title": "A Survey of London. Reprinted from the original edition of 1603",
+        "url": "https://www.gutenberg.org/files/54021/54021-h/54021-h.htm#Page_29",
+        "type": "academic"
+      },
+      {
+        "source_id": "S2",
+        "title": "Old London Bridge - A History",
+        "url": "https://www.londonbridge.com/old-london-bridge",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "S3",
+        "title": "London Bridge",
+        "url": "https://www.britannica.com/topic/London-Bridge",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "S4",
+        "title": "A Dictionary of London",
+        "url": "https://www.gutenberg.org/files/65203/65203-h/65203-h.htm#ch13",
+        "type": "academic"
+      }
+    ],
+    "research_confidence": 5
+  },
+  "validation": {
+    "topic_id": "fb644994",
+    "verified_claims": [
+      "F1",
+      "F2",
+      "F3",
+      "F4",
+      "F5",
+      "F6"
+    ],
+    "flagged_claims": [
+      {
+        "claim_id": "F7",
+        "reason": "This claim is sourced only from a single low-quality source ('britannica.com'). While Britannica is generally reliable, for a specific historical financial contribution, a more direct primary or academic source with corroboration would strengthen its certainty."
+      },
+      {
+        "claim_id": "F8",
+        "reason": "This claim is sourced only from a single low-quality source ('gutenberg.org/files/65203/65203-h/65203-h.htm#ch13'). While Project Gutenberg hosts public domain academic works, the specific URL points to 'A Dictionary of London', which might not be a definitive source for overseeing rebuilding efforts, and lacks corroboration."
+      },
+      {
+        "claim_id": "F9",
+        "reason": "This claim is sourced only from a single low-quality source ('londonbridge.com/old-london-bridge'). 'londonbridge.com' is an encyclopedic source, which is generally not considered high-quality for historical assertions without corroboration from more academic sources. While the statement itself is a logical conclusion, its direct attribution and certainty are weakened by the sole source."
+      }
+    ],
+    "overall_accuracy_score": 70,
+    "publishable": false,
+    "required_disclaimers": [
+      "Claims regarding Queen Elizabeth I's contribution (F7), the oversight of rebuilding (F8), and the highlighted risks (F9) are based on single sources that could benefit from further corroboration or more direct academic referencing to increase their certainty."
+    ]
+  },
+  "script": null,
+  "storyboard": null,
+  "visual_prompts": null,
+  "render_estimate": null,
+  "render_jobs": null,
+  "render_status": null,
+  "thumbnail_concepts": null,
+  "publish_metadata": null,
+  "edl": null,
+  "errors": [
+    {
+      "stage": "validation",
+      "error": "publishable=false \u2014 accuracy score 70",
+      "timestamp": "2026-06-24T21:10:48.602854",
+      "retry_count": 0
+    }
+  ],
+  "stage_completed": [
+    "topic_hunter"
+  ]
+}

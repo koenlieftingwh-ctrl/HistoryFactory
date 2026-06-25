@@ -806,6 +806,44 @@ function renderJobState() {
       </div>`;
   }
 
+  // Render results card
+  const renderJobs = j.render_jobs || [];
+  if (renderJobs.length > 0) {
+    const doneCount = renderJobs.filter(r => r.status === 'done').length;
+    const statusColor = j.render_status === 'completed' ? 'var(--green)' : 'var(--gold)';
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>🎥 Renders</h3>
+          <span style="color:${statusColor};font-size:0.7rem">${doneCount}/${renderJobs.length} done</span>
+        </div>
+        <div class="section-card-body">
+          ${renderJobs.map(r => {
+            const badge = r.render_type === 'video_clip'
+              ? '<span class="badge badge-video">Video</span>'
+              : '<span class="badge badge-static">Image</span>';
+            const statusDot = r.status === 'done' ? '🟢' : r.status === 'failed' ? '🔴' : '🟡';
+            const preview = r.result_url
+              ? (r.render_type === 'video_clip'
+                  ? `<video src="${r.result_url}" controls muted playsinline style="width:100%;border-radius:6px;margin-top:6px;max-height:200px"></video>`
+                  : `<img src="${r.result_url}" style="width:100%;border-radius:6px;margin-top:6px" />`)
+              : '';
+            return `
+              <div style="margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border)">
+                <div style="display:flex;align-items:center;gap:6px">
+                  ${statusDot} ${badge}
+                  <span style="font-size:0.72rem;color:var(--muted)">${r.scene_id} · ${r.model || ''}</span>
+                </div>
+                ${preview}
+                ${r.result_url && !preview.includes('<video') ? '' : ''}
+                ${r.status === 'failed' ? `<div style="color:var(--red);font-size:0.68rem;margin-top:4px">${r.error || 'Failed'}</div>` : ''}
+              </div>`;
+          }).join('')}
+          ${j.render_status !== 'completed' ? `<button onclick="pollRenderStatus()" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text);font-size:0.72rem;cursor:pointer">↻ Refresh Status</button>` : ''}
+        </div>
+      </div>`;
+  }
+
   // Thumbnails card
   if (thumbs) {
     html += `
@@ -849,6 +887,16 @@ function toggle(head) {
 }
 
 // ─── Render ──────────────────────────────────────────────────────
+
+async function pollRenderStatus() {
+  if (!currentJob) return;
+  try {
+    const res = await fetch(API + `/jobs/${currentJob.job_id}/render-status`);
+    if (!res.ok) return;
+    currentJob = await res.json();
+    renderJobState();
+  } catch (e) { /* ignore */ }
+}
 
 async function renderAll() {
   if (!currentJob) return;

@@ -35,9 +35,13 @@ DEFAULT_RESOLUTION = "720p"
 def _api_key() -> str:
     key = os.environ.get("HIGGSFIELD_API_KEY", "")
     if not key:
-        raise RuntimeError(
-            "HIGGSFIELD_API_KEY not set — add it to pipeline/.env"
-        )
+        # Re-read .env in case it was updated after server start
+        from dotenv import load_dotenv
+        from pathlib import Path
+        load_dotenv(Path(__file__).parent.parent.parent / ".env", override=True)
+        key = os.environ.get("HIGGSFIELD_API_KEY", "")
+    if not key:
+        raise RuntimeError("HIGGSFIELD_API_KEY not set — add it to pipeline/.env")
     return key
 
 
