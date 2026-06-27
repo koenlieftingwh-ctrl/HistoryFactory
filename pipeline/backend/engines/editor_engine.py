@@ -1,6 +1,7 @@
 """Stage 8 — Visual Prompts, Stage 13 — EDL, Stage 14 — Thumbnails, Stage 15 — Metadata."""
 import json
 from engines.claude_client import generate
+from job_store import add_llm_cost
 
 PLATFORM_ASPECT = {
     "youtube_shorts": "9:16",
@@ -102,7 +103,8 @@ def generate_visual_prompts(job: dict) -> dict:
         '"aspect_ratio": string, "reference_ids": []}]}'
     )
 
-    raw = generate(system, "Generate visual prompts now.", max_tokens=4000)
+    raw, usage = generate(system, "Generate visual prompts now.", max_tokens=4000)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     prompts = data.get("visual_prompts", [])
 
@@ -112,6 +114,7 @@ def generate_visual_prompts(job: dict) -> dict:
     # Attach credit estimate to the job for the UI
     job["visual_prompts"] = prompts
     job["render_estimate"] = estimate_render_credits(prompts)
+    job.setdefault("cost_tracking", {})["render_credits_estimated"] = job["render_estimate"]["credits_total"]
     return job
 
 
@@ -133,7 +136,8 @@ def generate_edl(job: dict) -> dict:
         '"overlay_text": string|null, "overlay_start": number|null}]}'
     )
 
-    raw = generate(system, "Generate the EDL now.", max_tokens=2000)
+    raw, usage = generate(system, "Generate the EDL now.", max_tokens=2000)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     job["edl"] = data.get("edl", [])
     return job
@@ -153,7 +157,8 @@ def generate_thumbnail_concepts(job: dict) -> dict:
         '{"concepts": [{"prompt": string, "overlay_text": string, "rationale": string}]}'
     )
 
-    raw = generate(system, "Generate thumbnail concepts now.", max_tokens=1000)
+    raw, usage = generate(system, "Generate thumbnail concepts now.", max_tokens=1000)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     job["thumbnail_concepts"] = data.get("concepts", [])
     return job
@@ -179,7 +184,8 @@ def generate_metadata(job: dict) -> dict:
         '"tags": [string] (8-15 tags), "hashtags": [string] (platform-appropriate)}'
     )
 
-    raw = generate(system, "Generate metadata now.", max_tokens=800)
+    raw, usage = generate(system, "Generate metadata now.", max_tokens=800)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     job["publish_metadata"] = data
     return job

@@ -37,6 +37,14 @@ def create_job(topic: dict, config: dict) -> dict:
         "edl": None,
         "errors": [],
         "stage_completed": [],
+        "cost_tracking": {
+            "llm_calls": 0,
+            "input_tokens": 0,
+            "output_tokens": 0,
+            "llm_cost_usd": 0.0,
+            "render_credits_estimated": 0.0,
+            "render_credits_used": 0.0,
+        },
     }
     _path(job["job_id"]).write_text(json.dumps(job, indent=2), encoding="utf-8")
     return job
@@ -89,6 +97,18 @@ def compute_status(stage_completed: list[str], render_status: Optional[str] = No
         "editor": "render_ready",
     }
     return next_map.get(last_done, "pending")
+
+
+def add_llm_cost(job: dict, usage: dict) -> None:
+    """Accumulate one LLM call's token usage into job["cost_tracking"]."""
+    ct = job.setdefault("cost_tracking", {
+        "llm_calls": 0, "input_tokens": 0, "output_tokens": 0,
+        "llm_cost_usd": 0.0, "render_credits_estimated": 0.0, "render_credits_used": 0.0,
+    })
+    ct["llm_calls"] = ct.get("llm_calls", 0) + 1
+    ct["input_tokens"] = ct.get("input_tokens", 0) + usage.get("input_tokens", 0)
+    ct["output_tokens"] = ct.get("output_tokens", 0) + usage.get("output_tokens", 0)
+    ct["llm_cost_usd"] = round(ct.get("llm_cost_usd", 0.0) + usage.get("cost_usd", 0.0), 6)
 
 
 def mark_stage_complete(job: dict, stage: str) -> dict:

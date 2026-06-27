@@ -2,7 +2,7 @@
 import json
 import uuid
 from engines.claude_client import generate
-from job_store import compute_status
+from job_store import compute_status, add_llm_cost
 
 WORDS_PER_SEC = {"slow": 2.2, "normal": 2.6, "fast": 3.0}
 
@@ -48,7 +48,8 @@ def generate_script(job: dict) -> dict:
         '"total_word_count": int, "estimated_duration_sec": number}'
     )
 
-    raw = generate(system, "Write the script now.", max_tokens=3000)
+    raw, usage = generate(system, "Write the script now.", max_tokens=3000)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     if not data.get("script_id"):
         data["script_id"] = str(uuid.uuid4())[:8]
@@ -81,7 +82,8 @@ def generate_storyboard(job: dict) -> dict:
         '"characters": [string], "setting": string, "mood": string, "on_screen_text": string|null}]}'
     )
 
-    raw = generate(system, "Generate the storyboard now.", max_tokens=4000)
+    raw, usage = generate(system, "Generate the storyboard now.", max_tokens=4000)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     if not data.get("storyboard_id"):
         data["storyboard_id"] = str(uuid.uuid4())[:8]

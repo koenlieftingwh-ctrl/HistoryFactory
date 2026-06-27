@@ -1,7 +1,7 @@
 """Stage 3 — Fact Research & Stage 4 — Fact Validation."""
 import json
 from engines.claude_client import generate
-from job_store import compute_status
+from job_store import compute_status, add_llm_cost
 
 
 def research_topic(job: dict) -> dict:
@@ -24,7 +24,8 @@ def research_topic(job: dict) -> dict:
         '"research_confidence": int}'
     )
 
-    raw = generate(system, f'Research: {topic["title"]}', max_tokens=3000)
+    raw, usage = generate(system, f'Research: {topic["title"]}', max_tokens=3000)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     data["topic_id"] = topic["topic_id"]
     for i, fact in enumerate(data.get("facts", [])):
@@ -56,7 +57,8 @@ def validate_research(job: dict) -> dict:
         '"required_disclaimers": [string]}'
     )
 
-    raw = generate(system, "Validate the research now.", max_tokens=1500)
+    raw, usage = generate(system, "Validate the research now.", max_tokens=1500)
+    add_llm_cost(job, usage)
     data = json.loads(raw)
     data["topic_id"] = job["topic"]["topic_id"]
 

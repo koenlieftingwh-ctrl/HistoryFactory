@@ -138,7 +138,9 @@ async def historian_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = historian_agent.build_system(job)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
+    reply_raw, _chat_usage = gemini_chat(system, list(req.history), req.message, max_tokens=512)
+    if job:
+        add_llm_cost(job, _chat_usage)
     reply, action = _extract_action(reply_raw)
 
     if action and job:
@@ -166,7 +168,9 @@ async def director_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = director_agent.build_system(job)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
+    reply_raw, _chat_usage = gemini_chat(system, list(req.history), req.message, max_tokens=512)
+    if job:
+        add_llm_cost(job, _chat_usage)
     reply, action = _extract_action(reply_raw)
 
     if action and job:
@@ -195,7 +199,9 @@ async def editor_chat(req: ChatRequest):
     job = get_job(req.job_id) if req.job_id else None
     system = editor_agent.build_system(job)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
+    reply_raw, _chat_usage = gemini_chat(system, list(req.history), req.message, max_tokens=512)
+    if job:
+        add_llm_cost(job, _chat_usage)
     reply, action = _extract_action(reply_raw)
 
     if action and job:

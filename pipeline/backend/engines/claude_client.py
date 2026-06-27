@@ -4,6 +4,10 @@ from google.genai import types
 
 MODEL = "gemini-2.5-flash"
 
+# Gemini 2.5 Flash non-thinking pricing (thinking_budget=0)
+_INPUT_COST_PER_M = 0.075   # USD per million input tokens
+_OUTPUT_COST_PER_M = 0.30   # USD per million output tokens
+
 _client: genai.Client | None = None
 
 
@@ -14,16 +18,16 @@ def get_client() -> genai.Client:
     return _client
 
 
-def _base_config(max_tokens: int, json_mode: bool) -> types.GenerateContentConfig:
-    return types.GenerateContentConfig(
-        max_output_tokens=max_tokens,
-        thinking_config=types.ThinkingConfig(thinking_budget=0),
-        **({"response_mime_type": "application/json"} if json_mode else {}),
-    )
+def _extract_usage(response) -> dict:
+    meta = getattr(response, "usage_metadata", None)
+    inp = int(getattr(meta, "prompt_token_count", 0) or 0)
+    out = int(getattr(meta, "candidates_token_count", 0) or 0)
+    cost = (inp * _INPUT_COST_PER_M + out * _OUTPUT_COST_PER_M) / 1_000_000
+    return {"input_tokens": inp, "output_tokens": out, "cost_usd": round(cost, 6)}
 
 
-def generate(system: str, user: str, max_tokens: int = 2048) -> str:
-    """Single-turn JSON generation."""
+def generate(system: str, user: str, max_tokens: int = 2048) -> tuple[str, dict]:
+    """Single-turn JSON generation. Returns (text, usage)."""
     response = get_client().models.generate_content(
         model=MODEL,
         contents=user,
@@ -34,11 +38,11 @@ def generate(system: str, user: str, max_tokens: int = 2048) -> str:
             response_mime_type="application/json",
         ),
     )
-    return response.text
+    return response.text, _extract_usage(response)
 
 
-def chat(system: str, history: list[dict], message: str, max_tokens: int = 1024) -> str:
-    """Multi-turn conversational chat."""
+def chat(system: str, history: list[dict], message: str, max_tokens: int = 1024) -> tuple[str, dict]:
+    """Multi-turn conversational chat. Returns (text, usage)."""
     gemini_history = []
     for m in history:
         role = "model" if m["role"] == "assistant" else "user"
@@ -54,4 +58,4 @@ def chat(system: str, history: list[dict], message: str, max_tokens: int = 1024)
         history=gemini_history,
     )
     response = session.send_message(message)
-    return response.text
+    return response.text, _extract_usage(response)
