@@ -26,7 +26,7 @@ from engines.editor_engine import (
     estimate_render_credits,
 )
 from engines.render_engine import submit_render_jobs, estimate_job_credits, get_balance
-from job_store import create_job, get_job, update_job, list_jobs, mark_stage_complete
+from job_store import create_job, get_job, update_job, list_jobs, mark_stage_complete, add_llm_cost
 import agents.topic_hunter as topic_hunter_agent
 import agents.historian as historian_agent
 import agents.director as director_agent
@@ -230,6 +230,81 @@ async def editor_chat(req: ChatRequest):
             update_job(job)
 
     return ChatResponse(reply=reply, job=job, action=action.get("type") if action else None)
+
+
+# ---------- Autorun ----------
+
+@app.post("/jobs/autorun")
+async def autorun_job(payload: dict):
+    """
+    Full pipeline in one call: generate topics → pick best → research →
+    validate → script → storyboard → visual prompts → EDL → thumbnails →
+    metadata. Returns the completed render_ready job.
+    """
+    category = payload.get("category", "weird_history")
+    era = payload.get("historical_era", "general")
+    batch_size = int(payload.get("batch_size", 5))
+    config_overrides = payload.get("config", {})
+
+    # 1. Generate and score topics
+    used_titles = _get_used_titles()
+    topics = generate_and_score(
+        category=category,
+        historical_era=era,
+        batch_size=batch_size,
+        video_length_sec=config_overrides.get("video_length_sec", 60),
+        previously_used_titles=used_titles,
+    )
+    if not topics:
+        raise HTTPException(status_code=500, detail="Topic generation produced no results")
+
+    best = max(topics, key=lambda t: t.get("scores", {}).get("composite", 0))
+
+    config = {
+        "video_length_sec": 60,
+        "narration_speed": "normal",
+        "narration_style": "documentary",
+        "target_platform": "youtube_shorts",
+        "historical_era": era,
+        "topic_category": category,
+        "visual_style": "photoreal_cinematic",
+        "music_intensity": "moderate",
+        "language": "en",
+        "upload_frequency": "weekly",
+        **config_overrides,
+    }
+
+    # 2. Create job
+    job = create_job(best, config)
+    mark_stage_complete(job, "topic_hunter")
+    update_job(job)
+
+    # 3. Research + validate
+    job = research_topic(job)
+    update_job(job)
+    job = validate_research(job)
+    mark_stage_complete(job, "historian")
+    update_job(job)
+
+    # 4. Script + storyboard
+    job = generate_script(job)
+    update_job(job)
+    job = generate_storyboard(job)
+    mark_stage_complete(job, "director")
+    update_job(job)
+
+    # 5. Editor: visual prompts → EDL → thumbnails → metadata
+    job = generate_visual_prompts(job)
+    update_job(job)
+    job = generate_edl(job)
+    update_job(job)
+    job = generate_thumbnail_concepts(job)
+    update_job(job)
+    job = generate_metadata(job)
+    mark_stage_complete(job, "editor")
+    update_job(job)
+
+    return job
 
 
 # ---------- REST helpers ----------
