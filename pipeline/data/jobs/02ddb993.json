@@ -402,51 +402,51 @@
       "render_type": "video_clip",
       "model": "kling3_0_turbo",
       "higgsfield_job_id": "5389e4f5-f301-436f-b700-5ea07556494a",
-      "status": "submitted",
-      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_213748_5389e4f5-f301-436f-b700-5ea07556494a.mp4"
     },
     {
       "scene_id": "romansocialbathhouse001_scene_02",
       "render_type": "static_image",
       "model": "soul_cinematic",
       "higgsfield_job_id": "2a7ae715-46ba-446b-b6d1-7dac39d2d86a",
-      "status": "submitted",
-      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_213801_2a7ae715-46ba-446b-b6d1-7dac39d2d86a.png"
     },
     {
       "scene_id": "romansocialbathhouse001_scene_03",
       "render_type": "static_image",
       "model": "soul_cinematic",
       "higgsfield_job_id": "8ca06e6e-fc70-4ff2-9533-337e593c2588",
-      "status": "submitted",
-      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_213806_8ca06e6e-fc70-4ff2-9533-337e593c2588.png"
     },
     {
       "scene_id": "romansocialbathhouse001_scene_04",
       "render_type": "static_image",
       "model": "soul_cinematic",
       "higgsfield_job_id": "d0cde3ca-77c4-4afe-9311-28c63291180e",
-      "status": "submitted",
-      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_213809_d0cde3ca-77c4-4afe-9311-28c63291180e.png"
     },
     {
       "scene_id": "romansocialbathhouse001_scene_05",
       "render_type": "video_clip",
       "model": "kling3_0_turbo",
       "higgsfield_job_id": "ea211da3-9ef6-4044-a40d-dd446452f403",
-      "status": "submitted",
-      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_213751_ea211da3-9ef6-4044-a40d-dd446452f403.mp4"
     },
     {
       "scene_id": "romansocialbathhouse001_scene_06",
       "render_type": "static_image",
       "model": "soul_cinematic",
       "higgsfield_job_id": "c3778458-de7b-4499-9a42-069b592447c9",
-      "status": "submitted",
-      "error": "HTTPSConnectionPool(host='api.higgsfield.ai', port=443): Read timed out. (read timeout=10)"
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260624_213811_c3778458-de7b-4499-9a42-069b592447c9.png"
     }
   ],
-  "render_status": "rendering",
+  "render_status": "completed",
   "thumbnail_concepts": [
     {
       "prompt": "A close-up, dramatic shot of a prominent Roman citizen (or an actor portraying one) with a thoughtful, almost conspiratorial smirk, partially obscured by rising steam in a luxurious bathhouse. His eyes are wide, directly engaging the viewer. In the background, other blurred figures are seen chatting. High contrast lighting emphasizes his face against the steamy backdrop.",
@@ -559,5 +559,13 @@
     "historian",
     "director",
     "editor"
-  ]
+  ],
+  "cost_tracking": {
+    "llm_calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "llm_cost_usd": 0.0,
+    "render_credits_estimated": 17.0,
+    "render_credits_used": 17.0
+  }
 }

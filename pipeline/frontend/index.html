@@ -844,6 +844,28 @@ function renderJobState() {
       </div>`;
   }
 
+  // Cost tracking card
+  const ct = j.cost_tracking;
+  if (ct && (ct.llm_calls > 0 || ct.render_credits_estimated > 0)) {
+    html += `
+      <div class="section-card">
+        <div class="section-card-head" onclick="toggle(this)">
+          <h3>💰 Cost</h3>
+          <span style="color:var(--muted);font-size:0.7rem">▾</span>
+        </div>
+        <div class="section-card-body" style="font-size:0.75rem;line-height:1.8">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px 12px">
+            <span style="color:var(--muted)">LLM calls</span><span class="val">${ct.llm_calls}</span>
+            <span style="color:var(--muted)">Input tokens</span><span class="val">${ct.input_tokens.toLocaleString()}</span>
+            <span style="color:var(--muted)">Output tokens</span><span class="val">${ct.output_tokens.toLocaleString()}</span>
+            <span style="color:var(--muted)">LLM cost</span><span class="val">$${ct.llm_cost_usd.toFixed(4)}</span>
+            <span style="color:var(--muted)">Credits est.</span><span class="val">${ct.render_credits_estimated} cr</span>
+            <span style="color:var(--muted)">Credits used</span><span class="val">${ct.render_credits_used} cr</span>
+          </div>
+        </div>
+      </div>`;
+  }
+
   // Thumbnails card
   if (thumbs) {
     html += `
