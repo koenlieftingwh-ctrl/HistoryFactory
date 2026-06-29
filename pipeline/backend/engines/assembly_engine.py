@@ -48,18 +48,24 @@ def _get_scene_asset(render_job: dict, tmp_dir: Path) -> Path | None:
 
 
 def _image_to_clip(img_path: Path, duration: float, out_path: Path) -> bool:
-    """Convert a static image to a video clip of given duration."""
+    """Convert a static image to a video clip with a slow Ken Burns zoom effect."""
+    total_frames = int(duration * OUTPUT_FPS)
+    # Slow zoom from 100% to 108% over the clip duration
+    zoom_filter = (
+        f"scale=8000:-1,"
+        f"zoompan=z='min(zoom+0.0008,1.08)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+        f":d={total_frames}:s={OUTPUT_WIDTH}x{OUTPUT_HEIGHT}:fps={OUTPUT_FPS},"
+        f"setsar=1"
+    )
     cmd = [
         FFMPEG, "-y",
         "-loop", "1", "-i", str(img_path),
         "-t", str(duration),
-        "-vf", f"scale={OUTPUT_WIDTH}:{OUTPUT_HEIGHT}:force_original_aspect_ratio=decrease,"
-               f"pad={OUTPUT_WIDTH}:{OUTPUT_HEIGHT}:(ow-iw)/2:(oh-ih)/2,setsar=1",
-        "-r", str(OUTPUT_FPS),
+        "-vf", zoom_filter,
         "-c:v", "libx264", "-pix_fmt", "yuv420p",
         str(out_path),
     ]
-    result = subprocess.run(cmd, capture_output=True)
+    result = subprocess.run(cmd, capture_output=True, timeout=120)
     return result.returncode == 0
 
 
@@ -158,10 +164,23 @@ def assemble_video(job: dict) -> dict:
             str(silent_video),
         ], capture_output=True, check=True)
 
-        # 3. Merge voiceover
+        # 3. Merge voiceover — extend video to match audio if VO is longer
         vo_path = voiceover.get("audio_path")
+        vo_duration = voiceover.get("duration_sec", 0)
         with_voice = tmp / "with_voice.mp4"
         if vo_path and Path(vo_path).exists():
+            video_duration = sum(e["end"] - e["start"] for e in edl)
+            if vo_duration > video_duration:
+                # Freeze the last frame to cover the remaining voiceover
+                freeze_dur = vo_duration - video_duration
+                extended = tmp / "extended.mp4"
+                subprocess.run([
+                    FFMPEG, "-y", "-i", str(silent_video),
+                    "-vf", f"tpad=stop_mode=clone:stop_duration={freeze_dur:.2f}",
+                    "-c:v", "libx264", "-pix_fmt", "yuv420p",
+                    str(extended),
+                ], capture_output=True, check=True)
+                silent_video = extended
             subprocess.run([
                 FFMPEG, "-y",
                 "-i", str(silent_video), "-i", vo_path,
@@ -191,14 +210,16 @@ def assemble_video(job: dict) -> dict:
 
         # 5. Burn subtitles
         srt_path = subtitles.get("srt_path")
+        sub_style = subtitles.get("style", {})
+        font_size = sub_style.get("size", 52)
         final_path = ASSETS_DIR / f"{job['job_id']}_final.mp4"
         if srt_path and Path(srt_path).exists():
             # ffmpeg needs forward slashes and escaped colons on Windows
             srt_escaped = str(Path(srt_path)).replace("\\", "/").replace(":", "\\:")
             subprocess.run([
                 FFMPEG, "-y", "-i", str(with_music),
-                "-vf", f"subtitles='{srt_escaped}':force_style='FontName=Arial,FontSize=18,"
-                       "PrimaryColour=&HFFFFFF,OutlineColour=&H000000,Outline=2,Alignment=2'",
+                "-vf", f"subtitles='{srt_escaped}':force_style='FontName=Arial,FontSize={font_size},"
+                       "PrimaryColour=&HFFFFFF,OutlineColour=&H000000,Outline=3,Shadow=1,Alignment=2'",
                 "-c:a", "copy", "-b:v", OUTPUT_BITRATE,
                 str(final_path),
             ], capture_output=True, check=True)
