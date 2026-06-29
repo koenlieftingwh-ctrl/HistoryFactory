@@ -572,5 +572,978 @@
     "llm_cost_usd": 0.002944,
     "render_credits_estimated": 10.0,
     "render_credits_used": 0.0
+  },
+  "voiceover": {
+    "audio_path": "C:\\Users\\sausa\\Documents\\GitHub\\HistoryFactory\\pipeline\\data\\assets\\8b4c6bfb_voiceover.mp3",
+    "audio_url": null,
+    "duration_sec": 71.5,
+    "voice_id": "en-US-Neural2-D",
+    "language": "en-US",
+    "word_timestamps": [
+      {
+        "word": " Could",
+        "start": 0.0,
+        "end": 0.22
+      },
+      {
+        "word": " a",
+        "start": 0.22,
+        "end": 0.32
+      },
+      {
+        "word": " Viking",
+        "start": 0.32,
+        "end": 0.62
+      },
+      {
+        "word": " king",
+        "start": 0.62,
+        "end": 0.94
+      },
+      {
+        "word": " truly",
+        "start": 0.94,
+        "end": 1.38
+      },
+      {
+        "word": " abandon",
+        "start": 1.38,
+        "end": 1.84
+      },
+      {
+        "word": " his",
+        "start": 1.84,
+        "end": 2.14
+      },
+      {
+        "word": " gods",
+        "start": 2.14,
+        "end": 2.42
+      },
+      {
+        "word": " for",
+        "start": 2.42,
+        "end": 2.7
+      },
+      {
+        "word": " a",
+        "start": 2.7,
+        "end": 2.8
+      },
+      {
+        "word": " new",
+        "start": 2.8,
+        "end": 2.92
+      },
+      {
+        "word": " faith,",
+        "start": 2.92,
+        "end": 3.28
+      },
+      {
+        "word": " only",
+        "start": 3.72,
+        "end": 3.86
+      },
+      {
+        "word": " to",
+        "start": 3.86,
+        "end": 4.04
+      },
+      {
+        "word": " perhaps",
+        "start": 4.04,
+        "end": 4.38
+      },
+      {
+        "word": " return",
+        "start": 4.38,
+        "end": 4.76
+      },
+      {
+        "word": " to",
+        "start": 4.76,
+        "end": 4.98
+      },
+      {
+        "word": " his",
+        "start": 4.98,
+        "end": 5.12
+      },
+      {
+        "word": " pagan",
+        "start": 5.12,
+        "end": 5.42
+      },
+      {
+        "word": " roots?",
+        "start": 5.42,
+        "end": 5.74
+      },
+      {
+        "word": " Around",
+        "start": 6.5,
+        "end": 6.86
+      },
+      {
+        "word": " 960",
+        "start": 6.86,
+        "end": 7.6
+      },
+      {
+        "word": " AD,",
+        "start": 7.6,
+        "end": 8.08
+      },
+      {
+        "word": " Harold",
+        "start": 8.42,
+        "end": 8.66
+      },
+      {
+        "word": " Bluetooth",
+        "start": 8.66,
+        "end": 9.08
+      },
+      {
+        "word": " Gormson,",
+        "start": 9.08,
+        "end": 9.7
+      },
+      {
+        "word": " a",
+        "start": 10.14,
+        "end": 10.22
+      },
+      {
+        "word": " king",
+        "start": 10.22,
+        "end": 10.44
+      },
+      {
+        "word": " who",
+        "start": 10.44,
+        "end": 10.64
+      },
+      {
+        "word": " united",
+        "start": 10.64,
+        "end": 10.98
+      },
+      {
+        "word": " Denmark",
+        "start": 10.98,
+        "end": 11.36
+      },
+      {
+        "word": " and",
+        "start": 11.36,
+        "end": 11.68
+      },
+      {
+        "word": " Norway,",
+        "start": 11.68,
+        "end": 12.06
+      },
+      {
+        "word": " introduced",
+        "start": 12.38,
+        "end": 12.72
+      },
+      {
+        "word": " Christianity",
+        "start": 12.72,
+        "end": 13.3
+      },
+      {
+        "word": " to",
+        "start": 13.3,
+        "end": 13.68
+      },
+      {
+        "word": " the",
+        "start": 13.68,
+        "end": 13.78
+      },
+      {
+        "word": " Danes.",
+        "start": 13.78,
+        "end": 14.3
+      },
+      {
+        "word": " His",
+        "start": 14.62,
+        "end": 15.2
+      },
+      {
+        "word": " conversion",
+        "start": 15.2,
+        "end": 15.58
+      },
+      {
+        "word": " is",
+        "start": 15.58,
+        "end": 15.92
+      },
+      {
+        "word": " traditionally",
+        "start": 15.92,
+        "end": 16.38
+      },
+      {
+        "word": " linked",
+        "start": 16.38,
+        "end": 16.78
+      },
+      {
+        "word": " to",
+        "start": 16.78,
+        "end": 16.96
+      },
+      {
+        "word": " the",
+        "start": 16.96,
+        "end": 17.06
+      },
+      {
+        "word": " missionary",
+        "start": 17.06,
+        "end": 17.44
+      },
+      {
+        "word": " popo.",
+        "start": 17.44,
+        "end": 18.04
+      },
+      {
+        "word": " Harold",
+        "start": 18.58,
+        "end": 18.84
+      },
+      {
+        "word": " explicitly",
+        "start": 18.84,
+        "end": 19.48
+      },
+      {
+        "word": " detailed",
+        "start": 19.48,
+        "end": 20.0
+      },
+      {
+        "word": " his",
+        "start": 20.0,
+        "end": 20.3
+      },
+      {
+        "word": " conversion",
+        "start": 20.3,
+        "end": 20.88
+      },
+      {
+        "word": " and",
+        "start": 20.88,
+        "end": 21.04
+      },
+      {
+        "word": " role",
+        "start": 21.04,
+        "end": 21.28
+      },
+      {
+        "word": " in",
+        "start": 21.28,
+        "end": 21.48
+      },
+      {
+        "word": " Christianizing",
+        "start": 21.48,
+        "end": 22.22
+      },
+      {
+        "word": " the",
+        "start": 22.22,
+        "end": 22.42
+      },
+      {
+        "word": " Danes",
+        "start": 22.42,
+        "end": 22.86
+      },
+      {
+        "word": " on",
+        "start": 22.86,
+        "end": 22.98
+      },
+      {
+        "word": " the",
+        "start": 22.98,
+        "end": 23.1
+      },
+      {
+        "word": " Jelling",
+        "start": 23.1,
+        "end": 23.4
+      },
+      {
+        "word": " Stones,",
+        "start": 23.4,
+        "end": 23.82
+      },
+      {
+        "word": " erected",
+        "start": 24.2,
+        "end": 24.58
+      },
+      {
+        "word": " during",
+        "start": 24.58,
+        "end": 24.8
+      },
+      {
+        "word": " his",
+        "start": 24.8,
+        "end": 25.0
+      },
+      {
+        "word": " reign.",
+        "start": 25.0,
+        "end": 25.34
+      },
+      {
+        "word": " Archaeological",
+        "start": 26.22,
+        "end": 26.9
+      },
+      {
+        "word": " findings,",
+        "start": 26.9,
+        "end": 27.4
+      },
+      {
+        "word": " including",
+        "start": 27.4,
+        "end": 28.0
+      },
+      {
+        "word": " the",
+        "start": 28.0,
+        "end": 28.28
+      },
+      {
+        "word": " construction",
+        "start": 28.28,
+        "end": 28.72
+      },
+      {
+        "word": " of",
+        "start": 28.72,
+        "end": 29.08
+      },
+      {
+        "word": " churches",
+        "start": 29.08,
+        "end": 29.44
+      },
+      {
+        "word": " and",
+        "start": 29.44,
+        "end": 29.68
+      },
+      {
+        "word": " changing",
+        "start": 29.68,
+        "end": 30.06
+      },
+      {
+        "word": " burial",
+        "start": 30.06,
+        "end": 30.4
+      },
+      {
+        "word": " customs,",
+        "start": 30.4,
+        "end": 31.06
+      },
+      {
+        "word": " strongly",
+        "start": 31.44,
+        "end": 31.74
+      },
+      {
+        "word": " indicate",
+        "start": 31.74,
+        "end": 32.2
+      },
+      {
+        "word": " a",
+        "start": 32.2,
+        "end": 32.36
+      },
+      {
+        "word": " societal",
+        "start": 32.36,
+        "end": 32.8
+      },
+      {
+        "word": " shift",
+        "start": 32.8,
+        "end": 33.22
+      },
+      {
+        "word": " towards",
+        "start": 33.22,
+        "end": 33.54
+      },
+      {
+        "word": " Christianity.",
+        "start": 33.54,
+        "end": 34.26
+      },
+      {
+        "word": " Some",
+        "start": 34.9,
+        "end": 35.44
+      },
+      {
+        "word": " accounts",
+        "start": 35.44,
+        "end": 35.82
+      },
+      {
+        "word": " suggest",
+        "start": 35.82,
+        "end": 36.28
+      },
+      {
+        "word": " Harold's",
+        "start": 36.28,
+        "end": 36.9
+      },
+      {
+        "word": " conversion",
+        "start": 36.9,
+        "end": 37.36
+      },
+      {
+        "word": " was",
+        "start": 37.36,
+        "end": 37.6
+      },
+      {
+        "word": " a",
+        "start": 37.6,
+        "end": 37.7
+      },
+      {
+        "word": " calculated",
+        "start": 37.7,
+        "end": 38.26
+      },
+      {
+        "word": " political",
+        "start": 38.26,
+        "end": 38.9
+      },
+      {
+        "word": " move,",
+        "start": 38.9,
+        "end": 39.34
+      },
+      {
+        "word": " designed",
+        "start": 39.6,
+        "end": 39.92
+      },
+      {
+        "word": " to",
+        "start": 39.92,
+        "end": 40.16
+      },
+      {
+        "word": " consolidate",
+        "start": 40.16,
+        "end": 40.74
+      },
+      {
+        "word": " power",
+        "start": 40.74,
+        "end": 41.26
+      },
+      {
+        "word": " and",
+        "start": 41.26,
+        "end": 41.52
+      },
+      {
+        "word": " align",
+        "start": 41.52,
+        "end": 41.76
+      },
+      {
+        "word": " with",
+        "start": 41.76,
+        "end": 42.0
+      },
+      {
+        "word": " the",
+        "start": 42.0,
+        "end": 42.12
+      },
+      {
+        "word": " Holy",
+        "start": 42.12,
+        "end": 42.32
+      },
+      {
+        "word": " Roman",
+        "start": 42.32,
+        "end": 42.7
+      },
+      {
+        "word": " Empire,",
+        "start": 42.7,
+        "end": 43.2
+      },
+      {
+        "word": " rather",
+        "start": 43.48,
+        "end": 43.68
+      },
+      {
+        "word": " than",
+        "start": 43.68,
+        "end": 43.86
+      },
+      {
+        "word": " purely",
+        "start": 43.86,
+        "end": 44.24
+      },
+      {
+        "word": " spiritual.",
+        "start": 44.24,
+        "end": 44.78
+      },
+      {
+        "word": " However,",
+        "start": 45.66,
+        "end": 46.06
+      },
+      {
+        "word": " towards",
+        "start": 46.38,
+        "end": 46.64
+      },
+      {
+        "word": " his",
+        "start": 46.64,
+        "end": 46.82
+      },
+      {
+        "word": " reigns",
+        "start": 46.82,
+        "end": 47.24
+      },
+      {
+        "word": " end,",
+        "start": 47.24,
+        "end": 47.52
+      },
+      {
+        "word": " Harold",
+        "start": 47.88,
+        "end": 48.14
+      },
+      {
+        "word": " faced",
+        "start": 48.14,
+        "end": 48.48
+      },
+      {
+        "word": " a",
+        "start": 48.48,
+        "end": 48.66
+      },
+      {
+        "word": " rebellion",
+        "start": 48.66,
+        "end": 49.06
+      },
+      {
+        "word": " led",
+        "start": 49.06,
+        "end": 49.32
+      },
+      {
+        "word": " by",
+        "start": 49.32,
+        "end": 49.5
+      },
+      {
+        "word": " his",
+        "start": 49.5,
+        "end": 49.68
+      },
+      {
+        "word": " son,",
+        "start": 49.68,
+        "end": 50.02
+      },
+      {
+        "word": " Swain",
+        "start": 50.28,
+        "end": 50.56
+      },
+      {
+        "word": " Forkbeard.",
+        "start": 50.56,
+        "end": 51.2
+      },
+      {
+        "word": " Scholars",
+        "start": 51.86,
+        "end": 52.42
+      },
+      {
+        "word": " debate",
+        "start": 52.42,
+        "end": 52.86
+      },
+      {
+        "word": " if",
+        "start": 52.86,
+        "end": 53.08
+      },
+      {
+        "word": " this",
+        "start": 53.08,
+        "end": 53.28
+      },
+      {
+        "word": " was",
+        "start": 53.28,
+        "end": 53.44
+      },
+      {
+        "word": " a",
+        "start": 53.44,
+        "end": 53.6
+      },
+      {
+        "word": " pagan",
+        "start": 53.6,
+        "end": 53.92
+      },
+      {
+        "word": " backlash",
+        "start": 53.92,
+        "end": 54.4
+      },
+      {
+        "word": " against",
+        "start": 54.4,
+        "end": 54.9
+      },
+      {
+        "word": " his",
+        "start": 54.9,
+        "end": 55.1
+      },
+      {
+        "word": " Christianizing",
+        "start": 55.1,
+        "end": 55.84
+      },
+      {
+        "word": " policies,",
+        "start": 55.84,
+        "end": 56.52
+      },
+      {
+        "word": " raising",
+        "start": 56.52,
+        "end": 57.1
+      },
+      {
+        "word": " questions",
+        "start": 57.1,
+        "end": 57.68
+      },
+      {
+        "word": " about",
+        "start": 57.68,
+        "end": 57.96
+      },
+      {
+        "word": " the",
+        "start": 57.96,
+        "end": 58.14
+      },
+      {
+        "word": " king's",
+        "start": 58.14,
+        "end": 58.46
+      },
+      {
+        "word": " continued",
+        "start": 58.46,
+        "end": 58.92
+      },
+      {
+        "word": " fate.",
+        "start": 58.92,
+        "end": 59.22
+      },
+      {
+        "word": " The",
+        "start": 59.9,
+        "end": 60.18
+      },
+      {
+        "word": " idea",
+        "start": 60.18,
+        "end": 60.5
+      },
+      {
+        "word": " of",
+        "start": 60.5,
+        "end": 60.76
+      },
+      {
+        "word": " Harold,",
+        "start": 60.76,
+        "end": 61.0
+      },
+      {
+        "word": " backsliding,",
+        "start": 61.3,
+        "end": 61.86
+      },
+      {
+        "word": " lacks",
+        "start": 62.3,
+        "end": 62.46
+      },
+      {
+        "word": " explicit",
+        "start": 62.46,
+        "end": 63.0
+      },
+      {
+        "word": " records",
+        "start": 63.0,
+        "end": 63.46
+      },
+      {
+        "word": " of",
+        "start": 63.46,
+        "end": 63.7
+      },
+      {
+        "word": " him",
+        "start": 63.7,
+        "end": 63.8
+      },
+      {
+        "word": " renouncing",
+        "start": 63.8,
+        "end": 64.34
+      },
+      {
+        "word": " Christianity,",
+        "start": 64.34,
+        "end": 65.06
+      },
+      {
+        "word": " suggesting",
+        "start": 65.52,
+        "end": 65.84
+      },
+      {
+        "word": " the",
+        "start": 65.84,
+        "end": 66.2
+      },
+      {
+        "word": " transition",
+        "start": 66.2,
+        "end": 66.7
+      },
+      {
+        "word": " was",
+        "start": 66.7,
+        "end": 66.98
+      },
+      {
+        "word": " more",
+        "start": 66.98,
+        "end": 67.16
+      },
+      {
+        "word": " complex.",
+        "start": 67.16,
+        "end": 67.68
+      },
+      {
+        "word": " The",
+        "start": 68.6,
+        "end": 68.76
+      },
+      {
+        "word": " narrative",
+        "start": 68.76,
+        "end": 69.12
+      },
+      {
+        "word": " of",
+        "start": 69.12,
+        "end": 69.36
+      },
+      {
+        "word": " Harold's",
+        "start": 69.36,
+        "end": 69.84
+      },
+      {
+        "word": " potential",
+        "start": 69.84,
+        "end": 70.34
+      },
+      {
+        "word": " return",
+        "start": 70.34,
+        "end": 70.74
+      },
+      {
+        "word": " to",
+        "start": 70.74,
+        "end": 70.96
+      },
+      {
+        "word": " paganism",
+        "start": 70.96,
+        "end": 71.6
+      },
+      {
+        "word": " might",
+        "start": 71.6,
+        "end": 71.86
+      },
+      {
+        "word": " be",
+        "start": 71.86,
+        "end": 72.02
+      },
+      {
+        "word": " an",
+        "start": 72.02,
+        "end": 72.14
+      },
+      {
+        "word": " oversimplification",
+        "start": 72.14,
+        "end": 73.22
+      },
+      {
+        "word": " of",
+        "start": 73.22,
+        "end": 73.44
+      },
+      {
+        "word": " a",
+        "start": 73.44,
+        "end": 73.52
+      },
+      {
+        "word": " gradual,",
+        "start": 73.52,
+        "end": 74.04
+      },
+      {
+        "word": " syncretic",
+        "start": 74.28,
+        "end": 74.82
+      },
+      {
+        "word": " shift",
+        "start": 74.82,
+        "end": 75.1
+      },
+      {
+        "word": " in",
+        "start": 75.1,
+        "end": 75.34
+      },
+      {
+        "word": " Scandinavia.",
+        "start": 75.34,
+        "end": 76.08
+      },
+      {
+        "word": " Follow",
+        "start": 76.88,
+        "end": 77.2
+      },
+      {
+        "word": " for",
+        "start": 77.2,
+        "end": 77.4
+      },
+      {
+        "word": " more",
+        "start": 77.4,
+        "end": 77.6
+      },
+      {
+        "word": " fascinating",
+        "start": 77.6,
+        "end": 78.2
+      },
+      {
+        "word": " historical",
+        "start": 78.2,
+        "end": 78.86
+      },
+      {
+        "word": " shorts.",
+        "start": 78.86,
+        "end": 79.36
+      }
+    ]
+  },
+  "subtitles": {
+    "srt_path": "C:\\Users\\sausa\\Documents\\GitHub\\HistoryFactory\\pipeline\\data\\assets\\8b4c6bfb_subtitles.srt",
+    "vtt_path": "C:\\Users\\sausa\\Documents\\GitHub\\HistoryFactory\\pipeline\\data\\assets\\8b4c6bfb_subtitles.vtt",
+    "style": {
+      "font": "Arial",
+      "size": 52,
+      "color": "#FFFFFF",
+      "highlight_color": "#FFDD00",
+      "position": "bottom",
+      "animation": "fade"
+    }
+  },
+  "music": {
+    "track_path": null,
+    "track_name": null,
+    "mood": "neutral",
+    "intensity": "moderate",
+    "volume": 0.18,
+    "status": "missing",
+    "missing_hint": "Place 'neutral_documentary.mp3' in pipeline/data/music/ to enable BGM."
+  },
+  "assembly": {
+    "final_video_path": "C:\\Users\\sausa\\Documents\\GitHub\\HistoryFactory\\pipeline\\data\\assets\\8b4c6bfb_final.mp4",
+    "final_video_url": null,
+    "resolution": "720x1280",
+    "duration_sec": 65,
+    "platform_variants": [
+      {
+        "platform": "youtube_shorts",
+        "aspect_ratio": "9:16",
+        "path": "C:\\Users\\sausa\\Documents\\GitHub\\HistoryFactory\\pipeline\\data\\assets\\8b4c6bfb_final.mp4"
+      }
+    ]
   }
 }

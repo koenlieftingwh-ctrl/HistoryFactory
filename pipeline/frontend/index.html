@@ -840,6 +840,8 @@ function renderJobState() {
               </div>`;
           }).join('')}
           ${j.render_status !== 'completed' ? `<button onclick="pollRenderStatus()" style="width:100%;padding:6px;border:1px solid var(--border);border-radius:6px;background:transparent;color:var(--text);font-size:0.72rem;cursor:pointer">↻ Refresh Status</button>` : ''}
+          ${j.render_status === 'completed' && !j.assembly ? `<button onclick="startPostRender()" style="margin-top:8px;width:100%;padding:7px;border:none;border-radius:6px;background:var(--green);color:#fff;font-weight:700;font-size:0.75rem;cursor:pointer">▶ Voiceover → Subtitles → Assemble</button>` : ''}
+          ${j.assembly ? `<div style="margin-top:6px;padding:8px;background:var(--surface2);border-radius:6px;font-size:0.72rem"><p style="color:var(--green);font-weight:700">✓ Assembly complete</p><p style="margin-top:3px;word-break:break-all">${j.assembly.final_video_path || j.assembly.final_video_url || ''}</p><p style="margin-top:3px;color:var(--muted)">${j.assembly.duration_sec}s · ${j.assembly.resolution}</p></div>` : ''}
         </div>
       </div>`;
   }
@@ -939,6 +941,33 @@ async function renderAll() {
     appendMsg('assistant', `Render submitted! ${currentJob.render_jobs?.length || 0} scenes queued. Polling for updates...`);
   } catch (e) {
     alert('Render error: ' + e.message);
+  }
+}
+
+async function startPostRender() {
+  if (!currentJob) return;
+  try {
+    const res = await fetch(API + `/jobs/${currentJob.job_id}/post-render`, { method: 'POST' });
+    if (!res.ok) {
+      const err = await res.json().catch(() => ({}));
+      alert('Post-render failed: ' + (err.detail || res.status));
+      return;
+    }
+    appendMsg('assistant', 'Voiceover → Subtitles → Music → Assembly started. Refreshing status every 10s...');
+    const poll = setInterval(async () => {
+      const r = await fetch(API + `/jobs/${currentJob.job_id}`);
+      currentJob = await r.json();
+      renderJobState();
+      const done = currentJob.assembly || currentJob.status === 'failed';
+      if (done) {
+        clearInterval(poll);
+        appendMsg('assistant', currentJob.assembly
+          ? `Assembly complete! Final video: ${currentJob.assembly.final_video_path || currentJob.assembly.final_video_url}`
+          : `Assembly failed: ${currentJob.errors?.slice(-1)[0]?.error}`);
+      }
+    }, 10000);
+  } catch (e) {
+    alert('Post-render error: ' + e.message);
   }
 }
 

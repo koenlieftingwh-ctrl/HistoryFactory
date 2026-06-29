@@ -26,6 +26,10 @@ from engines.editor_engine import (
     estimate_render_credits,
 )
 from engines.render_engine import submit_render_jobs, estimate_job_credits, get_balance
+from engines.voiceover_engine import generate_voiceover
+from engines.subtitle_engine import generate_subtitles
+from engines.music_engine import select_music
+from engines.assembly_engine import assemble_video
 from job_store import create_job, get_job, update_job, list_jobs, mark_stage_complete, add_llm_cost
 import agents.topic_hunter as topic_hunter_agent
 import agents.historian as historian_agent
@@ -404,6 +408,104 @@ async def render_estimate(job_id: str):
         "credits_balance": balance,
         "sufficient": balance < 0 or balance >= needed,
     }
+
+
+@app.post("/jobs/{job_id}/voiceover")
+async def run_voiceover(job_id: str):
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not job.get("script"):
+        raise HTTPException(status_code=400, detail="Script required — run the Director stage first.")
+    try:
+        job = generate_voiceover(job)
+        update_job(job)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    return job
+
+
+@app.post("/jobs/{job_id}/subtitles")
+async def run_subtitles(job_id: str):
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not job.get("voiceover"):
+        raise HTTPException(status_code=400, detail="Voiceover required — run /voiceover first.")
+    try:
+        job = generate_subtitles(job)
+        update_job(job)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    return job
+
+
+@app.post("/jobs/{job_id}/music")
+async def run_music(job_id: str):
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    try:
+        job = select_music(job)
+        update_job(job)
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=str(e))
+    return job
+
+
+def _run_assembly_in_background(job: dict):
+    try:
+        job = assemble_video(job)
+        job["status"] = "completed"
+    except Exception as e:
+        job.setdefault("errors", []).append({"stage": "assembly", "error": str(e), "timestamp": "", "retry_count": 0})
+        job["status"] = "failed"
+    update_job(job)
+
+
+@app.post("/jobs/{job_id}/assemble")
+async def run_assembly(job_id: str, background_tasks: BackgroundTasks):
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not job.get("render_jobs"):
+        raise HTTPException(status_code=400, detail="Render required first.")
+    if not job.get("voiceover"):
+        raise HTTPException(status_code=400, detail="Voiceover required — run /voiceover first.")
+    job["status"] = "assembling"
+    update_job(job)
+    background_tasks.add_task(_run_assembly_in_background, job)
+    return {"status": "assembling", "job_id": job_id, "message": "Assembly started — poll /jobs/{job_id} for status."}
+
+
+@app.post("/jobs/{job_id}/post-render")
+async def run_post_render(job_id: str, background_tasks: BackgroundTasks):
+    """Run voiceover → subtitles → music → assembly in one call."""
+    job = get_job(job_id)
+    if not job:
+        raise HTTPException(status_code=404, detail="Job not found")
+    if not job.get("render_jobs"):
+        raise HTTPException(status_code=400, detail="Render required first.")
+
+    def _run(job):
+        try:
+            job = generate_voiceover(job)
+            update_job(job)
+            job = generate_subtitles(job)
+            update_job(job)
+            job = select_music(job)
+            update_job(job)
+            job = assemble_video(job)
+            job["status"] = "completed"
+        except Exception as e:
+            job.setdefault("errors", []).append({"stage": "post_render", "error": str(e), "timestamp": "", "retry_count": 0})
+            job["status"] = "failed"
+        update_job(job)
+
+    job["status"] = "assembling"
+    update_job(job)
+    background_tasks.add_task(_run, job)
+    return {"status": "assembling", "job_id": job_id, "message": "Post-render pipeline started."}
 
 
 @app.get("/")
