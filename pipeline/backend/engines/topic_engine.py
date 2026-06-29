@@ -36,7 +36,7 @@ def generate_topics(
         '{"topics": [{"title": string, "one_line_premise": string, '
         '"hook_angle": string, "era": string, "category": string}]}'
     )
-    raw = generate(system, "Generate the topics now.", max_tokens=2048)
+    raw, _ = generate(system, "Generate the topics now.", max_tokens=2048)
     data = json.loads(raw)
     topics = []
     for item in data["topics"]:
@@ -70,7 +70,7 @@ def score_topic(topic: dict) -> dict:
         '"retention_potential": int, "novelty": int, "emotional_impact": int, '
         '"shareability": int, "rationale": string}'
     )
-    raw = generate(system, "Score this topic.", max_tokens=512)
+    raw, _ = generate(system, "Score this topic.", max_tokens=512)
     data = json.loads(raw)
     composite = round(sum(data[a] * w for a, w in SCORE_WEIGHTS.items()), 1)
     topic["scores"] = {

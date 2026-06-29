@@ -74,8 +74,41 @@ def estimate_job_credits(visual_prompts: list[dict]) -> float:
     return round(total, 1)
 
 
+_RETRYABLE_STATUS_CODES = {429, 500, 502, 503, 504, 522, 524}
+_MAX_RETRIES = 4
+_RETRY_BACKOFF = [2, 5, 15, 30]  # seconds between attempts
+
+
+def _is_retryable(exc: Exception) -> bool:
+    import requests as req
+    if isinstance(exc, req.exceptions.ConnectionError):
+        return True
+    if isinstance(exc, req.exceptions.Timeout):
+        return True
+    if isinstance(exc, req.exceptions.HTTPError):
+        code = exc.response.status_code if exc.response is not None else 0
+        return code in _RETRYABLE_STATUS_CODES
+    return False
+
+
+def _post_with_retry(url: str, payload: dict, timeout: int = 30) -> dict:
+    last_exc = None
+    for attempt in range(_MAX_RETRIES):
+        try:
+            r = requests.post(url, headers=_headers(), json=payload, timeout=timeout)
+            r.raise_for_status()
+            return r.json()
+        except Exception as e:
+            last_exc = e
+            if attempt < _MAX_RETRIES - 1 and _is_retryable(e):
+                time.sleep(_RETRY_BACKOFF[attempt])
+            else:
+                break
+    raise last_exc
+
+
 def _submit_video(prompt: dict, aspect_ratio: str) -> dict:
-    """POST one video generation request. Returns raw API response."""
+    """POST one video generation request with retry. Returns raw API response."""
     payload = {
         "model": prompt["model"],
         "prompt": prompt["prompt"],
@@ -83,21 +116,17 @@ def _submit_video(prompt: dict, aspect_ratio: str) -> dict:
         "duration": DEFAULT_CLIP_DURATION,
         "resolution": DEFAULT_RESOLUTION,
     }
-    r = requests.post(VIDEO_ENDPOINT, headers=_headers(), json=payload, timeout=30)
-    r.raise_for_status()
-    return r.json()
+    return _post_with_retry(VIDEO_ENDPOINT, payload)
 
 
 def _submit_image(prompt: dict, aspect_ratio: str) -> dict:
-    """POST one image generation request. Returns raw API response."""
+    """POST one image generation request with retry. Returns raw API response."""
     payload = {
         "model": prompt["model"],
         "prompt": prompt["prompt"],
         "aspect_ratio": aspect_ratio,
     }
-    r = requests.post(IMAGE_ENDPOINT, headers=_headers(), json=payload, timeout=30)
-    r.raise_for_status()
-    return r.json()
+    return _post_with_retry(IMAGE_ENDPOINT, payload)
 
 
 def submit_render_jobs(job: dict) -> dict:
@@ -136,9 +165,22 @@ def submit_render_jobs(job: dict) -> dict:
             f"Shortfall: {shortfall} credits."
         )
 
+    # Build a lookup of any previously submitted/done entries so we don't
+    # re-submit scenes that already have a Higgsfield job ID.
+    existing: dict[str, dict] = {
+        e["scene_id"]: e for e in (job.get("render_jobs") or [])
+    }
+
     render_jobs = []
     for prompt in prompts:
         scene_id = prompt.get("scene_id", "unknown")
+        prev = existing.get(scene_id)
+
+        # Skip scenes already successfully submitted or completed.
+        if prev and prev.get("status") in ("submitted", "done"):
+            render_jobs.append(prev)
+            continue
+
         entry = {
             "scene_id": scene_id,
             "render_type": prompt.get("render_type", "video_clip"),

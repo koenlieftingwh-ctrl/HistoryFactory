@@ -1,0 +1,574 @@
+{
+  "job_id": "fc35420b",
+  "created_at": "2026-06-27T12:58:05.271789",
+  "status": "rendering",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "medieval",
+    "topic_category": "weird_history",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "1ce94882",
+    "title": "The Pope Who Was Tried After Death",
+    "one_line_premise": "Pope Stephen VI put the decomposing corpse of his predecessor, Pope Formosus, on trial in what became known as the Cadaver Synod.",
+    "category": "weird_history",
+    "era": "medieval",
+    "hook_angle": "A Pope so hated, he was exhumed, dressed in papal vestments, and put on trial for heresy AFTER he died. You won't believe the verdict.",
+    "scores": {
+      "historical_accuracy": 90,
+      "visual_potential": 85,
+      "retention_potential": 80,
+      "novelty": 75,
+      "emotional_impact": 70,
+      "shareability": 85,
+      "composite": 81.2,
+      "rationale": "The Cadaver Synod is a well-documented and bizarre event in papal history, ensuring high historical accuracy. The visual potential is strong with the image of a decomposing corpse in papal regalia on trial. The 'shocking' nature and quick premise make it highly retentive for short-form content. While known to history buffs, it's novel enough for a general audience. The emotional impact is primarily one of morbid fascination and absurdity. Its inherent strangeness makes it highly shareable across platforms."
+    }
+  },
+  "research": {
+    "topic_id": "1ce94882",
+    "facts": [
+      {
+        "claim_id": "f1",
+        "statement": "Pope Formosus was exhumed and put on trial in 897 AD, approximately nine months after his death.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f2",
+        "statement": "The trial of Pope Formosus is known as the 'Cadaver Synod' or 'Synod Horrenda'.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f3",
+        "statement": "Pope Stephen VI presided over the Cadaver Synod.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f4",
+        "statement": "Formosus was accused of multiple charges, including perjury, violating canon law by transferring sees, and illegally aspiring to the papacy.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f5",
+        "statement": "During the trial, a deacon was appointed to answer for the deceased Pope Formosus.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f6",
+        "statement": "Formosus was found guilty, his papacy declared null and void, and his acts and ordinations retroactively invalidated.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f7",
+        "statement": "Formosus's body was stripped of its papal vestments, three fingers of his right hand (used for blessings) were cut off, and his body was thrown into the Tiber River.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f8",
+        "statement": "The Cadaver Synod caused widespread public scandal and outrage in Rome.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f9",
+        "statement": "Pope Stephen VI was later imprisoned and strangled to death, partly due to the outrage over the Cadaver Synod.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f10",
+        "statement": "Formosus's body was reportedly recovered from the Tiber River by a devout monk or fisherman and secretly buried.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f11",
+        "statement": "Formosus's body was eventually reinterred in St. Peter's Basilica by Pope Theodore II.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "established"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "s1",
+        "title": "Cadaver Synod",
+        "url": "https://www.britannica.com/event/Cadaver-Synod",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "s2",
+        "title": "Pope Formosus",
+        "url": "https://www.britannica.com/biography/Formosus",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "s3",
+        "title": "Pope Stephen VI (or VII)",
+        "url": "https://www.newadvent.org/cathen/14287a.htm",
+        "type": "encyclopedic"
+      }
+    ],
+    "research_confidence": 5
+  },
+  "validation": {
+    "topic_id": "1ce94882",
+    "verified_claims": [
+      "f1",
+      "f2",
+      "f3",
+      "f4",
+      "f5",
+      "f6",
+      "f7",
+      "f8",
+      "f9",
+      "f10",
+      "f11"
+    ],
+    "flagged_claims": [],
+    "overall_accuracy_score": 100,
+    "publishable": true,
+    "required_disclaimers": []
+  },
+  "script": {
+    "script_id": "cadaver_synod_script_01",
+    "language": "en",
+    "segments": [
+      {
+        "segment_type": "Hook",
+        "start_pct": 0,
+        "end_pct": 5,
+        "text": "Imagine a pope, dead for months, dragged from his grave to stand trial. This actually happened.",
+        "emotional_tone": "shocking",
+        "claim_ids": []
+      },
+      {
+        "segment_type": "Setup",
+        "start_pct": 5,
+        "end_pct": 25,
+        "text": "In 897 AD, approximately nine months after his death, Pope Formosus was exhumed. His successor, Pope Stephen VI, presided over this bizarre event, now known as the Cadaver Synod or Synod Horrenda.",
+        "emotional_tone": "neutral",
+        "claim_ids": [
+          "f1",
+          "f2",
+          "f3"
+        ]
+      },
+      {
+        "segment_type": "Escalation",
+        "start_pct": 25,
+        "end_pct": 67,
+        "text": "Formosus, a decomposing corpse, was propped up and accused of multiple charges, including perjury and illegally aspiring to the papacy. In a macabre twist, a deacon was appointed to answer for the deceased Formosus.",
+        "emotional_tone": "suspenseful",
+        "claim_ids": [
+          "f4",
+          "f5"
+        ]
+      },
+      {
+        "segment_type": "Twist",
+        "start_pct": 67,
+        "end_pct": 92,
+        "text": "Unsurprisingly, Formosus was found guilty. His papacy was declared null, his acts retroactively invalidated. His body was stripped of papal vestments, three fingers\u2014used for blessings\u2014were severed, and he was thrown into the Tiber River. This caused widespread public scandal and outrage.",
+        "emotional_tone": "dramatic",
+        "claim_ids": [
+          "f6",
+          "f7",
+          "f8"
+        ]
+      },
+      {
+        "segment_type": "Payoff",
+        "start_pct": 92,
+        "end_pct": 100,
+        "text": "Later, Stephen VI himself was imprisoned and strangled due to the outrage. Formosus\u2019s body was recovered, secretly buried, and eventually reinterred in St. Peter\u2019s Basilica. Follow for more wild history!",
+        "emotional_tone": "concluding",
+        "claim_ids": [
+          "f9",
+          "f10",
+          "f11"
+        ]
+      }
+    ],
+    "total_word_count": 156,
+    "estimated_duration_sec": 62
+  },
+  "storyboard": {
+    "storyboard_id": "cadaver_synod_storyboard_01",
+    "scenes": [
+      {
+        "scene_id": "scene_01",
+        "segment_type": "Hook",
+        "duration_sec": 10,
+        "shot_description": "A dimly lit, ancient stone crypt. A silhouette of a body being pulled from a sarcophagus by shadowy figures.",
+        "camera": "Slow zoom in on the sarcophagus, then a quick pan to the figures.",
+        "characters": [
+          "Shadowy figures"
+        ],
+        "setting": "Ancient crypt",
+        "mood": "Shocking, mysterious",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "scene_02",
+        "segment_type": "Setup",
+        "duration_sec": 10,
+        "shot_description": "An interior of an old, grand basilica. A decaying corpse, dressed in tattered papal vestments, is being carried by two figures through a somber crowd towards a makeshift court.",
+        "camera": "Tracking shot following the corpse through the crowd.",
+        "characters": [
+          "Deceased Pope Formosus (corpse)",
+          "Two figures carrying the corpse",
+          "Somber crowd"
+        ],
+        "setting": "Ancient basilica",
+        "mood": "Somber, bizarre",
+        "on_screen_text": "897 AD - The Cadaver Synod"
+      },
+      {
+        "scene_id": "scene_03",
+        "segment_type": "Escalation",
+        "duration_sec": 15,
+        "shot_description": "Close-up on the decaying face of Pope Formosus's corpse, propped on a throne in a dimly lit courtroom, facing Pope Stephen VI. A young deacon stands beside Formosus, looking nervous.",
+        "camera": "Alternating close-ups between the corpse, Pope Stephen VI, and the deacon.",
+        "characters": [
+          "Deceased Pope Formosus (corpse)",
+          "Pope Stephen VI",
+          "Young deacon"
+        ],
+        "setting": "Makeshift courtroom within the basilica",
+        "mood": "Suspenseful, macabre",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "scene_04",
+        "segment_type": "Twist",
+        "duration_sec": 15,
+        "shot_description": "A dramatic shot of the corpse being stripped of its vestments, its three fingers (from the right hand) visibly severed and dropping to the floor. Then, the body is unceremoniously thrown into a turbulent river.",
+        "camera": "Dynamic cuts between the stripping, the fingers dropping, and the body being thrown. Slight shaky cam for impact.",
+        "characters": [
+          "Deceased Pope Formosus (corpse)",
+          "Executioners (unseen or shadowy)"
+        ],
+        "setting": "Riverside, then the Tiber River",
+        "mood": "Dramatic, outrageous",
+        "on_screen_text": "Found Guilty"
+      },
+      {
+        "scene_id": "scene_05",
+        "segment_type": "Payoff",
+        "duration_sec": 12,
+        "shot_description": "A dark, cramped prison cell where Pope Stephen VI is seen distraught, then a sudden close-up of hands strangling him. Transition to a somber scene of Formosus's body being secretly buried, then reinterred with dignity in St. Peter's Basilica.",
+        "camera": "Quick cuts for the strangling, then a slow, respectful pan over the reinterment.",
+        "characters": [
+          "Pope Stephen VI",
+          "Assailant (unseen)",
+          "Secret mourners",
+          "Clergy"
+        ],
+        "setting": "Prison cell, secret burial site, St. Peter's Basilica",
+        "mood": "Conclusive, reflective",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "scene_06",
+        "segment_type": "Closing",
+        "duration_sec": 10,
+        "shot_description": "A wide, majestic shot of the exterior of St. Peter's Basilica at dusk, with ancient Roman ruins in the foreground, symbolizing the passage of time and enduring history.",
+        "camera": "Slow, ascending crane shot revealing the full grandeur of the basilica and surroundings.",
+        "characters": [],
+        "setting": "Exterior of St. Peter's Basilica, Rome",
+        "mood": "Awe-inspiring, reflective",
+        "on_screen_text": "Follow for more wild history!"
+      }
+    ]
+  },
+  "visual_prompts": [
+    {
+      "scene_id": "scene_01",
+      "prompt": "A dimly lit, ancient stone crypt. A silhouette of a body being pulled from a sarcophagus by shadowy figures, slow zoom in on the sarcophagus, then a quick pan to the figures, photoreal_cinematic style, Ancient crypt, mood: Shocking, mysterious. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "scene_02",
+      "prompt": "An interior of an old, grand basilica. A decaying corpse, dressed in tattered papal vestments, is being carried by two figures through a somber crowd towards a makeshift court, tracking shot following the corpse through the crowd, photoreal_cinematic style, Ancient basilica, mood: Somber, bizarre. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "scene_03",
+      "prompt": "Close-up on the decaying face of Pope Formosus's corpse, propped on a throne in a dimly lit courtroom, facing Pope Stephen VI. A young deacon stands beside Formosus, looking nervous, alternating close-ups between the corpse, Pope Stephen VI, and the deacon, photoreal_cinematic style, Makeshift courtroom within the basilica, mood: Suspenseful, macabre. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "image",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "scene_04",
+      "prompt": "A dramatic shot of the corpse being stripped of its vestments, its three fingers (from the right hand) visibly severed and dropping to the floor. Then, the body is unceremoniously thrown into a turbulent river, dynamic cuts between the stripping, the fingers dropping, and the body being thrown. Slight shaky cam for impact, photoreal_cinematic style, Riverside, then the Tiber River, mood: Dramatic, outrageous. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "scene_05",
+      "prompt": "A dark, cramped prison cell where Pope Stephen VI is seen distraught, then a sudden close-up of hands strangling him. Transition to a somber scene of Formosus's body being secretly buried, then reinterred with dignity in St. Peter's Basilica, quick cuts for the strangling, then a slow, respectful pan over the reinterment, photoreal_cinematic style, Prison cell, secret burial site, St. Peter's Basilica, mood: Conclusive, reflective. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "scene_06",
+      "prompt": "A wide, majestic shot of the exterior of St. Peter's Basilica at dusk, with ancient Roman ruins in the foreground, symbolizing the passage of time and enduring history, slow, ascending crane shot revealing the full grandeur of the basilica and surroundings, photoreal_cinematic style, Exterior of St. Peter's Basilica, Rome, mood: Awe-inspiring, reflective. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "image",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    }
+  ],
+  "render_estimate": {
+    "video_clip_count": 2,
+    "static_image_count": 4,
+    "credits_video": 15.0,
+    "credits_image": 2.0,
+    "credits_total": 17.0,
+    "credits_needed": 17.0,
+    "credits_balance": -1
+  },
+  "render_jobs": [
+    {
+      "scene_id": "scene_01",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": null,
+      "status": "failed",
+      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+    },
+    {
+      "scene_id": "scene_02",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": null,
+      "status": "failed",
+      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/video"
+    },
+    {
+      "scene_id": "scene_03",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": null,
+      "status": "failed",
+      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+    },
+    {
+      "scene_id": "scene_04",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": null,
+      "status": "failed",
+      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/video"
+    },
+    {
+      "scene_id": "scene_05",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": null,
+      "status": "failed",
+      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+    },
+    {
+      "scene_id": "scene_06",
+      "render_type": "static_image",
+      "model": "soul_cinematic",
+      "higgsfield_job_id": null,
+      "status": "failed",
+      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+    }
+  ],
+  "render_status": "rendering",
+  "thumbnail_concepts": [
+    {
+      "prompt": "A dramatically lit, close-up shot of a skeletal hand (wearing a single, ornate papal ring) emerging from a crumbling, ancient sarcophagus. The background is a blurred, menacing silhouette of shadowy figures in a dark crypt. High contrast, focusing on the ring and bones.",
+      "overlay_text": "TRIED. AFTER DEATH.",
+      "rationale": "This concept uses the most shocking element (a dead Pope on trial) and the best scene reference (exhumation). The skeletal hand with a papal ring creates instant intrigue and a macabre curiosity gap. High contrast ensures the main subject pops, and the short, punchy text directly addresses the core hook."
+    },
+    {
+      "prompt": "A stark, high-contrast image of an empty, ancient papal throne in a grand, ruined cathedral. Below the throne, on the cold stone floor, lies a tattered, muddy papal tiara and a single, rusted manacle. The scene is bathed in an eerie, single spotlight effect, creating deep shadows.",
+      "overlay_text": "THE DEAD POPE'S VERDICT.",
+      "rationale": "This concept focuses on the 'trial' and 'verdict' aspect, using an empty throne to symbolize the deposed power and the manacle hinting at the bizarre judicial process. The tiara adds context. The high contrast and eerie lighting evoke a sense of mystery and solemnity. The text directly asks for the verdict, creating a strong curiosity gap."
+    },
+    {
+      "prompt": "A stylized, gothic illustration of a decaying, robed figure (implied to be a Pope) seated rigidly in an ancient courtroom, facing an unseen judge. The figure's eyes are empty sockets, and its robes are torn. Intense, dramatic lighting with harsh shadows. Focus on the 'trial' aspect.",
+      "overlay_text": "POPE ON TRIAL. UNDEAD.",
+      "rationale": "This concept visually represents the 'trial after death' directly. The decaying Pope in a courtroom is bold and unexpected. The 'undead' implication from the empty eye sockets adds to the shock factor. High contrast and dramatic lighting enhance the gothic, mysterious mood, while the concise text is designed to grab attention."
+    }
+  ],
+  "publish_metadata": {
+    "title": "The Dead Pope on Trial: History's Most Bizarre Court Case!",
+    "description": "Imagine a decomposing corpse on trial! In 897 AD, Pope Stephen VI put his predecessor, Pope Formosus, through a bizarre posthumous trial known as the Cadaver Synod. Accused of perjury and more, Formosus's decomposing body was propped up for judgment. Want to learn more about this shocking historical event? Like and subscribe for more untold history!",
+    "tags": [
+      "Cadaver Synod",
+      "Pope Formosus",
+      "Pope Stephen VI",
+      "Bizarre History",
+      "Medieval History",
+      "Vatican History",
+      "Dark History",
+      "Strange Facts",
+      "Historical Trials",
+      "Untold History",
+      "Ancient Rome",
+      "Exhumation",
+      "Pope Trial",
+      "History Channel",
+      "History Shorts"
+    ],
+    "hashtags": [
+      "#CadaverSynod",
+      "#PopeFormosus",
+      "#BizarreHistory",
+      "#MedievalHistory",
+      "#HistoryFacts",
+      "#DarkHistory",
+      "#Vatican",
+      "#TrueHistory",
+      "#HistoricalEvents",
+      "#HistoryShorts"
+    ]
+  },
+  "edl": [
+    {
+      "scene_id": "scene_01",
+      "start": 0,
+      "end": 10,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "scene_02",
+      "start": 10,
+      "end": 20,
+      "transition_in": "cross_dissolve",
+      "transition_out": "cut",
+      "overlay_text": "897 AD - The Cadaver Synod",
+      "overlay_start": 11
+    },
+    {
+      "scene_id": "scene_03",
+      "start": 20,
+      "end": 35,
+      "transition_in": "cut",
+      "transition_out": "cross_dissolve",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "scene_04",
+      "start": 35,
+      "end": 50,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": "Found Guilty",
+      "overlay_start": 40
+    },
+    {
+      "scene_id": "scene_05",
+      "start": 50,
+      "end": 62,
+      "transition_in": "cross_dissolve",
+      "transition_out": "cut",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "scene_06",
+      "start": 62,
+      "end": 72,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": "Follow for more wild history!",
+      "overlay_start": 65
+    }
+  ],
+  "errors": [],
+  "stage_completed": [
+    "topic_hunter",
+    "historian",
+    "director",
+    "editor"
+  ],
+  "cost_tracking": {
+    "llm_calls": 8,
+    "input_tokens": 5569,
+    "output_tokens": 5188,
+    "llm_cost_usd": 0.001975,
+    "render_credits_estimated": 17.0,
+    "render_credits_used": 0.0
+  }
+}
