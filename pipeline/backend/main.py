@@ -10,7 +10,7 @@ load_dotenv(Path(__file__).parent.parent / ".env")
 # Allow sibling imports
 sys.path.insert(0, str(Path(__file__).parent))
 
-from fastapi import FastAPI, HTTPException
+from fastapi import BackgroundTasks, FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -100,7 +100,7 @@ async def topic_hunter_chat(req: ChatRequest):
     used_titles = _get_used_titles()
     system = topic_hunter_agent.build_system(job, used_titles)
 
-    reply_raw = gemini_chat(system, list(req.history), req.message, max_tokens=512)
+    reply_raw, _chat_usage = gemini_chat(system, list(req.history), req.message, max_tokens=512)
     reply, action = _extract_action(reply_raw)
     topics: list[dict] = []
 
@@ -322,20 +322,27 @@ async def get_job_detail(job_id: str):
     return job
 
 
+def _run_render_in_background(job: dict):
+    """Called by BackgroundTasks — updates job in place so the client can poll."""
+    try:
+        job = submit_render_jobs(job)
+    except RuntimeError:
+        pass  # submit_render_jobs already sets render_status on the job
+    update_job(job)
+
+
 @app.post("/jobs/{job_id}/render")
-async def start_render(job_id: str):
-    """Submit all visual prompts to Higgsfield. Checks credits first."""
+async def start_render(job_id: str, background_tasks: BackgroundTasks):
+    """Enqueue Higgsfield submission in the background. Poll /render-status for progress."""
     job = get_job(job_id)
     if not job:
         raise HTTPException(status_code=404, detail="Job not found")
     if not job.get("visual_prompts"):
         raise HTTPException(status_code=400, detail="Run the Editor stage first to generate visual prompts.")
-    try:
-        job = submit_render_jobs(job)
-        update_job(job)
-    except RuntimeError as e:
-        raise HTTPException(status_code=402, detail=str(e))
-    return job
+    job["render_status"] = "submitting"
+    update_job(job)
+    background_tasks.add_task(_run_render_in_background, job)
+    return {"status": "submitting", "job_id": job_id, "message": "Render submission started — poll /render-status for updates."}
 
 
 @app.get("/jobs/{job_id}/render-status")
@@ -381,21 +388,6 @@ async def select_topic(payload: dict):
     return job
 
 
-@app.post("/jobs/{job_id}/render")
-async def render_job(job_id: str):
-    """Submit all visual prompts to Higgsfield for rendering. Performs credit preflight."""
-    job = get_job(job_id)
-    if not job:
-        raise HTTPException(status_code=404, detail="Job not found")
-    if not job.get("visual_prompts"):
-        raise HTTPException(status_code=400, detail="No visual prompts — run the Editor stage first")
-    try:
-        job = submit_render_jobs(job)
-        update_job(job)
-        return job
-    except RuntimeError as e:
-        update_job(job)
-        raise HTTPException(status_code=402, detail=str(e))
 
 
 @app.get("/jobs/{job_id}/render-estimate")

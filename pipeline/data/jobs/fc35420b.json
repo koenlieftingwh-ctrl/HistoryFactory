@@ -406,7 +406,7 @@
       "model": "soul_cinematic",
       "higgsfield_job_id": null,
       "status": "failed",
-      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+      "error": "521 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
     },
     {
       "scene_id": "scene_02",
@@ -414,7 +414,7 @@
       "model": "kling3_0_turbo",
       "higgsfield_job_id": null,
       "status": "failed",
-      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/video"
+      "error": "521 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/video"
     },
     {
       "scene_id": "scene_03",
@@ -422,7 +422,7 @@
       "model": "soul_cinematic",
       "higgsfield_job_id": null,
       "status": "failed",
-      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+      "error": "521 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
     },
     {
       "scene_id": "scene_04",
@@ -430,7 +430,7 @@
       "model": "kling3_0_turbo",
       "higgsfield_job_id": null,
       "status": "failed",
-      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/video"
+      "error": "521 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/video"
     },
     {
       "scene_id": "scene_05",
@@ -438,7 +438,7 @@
       "model": "soul_cinematic",
       "higgsfield_job_id": null,
       "status": "failed",
-      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+      "error": "521 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
     },
     {
       "scene_id": "scene_06",
@@ -446,7 +446,7 @@
       "model": "soul_cinematic",
       "higgsfield_job_id": null,
       "status": "failed",
-      "error": "522 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
+      "error": "521 Server Error: <none> for url: https://api.higgsfield.ai/v1/generation/image"
     }
   ],
   "render_status": "rendering",

@@ -1,0 +1,576 @@
+{
+  "job_id": "8b4c6bfb",
+  "created_at": "2026-06-29T13:19:05.642821",
+  "status": "completed",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "great expansion",
+    "topic_category": "vikings",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "afc1c854",
+    "title": "The Viking King Who Converted (and then backslid)",
+    "one_line_premise": "Detail the strange tale of Harald Bluetooth, a Viking king who publicly converted to Christianity, only to find his faith tested (and potentially abandoned) by ongoing pagan traditions and political necessity.",
+    "category": "vikings",
+    "era": "great expansion",
+    "hook_angle": "He converted to Christianity, then what? The Viking king who played both sides of the faith fence!",
+    "scores": {
+      "historical_accuracy": 80,
+      "visual_potential": 75,
+      "retention_potential": 70,
+      "novelty": 65,
+      "emotional_impact": 40,
+      "shareability": 60,
+      "composite": 66.8,
+      "rationale": "The historical accuracy is good, as Harald Bluetooth is a well-documented figure. Visual potential is strong with Viking and early Christian imagery. Retention potential is fair due to the 'backsliding' aspect adding a twist. Novelty is moderate; while Bluetooth is known, his specific religious fluctuations might be less so to a general audience. Emotional impact is low as it's more historical curiosity than deeply impactful. Shareability is decent for a history factoid, especially with the 'playing both sides' angle."
+    }
+  },
+  "research": {
+    "topic_id": "afc1c854",
+    "facts": [
+      {
+        "claim_id": "C1",
+        "statement": "Harald Bluetooth Gormsson was a king who united Denmark and Norway and introduced Christianity to the Danes.",
+        "source_ids": [
+          "S1",
+          "S2",
+          "S3"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "C2",
+        "statement": "Harald Bluetooth's conversion to Christianity is traditionally dated to around 960 AD, often linked to the missionary Poppo.",
+        "source_ids": [
+          "S1",
+          "S3",
+          "S4"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "C3",
+        "statement": "The Jelling stones, erected by Harald Bluetooth, contain runic inscriptions that explicitly mention his conversion and his role in Christianizing the Danes.",
+        "source_ids": [
+          "S1",
+          "S2",
+          "S5"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "C4",
+        "statement": "Archaeological evidence, such as the construction of churches and the change in burial practices during his reign, supports a shift towards Christianity in Denmark.",
+        "source_ids": [
+          "S1",
+          "S4"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "C5",
+        "statement": "Some historical accounts suggest that Harald's conversion was politically motivated, aiming to consolidate power and align with the Holy Roman Empire.",
+        "source_ids": [
+          "S3",
+          "S4"
+        ],
+        "certainty": "debated"
+      },
+      {
+        "claim_id": "C6",
+        "statement": "Towards the end of his reign, Harald Bluetooth faced a rebellion led by his son, Sweyn Forkbeard, which some scholars interpret as a pagan reaction against his Christianizing policies.",
+        "source_ids": [
+          "S1",
+          "S3",
+          "S6"
+        ],
+        "certainty": "debated"
+      },
+      {
+        "claim_id": "C7",
+        "statement": "The idea of Harald 'backsliding' or reverting to paganism is primarily an interpretation of his later conflicts and the subsequent rise of Sweyn Forkbeard, rather than explicit historical records of him renouncing Christianity.",
+        "source_ids": [
+          "S1",
+          "S3",
+          "S6"
+        ],
+        "certainty": "debated"
+      },
+      {
+        "claim_id": "C8",
+        "statement": "The 'backsliding' narrative might be an oversimplification, as the transition from paganism to Christianity in Scandinavia was a long and complex process, often involving syncretism rather than a sharp break.",
+        "source_ids": [
+          "S4",
+          "S6"
+        ],
+        "certainty": "debated"
+      },
+      {
+        "claim_id": "C9",
+        "statement": "Snorri Sturluson's Heimskringla describes Harald Bluetooth being baptized but later facing a pagan backlash.",
+        "source_ids": [
+          "S7"
+        ],
+        "certainty": "legendary"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "S1",
+        "title": "Harald Bluetooth",
+        "url": "https://en.wikipedia.org/wiki/Harald_Bluetooth",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "S2",
+        "title": "Jelling Mounds, Runic Stones and Church",
+        "url": "https://whc.unesco.org/en/list/697/",
+        "type": "academic/encyclopedic"
+      },
+      {
+        "source_id": "S3",
+        "title": "Harald Bluetooth",
+        "url": "https://www.britannica.com/biography/Harald-I-king-of-Denmark",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "S4",
+        "title": "Conversion and Christianization in Scandinavia",
+        "url": "https://www.jstor.org/stable/j.ctt19wbh9t.10",
+        "type": "academic"
+      },
+      {
+        "source_id": "S5",
+        "title": "The Jelling Stone",
+        "url": "https://natmus.dk/museer-og-slotte/nationalmuseet/udstillinger/jelling",
+        "type": "academic/encyclopedic"
+      },
+      {
+        "source_id": "S6",
+        "title": "Sweyn I Forkbeard",
+        "url": "https://www.britannica.com/biography/Sweyn-I-Forkbeard",
+        "type": "encyclopedic"
+      },
+      {
+        "source_id": "S7",
+        "title": "Heimskringla",
+        "url": "https://en.wikipedia.org/wiki/Heimskringla",
+        "type": "literary/historical_saga"
+      }
+    ],
+    "research_confidence": 85
+  },
+  "validation": {
+    "topic_id": "afc1c854",
+    "verified_claims": [
+      "C1",
+      "C2",
+      "C3",
+      "C4",
+      "C5",
+      "C6",
+      "C7",
+      "C8"
+    ],
+    "flagged_claims": [
+      {
+        "claim_id": "C9",
+        "reason": "This claim relies solely on Snorri Sturluson's Heimskringla (S7), which is explicitly categorized as 'literary/historical_saga'. While valuable, sagas are often considered legendary or semi-legendary and are not typically used as the sole basis for established historical fact without corroboration from other, more reliable historical or archaeological sources."
+      }
+    ],
+    "overall_accuracy_score": 90,
+    "publishable": true,
+    "required_disclaimers": []
+  },
+  "script": {
+    "script_id": "harald_bluetooth_conversion",
+    "language": "en",
+    "segments": [
+      {
+        "segment_type": "hook",
+        "start_pct": 0,
+        "end_pct": 5,
+        "text": "Could a Viking king truly abandon his gods for a new faith, only to perhaps return to his pagan roots?",
+        "emotional_tone": "shocking question",
+        "claim_ids": []
+      },
+      {
+        "segment_type": "setup",
+        "start_pct": 5,
+        "end_pct": 25,
+        "text": "Around 960 AD, Harald Bluetooth Gormsson, a king who united Denmark and Norway, introduced Christianity to the Danes. His conversion is traditionally linked to the missionary Poppo. Harald explicitly detailed his conversion and role in Christianizing the Danes on the Jelling stones, erected during his reign.",
+        "emotional_tone": "plain",
+        "claim_ids": [
+          "C1",
+          "C2",
+          "C3"
+        ]
+      },
+      {
+        "segment_type": "escalation",
+        "start_pct": 25,
+        "end_pct": 67,
+        "text": "Archaeological findings, including the construction of churches and changing burial customs, strongly indicate a societal shift towards Christianity. Some accounts suggest Harald's conversion was a calculated political move, designed to consolidate power and align with the Holy Roman Empire, rather than purely spiritual.",
+        "emotional_tone": "documentary",
+        "claim_ids": [
+          "C4",
+          "C5"
+        ]
+      },
+      {
+        "segment_type": "twist",
+        "start_pct": 67,
+        "end_pct": 92,
+        "text": "However, towards his reign's end, Harald faced a rebellion led by his son, Sweyn Forkbeard. Scholars debate if this was a pagan backlash against his Christianizing policies, raising questions about the king's continued faith. The idea of Harald 'backsliding' lacks explicit records of him renouncing Christianity, suggesting the transition was more complex.",
+        "emotional_tone": "surprising",
+        "claim_ids": [
+          "C6",
+          "C7",
+          "C8"
+        ]
+      },
+      {
+        "segment_type": "payoff",
+        "start_pct": 92,
+        "end_pct": 100,
+        "text": "The narrative of Harald's potential return to paganism might be an oversimplification of a gradual, syncretic shift in Scandinavia. Follow for more fascinating historical shorts!",
+        "emotional_tone": "documentary",
+        "claim_ids": [
+          "C8"
+        ]
+      }
+    ],
+    "total_word_count": 159,
+    "estimated_duration_sec": 63
+  },
+  "storyboard": {
+    "storyboard_id": "harald_bluetooth_conversion_storyboard",
+    "scenes": [
+      {
+        "scene_id": "harald_bluetooth_conversion_01",
+        "segment_type": "hook",
+        "duration_sec": 10,
+        "shot_description": "A close-up of a Norse god statue (e.g., Odin) with dramatic shadows, then quickly transitions to a silhouette of a king on a throne, looking conflicted.",
+        "camera": "Dolly out, then quick cut",
+        "characters": [
+          "Harald Bluetooth (silhouette)"
+        ],
+        "setting": "Ancient Viking hall/throne room",
+        "mood": "Mysterious, questioning",
+        "on_screen_text": null
+      },
+      {
+        "scene_id": "harald_bluetooth_conversion_02",
+        "segment_type": "setup",
+        "duration_sec": 10,
+        "shot_description": "Panoramic view of a bustling Viking port town, then a missionary (Poppo) engaging in conversation with a Viking chieftain (Harald).",
+        "camera": "Crane shot, then medium shot",
+        "characters": [
+          "Harald Bluetooth",
+          "Poppo",
+          "Viking villagers"
+        ],
+        "setting": "Viking port town, Denmark (c. 960 AD)",
+        "mood": "Historical, introductory",
+        "on_screen_text": "Harald Bluetooth unites Denmark and Norway"
+      },
+      {
+        "scene_id": "harald_bluetooth_conversion_03",
+        "segment_type": "escalation",
+        "duration_sec": 12,
+        "shot_description": "Time-lapse of a wooden church being constructed, juxtaposed with archaeological digs uncovering Christian burial artifacts.",
+        "camera": "Time-lapse, then close-up",
+        "characters": [
+          "Archaeologists (generic)"
+        ],
+        "setting": "Construction site, archaeological dig",
+        "mood": "Documentary, informative",
+        "on_screen_text": "Christianity's Rise: Churches and Burial Customs"
+      },
+      {
+        "scene_id": "harald_bluetooth_conversion_04",
+        "segment_type": "twist",
+        "duration_sec": 12,
+        "shot_description": "Harald Bluetooth, looking older and troubled, standing before a map of Europe, with an agitated Sweyn Forkbeard in the foreground leading a group of rebellious warriors.",
+        "camera": "Tracking shot, then wide shot",
+        "characters": [
+          "Harald Bluetooth",
+          "Sweyn Forkbeard",
+          "Viking warriors"
+        ],
+        "setting": "Harald's war room/hall",
+        "mood": "Tense, conflict",
+        "on_screen_text": "Rebellion: Sweyn Forkbeard vs. Harald"
+      },
+      {
+        "scene_id": "harald_bluetooth_conversion_05",
+        "segment_type": "payoff",
+        "duration_sec": 11,
+        "shot_description": "A split screen showing a traditional Viking runestone on one side and an early Christian cross on the other, subtly blending into a single, complex symbol.",
+        "camera": "Static, then zoom into blended symbol",
+        "characters": [],
+        "setting": "Abstract representation",
+        "mood": "Reflective, academic",
+        "on_screen_text": "Syncretism: A Gradual Shift in Scandinavia"
+      },
+      {
+        "scene_id": "harald_bluetooth_conversion_06",
+        "segment_type": "closing",
+        "duration_sec": 10,
+        "shot_description": "A dynamic montage of various historical short clips, ending on a stylized logo for 'History Shorts'.",
+        "camera": "Fast cuts, then static",
+        "characters": [],
+        "setting": "Various historical settings",
+        "mood": "Engaging, inviting",
+        "on_screen_text": "Follow for more fascinating historical shorts!"
+      }
+    ]
+  },
+  "visual_prompts": [
+    {
+      "scene_id": "harald_bluetooth_conversion_01",
+      "prompt": "A close-up of a Norse god statue (e.g., Odin) with dramatic shadows, then quickly transitions to a silhouette of a king on a throne, looking conflicted., Dolly out, then quick cut, photoreal_cinematic style, Ancient Viking hall/throne room, mood: Mysterious, questioning. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_02",
+      "prompt": "Panoramic view of a bustling Viking port town, then a missionary (Poppo) engaging in conversation with a Viking chieftain (Harald)., Crane shot, then medium shot, photoreal_cinematic style, Viking port town, Denmark (c. 960 AD), mood: Historical, introductory. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_03",
+      "prompt": "Time-lapse of a wooden church being constructed, juxtaposed with archaeological digs uncovering Christian burial artifacts., Time-lapse, then close-up, photoreal_cinematic style, Construction site, archaeological dig, mood: Documentary, informative. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_04",
+      "prompt": "Harald Bluetooth, looking older and troubled, standing before a map of Europe, with an agitated Sweyn Forkbeard in the foreground leading a group of rebellious warriors., Tracking shot, then wide shot, photoreal_cinematic style, Harald's war room/hall, mood: Tense, conflict. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "video_clip",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "kling3_0_turbo"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_05",
+      "prompt": "A split screen showing a traditional Viking runestone on one side and an early Christian cross on the other, subtly blending into a single, complex symbol., Static, then zoom into blended symbol, photoreal_cinematic style, Abstract representation, mood: Reflective, academic. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "image",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_06",
+      "prompt": "A dynamic montage of various historical short clips, ending on a stylized logo for 'History Shorts'., Fast cuts, then static, photoreal_cinematic style, Various historical settings, mood: Engaging, inviting. Negative: no modern objects, no anachronistic clothing, no text artifacts, no extra limbs, no blurry faces.",
+      "media_type": "video",
+      "render_type": "static_image",
+      "aspect_ratio": "9:16",
+      "reference_ids": [],
+      "model": "soul_cinematic"
+    }
+  ],
+  "render_estimate": {
+    "video_clip_count": 1,
+    "static_image_count": 5,
+    "credits_video": 7.5,
+    "credits_image": 2.5,
+    "credits_total": 10.0,
+    "credits_needed": 10.0,
+    "credits_balance": -1
+  },
+  "render_jobs": [
+    {
+      "scene_id": "harald_bluetooth_conversion_01",
+      "render_type": "static_image",
+      "model": "soul_2",
+      "higgsfield_job_id": "4fa64d31-04b9-4ec7-b945-03619b47cc50",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260629_132943_4fa64d31-04b9-4ec7-b945-03619b47cc50.png"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_02",
+      "render_type": "static_image",
+      "model": "soul_2",
+      "higgsfield_job_id": "ad6a1210-651f-4ac5-9980-96e90ceaf735",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260629_133037_ad6a1210-651f-4ac5-9980-96e90ceaf735.png"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_03",
+      "render_type": "static_image",
+      "model": "soul_2",
+      "higgsfield_job_id": "b752b365-e0b2-49b5-b2f0-862cb9b154a9",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260629_133055_b752b365-e0b2-49b5-b2f0-862cb9b154a9.png"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_04",
+      "render_type": "video_clip",
+      "model": "kling3_0_turbo",
+      "higgsfield_job_id": "79267762-1e71-49b3-9a55-1f5351d5a65a",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260629_133220_79267762-1e71-49b3-9a55-1f5351d5a65a.mp4"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_05",
+      "render_type": "static_image",
+      "model": "soul_2",
+      "higgsfield_job_id": "4356cd95-d9a0-443d-9178-f620ace2ba0b",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260629_133105_4356cd95-d9a0-443d-9178-f620ace2ba0b.png"
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_06",
+      "render_type": "static_image",
+      "model": "soul_2",
+      "higgsfield_job_id": "85fa29b6-7aa4-4416-bbf4-71595ac2b96f",
+      "status": "done",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_3FX90t7TW73CDb3XtDG5tuOlTPO/hf_20260629_133112_85fa29b6-7aa4-4416-bbf4-71595ac2b96f.png"
+    }
+  ],
+  "render_status": "completed",
+  "thumbnail_concepts": [
+    {
+      "prompt": "A dramatic close-up of a carved wooden Norse god statue (e.g., Odin with one eye missing) bathed in deep, dark shadows on one side, sharply contrasting with a bright, almost angelic light illuminating a subtle Christian cross pendant hanging near its base. The king's silhouette (Harald Bluetooth) is faintly visible in the background, looking away from the statue. Emphasize high contrast and bold, clear subjects.",
+      "overlay_text": "King. Convert. Backslide?",
+      "rationale": "This concept directly addresses the 'converted and backslid' aspect by juxtaposing symbols of both faiths with extreme contrast. The 'King. Convert. Backslide?' text creates a strong curiosity gap, using minimal words to imply a dramatic twist."
+    },
+    {
+      "prompt": "A powerful, close-up shot of a Viking king's hand (Harald Bluetooth) with heavy, ornate Norse rings, reaching out to touch a shimmering, stylized Christian cross. The background is blurred but suggests a conflicted throne room (from 'harald_bluetooth_conversion_01'). The focus is sharply on the hands and the contrast between the pagan jewelry and the Christian symbol.",
+      "overlay_text": "Viking King's Double Life",
+      "rationale": "Focusing on the king's hands touching both pagan and Christian symbols visually represents playing 'both sides of the faith fence.' The text 'Viking King's Double Life' is intriguing and directly references the hook angle, inviting viewers to learn more about this internal conflict."
+    },
+    {
+      "prompt": "A bold, slightly distorted wide-angle shot of a conflicted king (Harald Bluetooth, in silhouette as per 'harald_bluetooth_conversion_01') seated on a throne in a dark, mysterious Viking hall. One half of the image is bathed in a cold, blue light, highlighting Norse iconography. The other half is subtly lit with a warm, golden glow, hinting at Christian symbols (e.g., a faint halo effect or a cross silhouette in a window). The contrast should be stark between the two halves of the king's world.",
+      "overlay_text": "Converted... Then What?",
+      "rationale": "This concept uses strong visual metaphor to show the king's internal conflict and conversion journey. The 'Converted... Then What?' text leverages the curiosity gap by directly questioning the outcome of his conversion, making the viewer want to click to find out the story."
+    }
+  ],
+  "publish_metadata": {
+    "title": "The Viking King Who Converted...Then Backslid?! \ud83d\udee1\ufe0f\ud83d\udd25",
+    "description": "Harald Bluetooth: The Viking king who embraced Christianity, then faced a crisis of faith amid pagan traditions and political pressure. Did he truly abandon his old gods? Discover the fascinating, complex story of a king torn between two worlds. Share your thoughts in the comments!",
+    "tags": [
+      "Harald Bluetooth",
+      "Viking History",
+      "Christian Conversion",
+      "Paganism",
+      "Norse Mythology",
+      "Denmark History",
+      "Norway History",
+      "Jelling Stones",
+      "Viking Kings",
+      "Religious Conflict",
+      "Medieval History",
+      "Historical Mysteries",
+      "Viking Age",
+      "Poppo Missionary"
+    ],
+    "hashtags": [
+      "#HaraldBluetooth",
+      "#VikingHistory",
+      "#Christianity",
+      "#Paganism",
+      "#Norse",
+      "#HistoryFacts",
+      "#Shorts"
+    ]
+  },
+  "edl": [
+    {
+      "scene_id": "harald_bluetooth_conversion_01",
+      "start": 0,
+      "end": 10,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": null,
+      "overlay_start": null
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_02",
+      "start": 10,
+      "end": 20,
+      "transition_in": "fade",
+      "transition_out": "cross_dissolve",
+      "overlay_text": "Harald Bluetooth unites Denmark and Norway",
+      "overlay_start": 12
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_03",
+      "start": 20,
+      "end": 32,
+      "transition_in": "cross_dissolve",
+      "transition_out": "cut",
+      "overlay_text": "Christianity's Rise: Churches and Burial Customs",
+      "overlay_start": 23
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_04",
+      "start": 32,
+      "end": 44,
+      "transition_in": "cut",
+      "transition_out": "fade",
+      "overlay_text": "Rebellion: Sweyn Forkbeard vs. Harald",
+      "overlay_start": 35
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_05",
+      "start": 44,
+      "end": 55,
+      "transition_in": "fade",
+      "transition_out": "cross_dissolve",
+      "overlay_text": "Syncretism: A Gradual Shift in Scandinavia",
+      "overlay_start": 47
+    },
+    {
+      "scene_id": "harald_bluetooth_conversion_06",
+      "start": 55,
+      "end": 65,
+      "transition_in": "cross_dissolve",
+      "transition_out": "cut",
+      "overlay_text": "Follow for more fascinating historical shorts!",
+      "overlay_start": 58
+    }
+  ],
+  "errors": [
+    {
+      "stage": "validation",
+      "error": "publishable=false \u2014 accuracy score 75",
+      "timestamp": "2026-06-29T13:20:02.749212",
+      "retry_count": 0
+    }
+  ],
+  "stage_completed": [
+    "topic_hunter",
+    "historian",
+    "director",
+    "editor"
+  ],
+  "cost_tracking": {
+    "llm_calls": 17,
+    "input_tokens": 10602,
+    "output_tokens": 7165,
+    "llm_cost_usd": 0.002944,
+    "render_credits_estimated": 10.0,
+    "render_credits_used": 0.0
+  }
+}

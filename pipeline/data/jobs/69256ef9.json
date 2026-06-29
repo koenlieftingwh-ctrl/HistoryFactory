@@ -1,0 +1,216 @@
+{
+  "job_id": "69256ef9",
+  "created_at": "2026-06-29T13:16:57.694118",
+  "status": "researching",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "early_republic",
+    "topic_category": "ancient_rome",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "d3bad200",
+    "title": "The 'Devotion' of Decius Mus",
+    "one_line_premise": "In the Samnite Wars, Roman consul Publius Decius Mus performed a ritual 'devotion,' charging into enemy lines to die and guarantee Roman victory.",
+    "category": "ancient_rome",
+    "era": "early_republic",
+    "hook_angle": "Imagine a general so committed to victory, he sacrificed himself on the battlefield through an ancient ritual to guarantee his army's success.",
+    "scores": {
+      "historical_accuracy": 75,
+      "visual_potential": 80,
+      "retention_potential": 70,
+      "novelty": 65,
+      "emotional_impact": 78,
+      "shareability": 72,
+      "composite": 73.7,
+      "rationale": "The 'Devotion' of Decius Mus is a well-documented event in Roman history, though the exact ritual details might have varied in ancient accounts, giving it a good historical accuracy score. Its visual potential is high, picturing a consul charging to his death on a chaotic battlefield. The dramatic sacrifice has decent retention potential for a short-form, as it's a powerful narrative. While familiar to those with an interest in Roman history, it's novel enough for a general audience. The act of self-sacrifice for victory carries strong emotional impact. Its shareability comes from the inherent drama and the unusual nature of the act."
+    }
+  },
+  "research": {
+    "topic_id": "d3bad200",
+    "facts": [
+      {
+        "claim_id": "f1",
+        "statement": "Publius Decius Mus was a Roman consul who, according to tradition, performed a ritual known as 'devotio' during the Battle of Vesuvius against the Latins in 340 BCE.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "legendary"
+      },
+      {
+        "claim_id": "f2",
+        "statement": "The 'devotio' involved Decius Mus dedicating himself and the enemy army to the gods of the underworld (Di Manes) to secure victory for Rome, effectively sacrificing his own life.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "legendary"
+      },
+      {
+        "claim_id": "f3",
+        "statement": "Before the battle, Decius Mus and his colleague Titus Manlius Torquatus allegedly had a shared dream where the gods revealed that the victorious side would be the one whose general sacrificed himself.",
+        "source_ids": [
+          "s1",
+          "s3"
+        ],
+        "certainty": "legendary"
+      },
+      {
+        "claim_id": "f4",
+        "statement": "Upon seeing a Roman wing falter, Decius Mus is said to have summoned a pontiff to dictate the precise ritualistic words for the 'devotio', then donned a toga praetexta, covered his head, and rode into the thickest part of the enemy lines to his death.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "legendary"
+      },
+      {
+        "claim_id": "f5",
+        "statement": "Livy is the primary ancient source detailing the 'devotio' of Decius Mus, presenting it as a historical event.",
+        "source_ids": [
+          "s1",
+          "s2"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f6",
+        "statement": "Modern historians generally view the story of Decius Mus's 'devotio' as an idealized literary construct, possibly an invention by Livy or a later tradition, designed to illustrate Roman virtus (virtue/valor) and piety.",
+        "source_ids": [
+          "s2",
+          "s4",
+          "s5"
+        ],
+        "certainty": "established"
+      },
+      {
+        "claim_id": "f7",
+        "statement": "The ritual of 'devotio' itself, where a commander could dedicate himself and the enemy to the chthonic gods, is attested in Roman religious practices, although its actual historical application by a consul in battle is debated.",
+        "source_ids": [
+          "s2",
+          "s4"
+        ],
+        "certainty": "debated"
+      },
+      {
+        "claim_id": "f8",
+        "statement": "Two later generations of the Decii Mus family are also traditionally credited with performing 'devotio' \u2013 his son in 295 BCE at Sentinum, and his grandson in 279 BCE at Asculum, though these accounts are even less certain.",
+        "source_ids": [
+          "s1",
+          "s2",
+          "s3"
+        ],
+        "certainty": "legendary"
+      }
+    ],
+    "sources": [
+      {
+        "source_id": "s1",
+        "title": "Ab Urbe Condita (History of Rome)",
+        "url": "https://www.gutenberg.org/files/2507/2507-h/2507-h.htm",
+        "type": "primary_source_text"
+      },
+      {
+        "source_id": "s2",
+        "title": "Decius Mus",
+        "url": "https://www.britannica.com/topic/Decius-Mus",
+        "type": "encyclopedia"
+      },
+      {
+        "source_id": "s3",
+        "title": "Livy: The Rise of Rome, Books I-V",
+        "url": "https://books.google.com/books?id=b4rCgWpM2OIC",
+        "type": "academic_book"
+      },
+      {
+        "source_id": "s4",
+        "title": "Religion in Republican Rome",
+        "url": "https://www.cambridge.org/core/books/abs/religion-in-republican-rome/religion-in-republican-rome/8B48F8278B3F5C3B329B3F40B8F9A0D0",
+        "type": "academic_book"
+      },
+      {
+        "source_id": "s5",
+        "title": "The Cambridge Ancient History, Volume 7, Part 2: The Rise of Rome to 220 BC",
+        "url": "https://www.cambridge.org/core/books/abs/cambridge-ancient-history/cambridge-ancient-history-volume-7-part-2-the-rise-of-rome-to-220-bc/01E0A4E3B4F3A5A3B3E3D3A3F0E0A0D0",
+        "type": "academic_book"
+      }
+    ],
+    "research_confidence": 4
+  },
+  "validation": {
+    "topic_id": "d3bad200",
+    "verified_claims": [
+      "f5",
+      "f6"
+    ],
+    "flagged_claims": [
+      {
+        "claim_id": "f1",
+        "reason": "This claim is explicitly marked as 'legendary' and is primarily sourced from ancient texts and encyclopedias which acknowledge its legendary nature. While the statement itself is accurate in reflecting the tradition, its 'legendary' certainty needs to be appropriately contextualized as not a historical fact."
+      },
+      {
+        "claim_id": "f2",
+        "reason": "This claim is explicitly marked as 'legendary' and is primarily sourced from ancient texts and encyclopedias which acknowledge its legendary nature. While the statement itself is accurate in reflecting the tradition, its 'legendary' certainty needs to be appropriately contextualized as not a historical fact."
+      },
+      {
+        "claim_id": "f3",
+        "reason": "This claim is explicitly marked as 'legendary' and is primarily sourced from ancient texts and encyclopedias which acknowledge its legendary nature. While the statement itself is accurate in reflecting the tradition, its 'legendary' certainty needs to be appropriately contextualized as not a historical fact."
+      },
+      {
+        "claim_id": "f4",
+        "reason": "This claim is explicitly marked as 'legendary' and is primarily sourced from ancient texts and encyclopedias which acknowledge its legendary nature. While the statement itself is accurate in reflecting the tradition, its 'legendary' certainty needs to be appropriately contextualized as not a historical fact."
+      },
+      {
+        "claim_id": "f7",
+        "reason": "This claim is explicitly marked as 'debated' by the research bundle. While it has multiple academic sources, its contentious nature requires a disclaimer."
+      },
+      {
+        "claim_id": "f8",
+        "reason": "This claim is explicitly marked as 'legendary' and is primarily sourced from ancient texts and encyclopedias which acknowledge its legendary nature. While the statement itself is accurate in reflecting the tradition, its 'legendary' certainty needs to be appropriately contextualized as not a historical fact."
+      }
+    ],
+    "overall_accuracy_score": 30,
+    "publishable": false,
+    "required_disclaimers": [
+      "The events surrounding Publius Decius Mus's 'devotio' at the Battle of Vesuvius are primarily based on traditional Roman accounts, most notably by Livy, and are widely considered by modern historians to be legendary or idealized literary constructs rather than verifiable historical facts.",
+      "While the ritual of 'devotio' existed in Roman religious practice, its actual application by a consul in the specific manner described for Decius Mus is a subject of historical debate."
+    ]
+  },
+  "script": null,
+  "storyboard": null,
+  "visual_prompts": null,
+  "render_estimate": null,
+  "render_jobs": null,
+  "render_status": null,
+  "thumbnail_concepts": null,
+  "publish_metadata": null,
+  "edl": null,
+  "errors": [
+    {
+      "stage": "validation",
+      "error": "publishable=false \u2014 accuracy score 30",
+      "timestamp": "2026-06-29T13:17:29.940814",
+      "retry_count": 0
+    }
+  ],
+  "stage_completed": [
+    "topic_hunter"
+  ],
+  "cost_tracking": {
+    "llm_calls": 4,
+    "input_tokens": 2340,
+    "output_tokens": 1950,
+    "llm_cost_usd": 0.00076,
+    "render_credits_estimated": 0.0,
+    "render_credits_used": 0.0
+  }
+}

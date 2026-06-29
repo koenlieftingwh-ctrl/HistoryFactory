@@ -932,9 +932,11 @@ async function renderAll() {
       alert('Render failed: ' + (err.detail || res.status));
       return;
     }
-    currentJob = await res.json();
+    // Re-fetch the full job — render endpoint now returns a slim status object
+    const jobRes = await fetch(API + `/jobs/${currentJob.job_id}`);
+    currentJob = await jobRes.json();
     renderJobState();
-    appendMsg('assistant', `Render jobs submitted! ${currentJob.render_jobs?.length || 0} scenes sent to Higgsfield.`);
+    appendMsg('assistant', `Render submitted! ${currentJob.render_jobs?.length || 0} scenes queued. Polling for updates...`);
   } catch (e) {
     alert('Render error: ' + e.message);
   }

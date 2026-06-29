@@ -1,0 +1,58 @@
+{
+  "job_id": "752349f6",
+  "created_at": "2026-06-29T13:17:40.339797",
+  "status": "researching",
+  "config": {
+    "video_length_sec": 60,
+    "narration_speed": "normal",
+    "narration_style": "documentary",
+    "target_platform": "youtube_shorts",
+    "historical_era": "early_republic",
+    "topic_category": "ancient_rome",
+    "visual_style": "photoreal_cinematic",
+    "music_intensity": "moderate",
+    "language": "en",
+    "upload_frequency": "weekly"
+  },
+  "topic": {
+    "topic_id": "d820bacf",
+    "title": "Cincinnatus: The Reluctant Dictator",
+    "one_line_premise": "Lucius Quinctius Cincinnatus, a farmer, was made dictator to save Rome from invasion, then immediately returned to his plow after victory.",
+    "category": "ancient_rome",
+    "era": "early_republic",
+    "hook_angle": "Meet the Roman hero who gave up absolute power not once, but twice, to go back to farming.",
+    "scores": {
+      "historical_accuracy": 75,
+      "visual_potential": 65,
+      "retention_potential": 70,
+      "novelty": 78,
+      "emotional_impact": 60,
+      "shareability": 72,
+      "composite": 69.9,
+      "rationale": "Cincinnatus is a well-documented historical figure, though the embellishment of legend over centuries slightly impacts verifiability of every detail. The visual potential is solid with scenes of farming, battle, triumphal returns, and the contrast of simple living vs. grandeur. The narrative of a humble leader giving up power is inherently engaging and unique enough to stand out for short-form viewers. For a general audience, Cincinnatus is not as widely known as other Roman figures, giving it decent novelty. The emotional impact comes from the awe of selflessness and civic virtue, rather than shock or humor. Its 'good guy' narrative makes it quite shareable, particularly in contrast to modern leadership."
+    }
+  },
+  "research": null,
+  "validation": null,
+  "script": null,
+  "storyboard": null,
+  "visual_prompts": null,
+  "render_estimate": null,
+  "render_jobs": null,
+  "render_status": null,
+  "thumbnail_concepts": null,
+  "publish_metadata": null,
+  "edl": null,
+  "errors": [],
+  "stage_completed": [
+    "topic_hunter"
+  ],
+  "cost_tracking": {
+    "llm_calls": 0,
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "llm_cost_usd": 0.0,
+    "render_credits_estimated": 0.0,
+    "render_credits_used": 0.0
+  }
+}
